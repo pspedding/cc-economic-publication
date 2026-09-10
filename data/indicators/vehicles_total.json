@@ -1,0 +1,233 @@
+{
+  "slug": "vehicles_total",
+  "name": "Total New Vehicle Registrations",
+  "unit": "count",
+  "freq": "monthly",
+  "section": "transport",
+  "group": "local",
+  "source": "Transport for NSW",
+  "format": "integer",
+  "description": "New vehicle registrations in the Central Coast LGA.",
+  "contextSeries": [
+    "oil_price"
+  ],
+  "contextNarrative": "New vehicle registrations track consumer confidence and business fleet renewal cycles. Oil price movements influence the mix between conventional and electric vehicles, with a typical 1\u20132 month lag between a price signal and observable registration behaviour.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": null
+    },
+    {
+      "date": "2022-05-04",
+      "value": null
+    },
+    {
+      "date": "2022-06-08",
+      "value": null
+    },
+    {
+      "date": "2022-07-06",
+      "value": 1750.0
+    },
+    {
+      "date": "2022-08-03",
+      "value": 1966.0
+    },
+    {
+      "date": "2022-09-07",
+      "value": 2010.0
+    },
+    {
+      "date": "2022-10-05",
+      "value": 1898.0
+    },
+    {
+      "date": "2022-11-02",
+      "value": 2081.0
+    },
+    {
+      "date": "2022-12-07",
+      "value": 1903.0
+    },
+    {
+      "date": "2023-01-01",
+      "value": 1761.0
+    },
+    {
+      "date": "2023-02-08",
+      "value": 1723.0
+    },
+    {
+      "date": "2023-03-08",
+      "value": 1390.0
+    },
+    {
+      "date": "2023-04-05",
+      "value": 1201.0
+    },
+    {
+      "date": "2023-05-03",
+      "value": 1910.0
+    },
+    {
+      "date": "2023-06-07",
+      "value": 2218.0
+    },
+    {
+      "date": "2023-07-05",
+      "value": 1721.0
+    },
+    {
+      "date": "2023-08-02",
+      "value": 2097.0
+    },
+    {
+      "date": "2023-09-06",
+      "value": 2281.0
+    },
+    {
+      "date": "2023-10-04",
+      "value": 2157.0
+    },
+    {
+      "date": "2023-11-08",
+      "value": 2178.0
+    },
+    {
+      "date": "2023-12-06",
+      "value": 1710.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": 1917.0
+    },
+    {
+      "date": "2024-02-07",
+      "value": 1434.0
+    },
+    {
+      "date": "2024-03-20",
+      "value": 1596.0
+    },
+    {
+      "date": "2024-04-01",
+      "value": 1724.0
+    },
+    {
+      "date": "2024-05-08",
+      "value": 2006.0
+    },
+    {
+      "date": "2024-06-19",
+      "value": 2317.0
+    },
+    {
+      "date": "2024-07-01",
+      "value": 2033.0
+    },
+    {
+      "date": "2024-08-07",
+      "value": 2010.0
+    },
+    {
+      "date": "2024-09-25",
+      "value": 2095.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 1895.0
+    },
+    {
+      "date": "2024-11-06",
+      "value": 2068.0
+    },
+    {
+      "date": "2024-12-11",
+      "value": 1783.0
+    },
+    {
+      "date": "2025-01-01",
+      "value": 1655.0
+    },
+    {
+      "date": "2025-02-19",
+      "value": 1911.0
+    },
+    {
+      "date": "2025-03-01",
+      "value": 1898.0
+    },
+    {
+      "date": "2025-04-02",
+      "value": 1752.0
+    },
+    {
+      "date": "2025-05-01",
+      "value": null
+    },
+    {
+      "date": "2025-06-01",
+      "value": null
+    },
+    {
+      "date": "2025-07-01",
+      "value": null
+    },
+    {
+      "date": "2025-08-01",
+      "value": null
+    },
+    {
+      "date": "2025-09-01",
+      "value": null
+    },
+    {
+      "date": "2025-10-01",
+      "value": null
+    },
+    {
+      "date": "2025-11-01",
+      "value": null
+    },
+    {
+      "date": "2025-12-01",
+      "value": null
+    },
+    {
+      "date": "2026-01-01",
+      "value": null
+    },
+    {
+      "date": "2026-02-01",
+      "value": null
+    },
+    {
+      "date": "2026-03-01",
+      "value": null
+    },
+    {
+      "date": "2026-04-01",
+      "value": null
+    },
+    {
+      "date": "2026-05-01",
+      "value": null
+    },
+    {
+      "date": "2026-06-01",
+      "value": null
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

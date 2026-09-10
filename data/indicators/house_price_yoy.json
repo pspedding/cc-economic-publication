@@ -1,0 +1,233 @@
+{
+  "slug": "house_price_yoy",
+  "name": "House Price Growth (YoY)",
+  "unit": "%",
+  "freq": "monthly",
+  "section": "housing",
+  "group": "local",
+  "source": "REA Group",
+  "format": "percent_direct",
+  "description": "Annual change in Central Coast average house price.",
+  "contextSeries": [
+    "cash_rate"
+  ],
+  "contextNarrative": "",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 0.319
+    },
+    {
+      "date": "2022-05-04",
+      "value": 0.323
+    },
+    {
+      "date": "2022-06-08",
+      "value": 0.297
+    },
+    {
+      "date": "2022-07-06",
+      "value": null
+    },
+    {
+      "date": "2022-08-03",
+      "value": 0.255
+    },
+    {
+      "date": "2022-09-07",
+      "value": 0.221
+    },
+    {
+      "date": "2022-10-05",
+      "value": null
+    },
+    {
+      "date": "2022-11-02",
+      "value": 0.109
+    },
+    {
+      "date": "2022-12-07",
+      "value": 0.063
+    },
+    {
+      "date": "2023-01-01",
+      "value": null
+    },
+    {
+      "date": "2023-02-08",
+      "value": 0.009
+    },
+    {
+      "date": "2023-03-08",
+      "value": -0.027
+    },
+    {
+      "date": "2023-04-05",
+      "value": -0.054
+    },
+    {
+      "date": "2023-05-03",
+      "value": -0.084
+    },
+    {
+      "date": "2023-06-07",
+      "value": -0.092
+    },
+    {
+      "date": "2023-07-05",
+      "value": -0.1
+    },
+    {
+      "date": "2023-08-02",
+      "value": -0.093
+    },
+    {
+      "date": "2023-09-06",
+      "value": -0.089
+    },
+    {
+      "date": "2023-10-04",
+      "value": -0.085
+    },
+    {
+      "date": "2023-11-08",
+      "value": -0.072
+    },
+    {
+      "date": "2023-12-06",
+      "value": -0.051
+    },
+    {
+      "date": "2024-01-01",
+      "value": -0.024
+    },
+    {
+      "date": "2024-02-07",
+      "value": 0.0
+    },
+    {
+      "date": "2024-03-20",
+      "value": 0.021
+    },
+    {
+      "date": "2024-04-01",
+      "value": 0.051
+    },
+    {
+      "date": "2024-05-08",
+      "value": 0.062
+    },
+    {
+      "date": "2024-06-19",
+      "value": 0.05
+    },
+    {
+      "date": "2024-07-01",
+      "value": null
+    },
+    {
+      "date": "2024-08-07",
+      "value": null
+    },
+    {
+      "date": "2024-09-25",
+      "value": 0.081
+    },
+    {
+      "date": "2024-10-01",
+      "value": 0.078
+    },
+    {
+      "date": "2024-11-06",
+      "value": 0.059
+    },
+    {
+      "date": "2024-12-11",
+      "value": 0.037
+    },
+    {
+      "date": "2025-01-01",
+      "value": 0.038
+    },
+    {
+      "date": "2025-02-19",
+      "value": null
+    },
+    {
+      "date": "2025-03-01",
+      "value": 0.025
+    },
+    {
+      "date": "2025-04-02",
+      "value": null
+    },
+    {
+      "date": "2025-05-01",
+      "value": null
+    },
+    {
+      "date": "2025-06-01",
+      "value": null
+    },
+    {
+      "date": "2025-07-01",
+      "value": null
+    },
+    {
+      "date": "2025-08-01",
+      "value": null
+    },
+    {
+      "date": "2025-09-01",
+      "value": null
+    },
+    {
+      "date": "2025-10-01",
+      "value": null
+    },
+    {
+      "date": "2025-11-01",
+      "value": null
+    },
+    {
+      "date": "2025-12-01",
+      "value": null
+    },
+    {
+      "date": "2026-01-01",
+      "value": null
+    },
+    {
+      "date": "2026-02-01",
+      "value": null
+    },
+    {
+      "date": "2026-03-01",
+      "value": null
+    },
+    {
+      "date": "2026-04-01",
+      "value": null
+    },
+    {
+      "date": "2026-05-01",
+      "value": null
+    },
+    {
+      "date": "2026-06-01",
+      "value": null
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

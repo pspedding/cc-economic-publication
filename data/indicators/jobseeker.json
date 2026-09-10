@@ -1,0 +1,233 @@
+{
+  "slug": "jobseeker",
+  "name": "JobSeeker Recipients",
+  "unit": "persons",
+  "freq": "monthly",
+  "section": "economy",
+  "group": "local",
+  "source": "DSS JobSeeker Monthly Profile",
+  "format": "integer",
+  "description": "Number of Central Coast residents receiving JobSeeker payments.",
+  "contextSeries": [
+    "unemployment"
+  ],
+  "contextNarrative": "JobSeeker recipient numbers are a leading indicator of labour market stress, often rising before the headline unemployment rate. Nationally, recipient volumes tracked sharply during COVID-19 and tapered as the RBA tightened monetary policy from May 2022.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 12103.0
+    },
+    {
+      "date": "2022-05-04",
+      "value": 11909.0
+    },
+    {
+      "date": "2022-06-08",
+      "value": 12325.0
+    },
+    {
+      "date": "2022-07-06",
+      "value": 12368.0
+    },
+    {
+      "date": "2022-08-03",
+      "value": 12207.0
+    },
+    {
+      "date": "2022-09-07",
+      "value": 11480.0
+    },
+    {
+      "date": "2022-10-05",
+      "value": 11473.0
+    },
+    {
+      "date": "2022-11-02",
+      "value": 11258.0
+    },
+    {
+      "date": "2022-12-07",
+      "value": 12430.0
+    },
+    {
+      "date": "2023-01-01",
+      "value": 12490.0
+    },
+    {
+      "date": "2023-02-08",
+      "value": 12320.0
+    },
+    {
+      "date": "2023-03-08",
+      "value": 12250.0
+    },
+    {
+      "date": "2023-04-05",
+      "value": 12095.0
+    },
+    {
+      "date": "2023-05-03",
+      "value": 11950.0
+    },
+    {
+      "date": "2023-06-07",
+      "value": 11670.0
+    },
+    {
+      "date": "2023-07-05",
+      "value": 11605.0
+    },
+    {
+      "date": "2023-08-02",
+      "value": 11650.0
+    },
+    {
+      "date": "2023-09-06",
+      "value": 10595.0
+    },
+    {
+      "date": "2023-10-04",
+      "value": 10665.0
+    },
+    {
+      "date": "2023-11-08",
+      "value": 10815.0
+    },
+    {
+      "date": "2023-12-06",
+      "value": 10980.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": 11065.0
+    },
+    {
+      "date": "2024-02-07",
+      "value": 11125.0
+    },
+    {
+      "date": "2024-03-20",
+      "value": 11320.0
+    },
+    {
+      "date": "2024-04-01",
+      "value": 11435.0
+    },
+    {
+      "date": "2024-05-08",
+      "value": 11585.0
+    },
+    {
+      "date": "2024-06-19",
+      "value": 11580.0
+    },
+    {
+      "date": "2024-07-01",
+      "value": 11595.0
+    },
+    {
+      "date": "2024-08-07",
+      "value": 11620.0
+    },
+    {
+      "date": "2024-09-25",
+      "value": 11715.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 11720.0
+    },
+    {
+      "date": "2024-11-06",
+      "value": 11805.0
+    },
+    {
+      "date": "2024-12-11",
+      "value": 11885.0
+    },
+    {
+      "date": "2025-01-01",
+      "value": 12090.0
+    },
+    {
+      "date": "2025-02-19",
+      "value": 11885.0
+    },
+    {
+      "date": "2025-03-01",
+      "value": 12100.0
+    },
+    {
+      "date": "2025-04-02",
+      "value": 12115.0
+    },
+    {
+      "date": "2025-05-01",
+      "value": 12135.0
+    },
+    {
+      "date": "2025-06-01",
+      "value": 12265.0
+    },
+    {
+      "date": "2025-07-01",
+      "value": 12280.0
+    },
+    {
+      "date": "2025-08-01",
+      "value": 12280.0
+    },
+    {
+      "date": "2025-09-01",
+      "value": 12230.0
+    },
+    {
+      "date": "2025-10-01",
+      "value": 12240.0
+    },
+    {
+      "date": "2025-11-01",
+      "value": 12295.0
+    },
+    {
+      "date": "2025-12-01",
+      "value": 12405.0
+    },
+    {
+      "date": "2026-01-01",
+      "value": 12435.0
+    },
+    {
+      "date": "2026-02-01",
+      "value": 12515.0
+    },
+    {
+      "date": "2026-03-01",
+      "value": 12550.0
+    },
+    {
+      "date": "2026-04-01",
+      "value": 12550.0
+    },
+    {
+      "date": "2026-05-01",
+      "value": 12535.0
+    },
+    {
+      "date": "2026-06-01",
+      "value": 12625.0
+    },
+    {
+      "date": "2026-07-01",
+      "value": 12685.0
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

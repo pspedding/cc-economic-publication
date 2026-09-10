@@ -1,0 +1,233 @@
+{
+  "slug": "business_confidence_cc",
+  "name": "CC Business Confidence",
+  "unit": "index",
+  "freq": "quarterly",
+  "section": "economy",
+  "group": "local",
+  "source": "Business NSW Regional Survey",
+  "format": "decimal_1",
+  "description": "Central Coast business confidence index (quarterly).",
+  "contextSeries": [
+    "business_confidence_nsw"
+  ],
+  "contextNarrative": "CC business confidence is benchmarked against the NSW state average. The Coast tends to outperform NSW during periods of remote-work driven population growth but underperforms when construction activity softens.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": -50.0
+    },
+    {
+      "date": "2022-05-04",
+      "value": -50.0
+    },
+    {
+      "date": "2022-06-08",
+      "value": -50.0
+    },
+    {
+      "date": "2022-07-06",
+      "value": -57.4
+    },
+    {
+      "date": "2022-08-03",
+      "value": -57.4
+    },
+    {
+      "date": "2022-09-07",
+      "value": -57.4
+    },
+    {
+      "date": "2022-10-05",
+      "value": -62.9
+    },
+    {
+      "date": "2022-11-02",
+      "value": -62.9
+    },
+    {
+      "date": "2022-12-07",
+      "value": -62.9
+    },
+    {
+      "date": "2023-01-01",
+      "value": -51.6
+    },
+    {
+      "date": "2023-02-08",
+      "value": -51.6
+    },
+    {
+      "date": "2023-03-08",
+      "value": -51.6
+    },
+    {
+      "date": "2023-04-05",
+      "value": -66.7
+    },
+    {
+      "date": "2023-05-03",
+      "value": -66.7
+    },
+    {
+      "date": "2023-06-07",
+      "value": -66.7
+    },
+    {
+      "date": "2023-07-05",
+      "value": -64.6
+    },
+    {
+      "date": "2023-08-02",
+      "value": -64.6
+    },
+    {
+      "date": "2023-09-06",
+      "value": -64.6
+    },
+    {
+      "date": "2023-10-04",
+      "value": -66.0
+    },
+    {
+      "date": "2023-11-08",
+      "value": -66.0
+    },
+    {
+      "date": "2023-12-06",
+      "value": -66.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": -70.6
+    },
+    {
+      "date": "2024-02-07",
+      "value": -70.6
+    },
+    {
+      "date": "2024-03-20",
+      "value": -70.6
+    },
+    {
+      "date": "2024-04-01",
+      "value": -64.9
+    },
+    {
+      "date": "2024-05-08",
+      "value": -64.9
+    },
+    {
+      "date": "2024-06-19",
+      "value": -64.9
+    },
+    {
+      "date": "2024-07-01",
+      "value": -56.3
+    },
+    {
+      "date": "2024-08-07",
+      "value": -56.3
+    },
+    {
+      "date": "2024-09-25",
+      "value": -56.3
+    },
+    {
+      "date": "2024-10-01",
+      "value": -31.8
+    },
+    {
+      "date": "2024-11-06",
+      "value": -31.8
+    },
+    {
+      "date": "2024-12-11",
+      "value": -31.8
+    },
+    {
+      "date": "2025-01-01",
+      "value": -11.9
+    },
+    {
+      "date": "2025-02-19",
+      "value": -11.9
+    },
+    {
+      "date": "2025-03-01",
+      "value": -11.9
+    },
+    {
+      "date": "2025-04-02",
+      "value": -34.7
+    },
+    {
+      "date": "2025-05-01",
+      "value": -34.7
+    },
+    {
+      "date": "2025-06-01",
+      "value": -34.7
+    },
+    {
+      "date": "2025-07-01",
+      "value": -21.8
+    },
+    {
+      "date": "2025-08-01",
+      "value": -21.8
+    },
+    {
+      "date": "2025-09-01",
+      "value": -21.8
+    },
+    {
+      "date": "2025-10-01",
+      "value": -18.0
+    },
+    {
+      "date": "2025-11-01",
+      "value": -18.0
+    },
+    {
+      "date": "2025-12-01",
+      "value": -18.0
+    },
+    {
+      "date": "2026-01-01",
+      "value": -42.0
+    },
+    {
+      "date": "2026-02-01",
+      "value": -42.0
+    },
+    {
+      "date": "2026-03-01",
+      "value": -42.0
+    },
+    {
+      "date": "2026-04-01",
+      "value": -80.0
+    },
+    {
+      "date": "2026-05-01",
+      "value": -80.0
+    },
+    {
+      "date": "2026-06-01",
+      "value": -80.0
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

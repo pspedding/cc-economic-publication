@@ -1,0 +1,233 @@
+{
+  "slug": "airbnb_revenue",
+  "name": "Short-Term Rental Gross Revenue",
+  "unit": "AUD",
+  "freq": "monthly",
+  "section": "tourism",
+  "group": "local",
+  "source": "AllTheRooms STRA Analytics",
+  "format": "dollar_0",
+  "description": "Total gross revenue across all active STRA listings on the Coast.",
+  "contextSeries": [
+    "retail_tourism"
+  ],
+  "contextNarrative": "Short-term rental revenue is a sensitive indicator of visitor economy health. The Central Coast STRA market surged during COVID-19 domestic travel restrictions (2020\u201321) and has since moderated as international travel resumed. Oil price movements influence drive-market visitor volumes.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 7080890.750548747
+    },
+    {
+      "date": "2022-05-04",
+      "value": 4180925.617590775
+    },
+    {
+      "date": "2022-06-08",
+      "value": 4194217.89145693
+    },
+    {
+      "date": "2022-07-06",
+      "value": 4325912.087423384
+    },
+    {
+      "date": "2022-08-03",
+      "value": 3268255.397288346
+    },
+    {
+      "date": "2022-09-07",
+      "value": 4715168.594359517
+    },
+    {
+      "date": "2022-10-05",
+      "value": 5289595.125400231
+    },
+    {
+      "date": "2022-11-02",
+      "value": 4323978.532978758
+    },
+    {
+      "date": "2022-12-07",
+      "value": 7565553.141488727
+    },
+    {
+      "date": "2023-01-01",
+      "value": 9862073.511036461
+    },
+    {
+      "date": "2023-02-08",
+      "value": 5751824.125752449
+    },
+    {
+      "date": "2023-03-08",
+      "value": 5440017.142761167
+    },
+    {
+      "date": "2023-04-05",
+      "value": 6619637.111633876
+    },
+    {
+      "date": "2023-05-03",
+      "value": 3429856.682445983
+    },
+    {
+      "date": "2023-06-07",
+      "value": 3145975.405115926
+    },
+    {
+      "date": "2023-07-05",
+      "value": 3680276.179774575
+    },
+    {
+      "date": "2023-08-02",
+      "value": 2886082.096608437
+    },
+    {
+      "date": "2023-09-06",
+      "value": 4909317.615070703
+    },
+    {
+      "date": "2023-10-04",
+      "value": 4806171.471995423
+    },
+    {
+      "date": "2023-11-08",
+      "value": 4716045.845137954
+    },
+    {
+      "date": "2023-12-06",
+      "value": 7735497.85366939
+    },
+    {
+      "date": "2024-01-01",
+      "value": 8222940.284436669
+    },
+    {
+      "date": "2024-02-07",
+      "value": 4547458.546032114
+    },
+    {
+      "date": "2024-03-20",
+      "value": 5885734.210189613
+    },
+    {
+      "date": "2024-04-01",
+      "value": 4944534.194546368
+    },
+    {
+      "date": "2024-05-08",
+      "value": 3694789.218857127
+    },
+    {
+      "date": "2024-06-19",
+      "value": 3998059.569356161
+    },
+    {
+      "date": "2024-07-01",
+      "value": 4370813.22396364
+    },
+    {
+      "date": "2024-08-07",
+      "value": 2944531.064675035
+    },
+    {
+      "date": "2024-09-25",
+      "value": 3901581.339165851
+    },
+    {
+      "date": "2024-10-01",
+      "value": 5596325.977524085
+    },
+    {
+      "date": "2024-11-06",
+      "value": 5492779.709301127
+    },
+    {
+      "date": "2024-12-11",
+      "value": 8159293.674784712
+    },
+    {
+      "date": "2025-01-01",
+      "value": 8638992.06749751
+    },
+    {
+      "date": "2025-02-19",
+      "value": 4611007.000543676
+    },
+    {
+      "date": "2025-03-01",
+      "value": null
+    },
+    {
+      "date": "2025-04-02",
+      "value": null
+    },
+    {
+      "date": "2025-05-01",
+      "value": null
+    },
+    {
+      "date": "2025-06-01",
+      "value": null
+    },
+    {
+      "date": "2025-07-01",
+      "value": null
+    },
+    {
+      "date": "2025-08-01",
+      "value": null
+    },
+    {
+      "date": "2025-09-01",
+      "value": null
+    },
+    {
+      "date": "2025-10-01",
+      "value": null
+    },
+    {
+      "date": "2025-11-01",
+      "value": null
+    },
+    {
+      "date": "2025-12-01",
+      "value": null
+    },
+    {
+      "date": "2026-01-01",
+      "value": null
+    },
+    {
+      "date": "2026-02-01",
+      "value": null
+    },
+    {
+      "date": "2026-03-01",
+      "value": null
+    },
+    {
+      "date": "2026-04-01",
+      "value": null
+    },
+    {
+      "date": "2026-05-01",
+      "value": null
+    },
+    {
+      "date": "2026-06-01",
+      "value": null
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

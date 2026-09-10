@@ -1,0 +1,234 @@
+{
+  "slug": "house_price",
+  "name": "Average House Price",
+  "unit": "AUD",
+  "freq": "monthly",
+  "section": "housing",
+  "group": "local",
+  "source": "REA Group",
+  "format": "dollar_0",
+  "description": "Average Central Coast house sale price.",
+  "contextSeries": [
+    "cash_rate",
+    "avg_mortgage_rate"
+  ],
+  "contextNarrative": "House prices on the Central Coast are highly sensitive to interest rate cycles, typically with a 3\u20136 month lag after RBA decisions. The 2022\u201323 rate hiking cycle caused a significant price correction; the subsequent stabilisation reflects constrained supply against persistent demand.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 1179522.0
+    },
+    {
+      "date": "2022-05-04",
+      "value": 1207156.0
+    },
+    {
+      "date": "2022-06-08",
+      "value": 1200045.0
+    },
+    {
+      "date": "2022-07-06",
+      "value": null
+    },
+    {
+      "date": "2022-08-03",
+      "value": 1246156.0
+    },
+    {
+      "date": "2022-09-07",
+      "value": 1254734.0
+    },
+    {
+      "date": "2022-10-05",
+      "value": null
+    },
+    {
+      "date": "2022-11-02",
+      "value": 1222392.0
+    },
+    {
+      "date": "2022-12-07",
+      "value": 1196639.0
+    },
+    {
+      "date": "2023-01-01",
+      "value": null
+    },
+    {
+      "date": "2023-02-08",
+      "value": 1167208.0
+    },
+    {
+      "date": "2023-03-08",
+      "value": 1153967.0
+    },
+    {
+      "date": "2023-04-05",
+      "value": 1128295.0
+    },
+    {
+      "date": "2023-05-03",
+      "value": 1114734.0
+    },
+    {
+      "date": "2023-06-07",
+      "value": null
+    },
+    {
+      "date": "2023-07-05",
+      "value": 1105316.0
+    },
+    {
+      "date": "2023-08-02",
+      "value": 1108741.0
+    },
+    {
+      "date": "2023-09-06",
+      "value": null
+    },
+    {
+      "date": "2023-10-04",
+      "value": 1112059.0
+    },
+    {
+      "date": "2023-11-08",
+      "value": 1109694.0
+    },
+    {
+      "date": "2023-12-06",
+      "value": 1135929.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": 1132401.0
+    },
+    {
+      "date": "2024-02-07",
+      "value": null
+    },
+    {
+      "date": "2024-03-20",
+      "value": 1145509.0
+    },
+    {
+      "date": "2024-04-01",
+      "value": 1135747.0
+    },
+    {
+      "date": "2024-05-08",
+      "value": 1139904.0
+    },
+    {
+      "date": "2024-06-19",
+      "value": 1133731.0
+    },
+    {
+      "date": "2024-07-01",
+      "value": null
+    },
+    {
+      "date": "2024-08-07",
+      "value": null
+    },
+    {
+      "date": "2024-09-25",
+      "value": 1163910.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 1162262.0
+    },
+    {
+      "date": "2024-11-06",
+      "value": 1155825.0
+    },
+    {
+      "date": "2024-12-11",
+      "value": 1118506.0
+    },
+    {
+      "date": "2025-01-01",
+      "value": 1156590.0
+    },
+    {
+      "date": "2025-02-19",
+      "value": null
+    },
+    {
+      "date": "2025-03-01",
+      "value": 1146711.0
+    },
+    {
+      "date": "2025-04-02",
+      "value": null
+    },
+    {
+      "date": "2025-05-01",
+      "value": null
+    },
+    {
+      "date": "2025-06-01",
+      "value": null
+    },
+    {
+      "date": "2025-07-01",
+      "value": null
+    },
+    {
+      "date": "2025-08-01",
+      "value": null
+    },
+    {
+      "date": "2025-09-01",
+      "value": null
+    },
+    {
+      "date": "2025-10-01",
+      "value": null
+    },
+    {
+      "date": "2025-11-01",
+      "value": null
+    },
+    {
+      "date": "2025-12-01",
+      "value": null
+    },
+    {
+      "date": "2026-01-01",
+      "value": null
+    },
+    {
+      "date": "2026-02-01",
+      "value": null
+    },
+    {
+      "date": "2026-03-01",
+      "value": null
+    },
+    {
+      "date": "2026-04-01",
+      "value": null
+    },
+    {
+      "date": "2026-05-01",
+      "value": null
+    },
+    {
+      "date": "2026-06-01",
+      "value": null
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

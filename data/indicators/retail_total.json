@@ -1,0 +1,234 @@
+{
+  "slug": "retail_total",
+  "name": "Total Retail Spend",
+  "unit": "index",
+  "freq": "monthly",
+  "section": "economy",
+  "group": "local",
+  "source": "CommBank IQ",
+  "format": "decimal_1",
+  "description": "Total retail card spend index for the Central Coast.",
+  "contextSeries": [
+    "cash_rate",
+    "cpi_yoy"
+  ],
+  "contextNarrative": "Retail spend reflects consumer confidence and purchasing power. Higher interest rates reduce discretionary spending as mortgage repayments rise. Central Coast retail is bolstered by visitor spending during peak tourism seasons.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": null
+    },
+    {
+      "date": "2022-05-04",
+      "value": null
+    },
+    {
+      "date": "2022-06-08",
+      "value": null
+    },
+    {
+      "date": "2022-07-06",
+      "value": null
+    },
+    {
+      "date": "2022-08-03",
+      "value": null
+    },
+    {
+      "date": "2022-09-07",
+      "value": 408289000.0
+    },
+    {
+      "date": "2022-10-05",
+      "value": 419179000.0
+    },
+    {
+      "date": "2022-11-02",
+      "value": 433811000.0
+    },
+    {
+      "date": "2022-12-07",
+      "value": 521900000.0
+    },
+    {
+      "date": "2023-01-01",
+      "value": 427417000.0
+    },
+    {
+      "date": "2023-02-08",
+      "value": 372712000.0
+    },
+    {
+      "date": "2023-03-08",
+      "value": 407590000.0
+    },
+    {
+      "date": "2023-04-05",
+      "value": 403968000.0
+    },
+    {
+      "date": "2023-05-03",
+      "value": 397497000.0
+    },
+    {
+      "date": "2023-06-07",
+      "value": 390541000.0
+    },
+    {
+      "date": "2023-07-05",
+      "value": 402481000.0
+    },
+    {
+      "date": "2023-08-02",
+      "value": 407663000.0
+    },
+    {
+      "date": "2023-09-06",
+      "value": 421655000.0
+    },
+    {
+      "date": "2023-10-04",
+      "value": 425821000.0
+    },
+    {
+      "date": "2023-11-08",
+      "value": 435612000.0
+    },
+    {
+      "date": "2023-12-06",
+      "value": 525306000.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": 435410000.0
+    },
+    {
+      "date": "2024-02-07",
+      "value": 385360000.0
+    },
+    {
+      "date": "2024-03-20",
+      "value": 420925000.0
+    },
+    {
+      "date": "2024-04-01",
+      "value": 394033000.0
+    },
+    {
+      "date": "2024-05-08",
+      "value": 402509000.0
+    },
+    {
+      "date": "2024-06-19",
+      "value": 392997000.0
+    },
+    {
+      "date": "2024-07-01",
+      "value": 404480000.0
+    },
+    {
+      "date": "2024-08-07",
+      "value": 422008000.0
+    },
+    {
+      "date": "2024-09-25",
+      "value": 404254000.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 426041000.0
+    },
+    {
+      "date": "2024-11-06",
+      "value": 444687000.0
+    },
+    {
+      "date": "2024-12-11",
+      "value": 531883000.0
+    },
+    {
+      "date": "2025-01-01",
+      "value": 437242000.0
+    },
+    {
+      "date": "2025-02-19",
+      "value": 387855000.0
+    },
+    {
+      "date": "2025-03-01",
+      "value": 415706000.0
+    },
+    {
+      "date": "2025-04-02",
+      "value": 409173000.0
+    },
+    {
+      "date": "2025-05-01",
+      "value": null
+    },
+    {
+      "date": "2025-06-01",
+      "value": null
+    },
+    {
+      "date": "2025-07-01",
+      "value": null
+    },
+    {
+      "date": "2025-08-01",
+      "value": null
+    },
+    {
+      "date": "2025-09-01",
+      "value": null
+    },
+    {
+      "date": "2025-10-01",
+      "value": null
+    },
+    {
+      "date": "2025-11-01",
+      "value": null
+    },
+    {
+      "date": "2025-12-01",
+      "value": null
+    },
+    {
+      "date": "2026-01-01",
+      "value": null
+    },
+    {
+      "date": "2026-02-01",
+      "value": null
+    },
+    {
+      "date": "2026-03-01",
+      "value": null
+    },
+    {
+      "date": "2026-04-01",
+      "value": null
+    },
+    {
+      "date": "2026-05-01",
+      "value": null
+    },
+    {
+      "date": "2026-06-01",
+      "value": null
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

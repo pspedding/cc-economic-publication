@@ -1,0 +1,234 @@
+{
+  "slug": "oil_price",
+  "name": "Oil Price (Brent, USD/bbl)",
+  "unit": "USD/bbl",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "CRB / Market data",
+  "format": "decimal_2",
+  "description": "Brent crude oil price (USD per barrel).",
+  "contextSeries": [
+    "aud_usd",
+    "vehicles_total"
+  ],
+  "contextNarrative": "Oil prices are the primary global driver of fuel costs, affecting both transport costs for businesses and the relative economics of EV adoption. Higher oil prices accelerate EV uptake with an observable 1\u20132 month lag in new registration data.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 104.58
+    },
+    {
+      "date": "2022-05-04",
+      "value": 113.34
+    },
+    {
+      "date": "2022-06-08",
+      "value": 122.71
+    },
+    {
+      "date": "2022-07-06",
+      "value": 111.93
+    },
+    {
+      "date": "2022-08-03",
+      "value": 100.45
+    },
+    {
+      "date": "2022-09-07",
+      "value": 89.76
+    },
+    {
+      "date": "2022-10-05",
+      "value": 93.33
+    },
+    {
+      "date": "2022-11-02",
+      "value": 91.42
+    },
+    {
+      "date": "2022-12-07",
+      "value": 80.92
+    },
+    {
+      "date": "2023-01-01",
+      "value": 82.5
+    },
+    {
+      "date": "2023-02-08",
+      "value": 82.59
+    },
+    {
+      "date": "2023-03-08",
+      "value": 78.43
+    },
+    {
+      "date": "2023-04-05",
+      "value": 84.64
+    },
+    {
+      "date": "2023-05-03",
+      "value": 75.47
+    },
+    {
+      "date": "2023-06-07",
+      "value": 74.84
+    },
+    {
+      "date": "2023-07-05",
+      "value": 80.11
+    },
+    {
+      "date": "2023-08-02",
+      "value": 86.15
+    },
+    {
+      "date": "2023-09-06",
+      "value": 93.72
+    },
+    {
+      "date": "2023-10-04",
+      "value": 90.69
+    },
+    {
+      "date": "2023-11-08",
+      "value": 82.94
+    },
+    {
+      "date": "2023-12-06",
+      "value": 77.63
+    },
+    {
+      "date": "2024-01-01",
+      "value": 80.12
+    },
+    {
+      "date": "2024-02-07",
+      "value": 83.48
+    },
+    {
+      "date": "2024-03-20",
+      "value": 85.41
+    },
+    {
+      "date": "2024-04-01",
+      "value": 89.94
+    },
+    {
+      "date": "2024-05-08",
+      "value": 81.75
+    },
+    {
+      "date": "2024-06-19",
+      "value": 82.25
+    },
+    {
+      "date": "2024-07-01",
+      "value": 85.15
+    },
+    {
+      "date": "2024-08-07",
+      "value": 80.36
+    },
+    {
+      "date": "2024-09-25",
+      "value": 74.02
+    },
+    {
+      "date": "2024-10-01",
+      "value": 75.63
+    },
+    {
+      "date": "2024-11-06",
+      "value": 74.35
+    },
+    {
+      "date": "2024-12-11",
+      "value": 73.86
+    },
+    {
+      "date": "2025-01-01",
+      "value": 79.27
+    },
+    {
+      "date": "2025-02-19",
+      "value": 75.44
+    },
+    {
+      "date": "2025-03-01",
+      "value": 72.73
+    },
+    {
+      "date": "2025-04-02",
+      "value": 68.13
+    },
+    {
+      "date": "2025-05-01",
+      "value": 64.45
+    },
+    {
+      "date": "2025-06-01",
+      "value": 71.44
+    },
+    {
+      "date": "2025-07-01",
+      "value": 71.04
+    },
+    {
+      "date": "2025-08-01",
+      "value": 67.87
+    },
+    {
+      "date": "2025-09-01",
+      "value": 67.99
+    },
+    {
+      "date": "2025-10-01",
+      "value": 64.54
+    },
+    {
+      "date": "2025-11-01",
+      "value": 63.8
+    },
+    {
+      "date": "2025-12-01",
+      "value": 62.54
+    },
+    {
+      "date": "2026-01-01",
+      "value": 66.6
+    },
+    {
+      "date": "2026-02-01",
+      "value": 70.89
+    },
+    {
+      "date": "2026-03-01",
+      "value": 103.13
+    },
+    {
+      "date": "2026-04-01",
+      "value": 117.29
+    },
+    {
+      "date": "2026-05-01",
+      "value": 107.14
+    },
+    {
+      "date": "2026-06-01",
+      "value": 85.4
+    },
+    {
+      "date": "2026-07-01",
+      "value": 83.76
+    },
+    {
+      "date": "2026-08-01",
+      "value": 91.08
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

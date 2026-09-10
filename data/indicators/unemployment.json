@@ -1,0 +1,234 @@
+{
+  "slug": "unemployment",
+  "name": "Unemployment Rate",
+  "unit": "%",
+  "freq": "monthly",
+  "section": "economy",
+  "group": "local",
+  "source": "ABS Labour Force (MRM)",
+  "format": "percent_direct",
+  "description": "Central Coast unemployment rate (small area estimate).",
+  "contextSeries": [
+    "cash_rate",
+    "us_fed_rate"
+  ],
+  "contextNarrative": "Unemployment on the Central Coast tends to track RBA monetary policy decisions with a 3\u20136 month lag. Rising interest rates dampen business investment and hiring; falling rates stimulate employment recovery.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 3.8733339
+    },
+    {
+      "date": "2022-05-04",
+      "value": 3.83373858
+    },
+    {
+      "date": "2022-06-08",
+      "value": 3.84051624
+    },
+    {
+      "date": "2022-07-06",
+      "value": 3.91790652
+    },
+    {
+      "date": "2022-08-03",
+      "value": 3.89784447
+    },
+    {
+      "date": "2022-09-07",
+      "value": 3.73308833
+    },
+    {
+      "date": "2022-10-05",
+      "value": 3.24577321
+    },
+    {
+      "date": "2022-11-02",
+      "value": 3.61504859
+    },
+    {
+      "date": "2022-12-07",
+      "value": 3.38700232
+    },
+    {
+      "date": "2023-01-01",
+      "value": 3.82415407
+    },
+    {
+      "date": "2023-02-08",
+      "value": 3.64071191
+    },
+    {
+      "date": "2023-03-08",
+      "value": 3.84447192
+    },
+    {
+      "date": "2023-04-05",
+      "value": 3.68467231
+    },
+    {
+      "date": "2023-05-03",
+      "value": 3.33854846
+    },
+    {
+      "date": "2023-06-07",
+      "value": 2.88022955
+    },
+    {
+      "date": "2023-07-05",
+      "value": 4.2821765
+    },
+    {
+      "date": "2023-08-02",
+      "value": 3.75316791
+    },
+    {
+      "date": "2023-09-06",
+      "value": 3.38613344
+    },
+    {
+      "date": "2023-10-04",
+      "value": 3.73255564
+    },
+    {
+      "date": "2023-11-08",
+      "value": 3.53055668
+    },
+    {
+      "date": "2023-12-06",
+      "value": 3.52732748
+    },
+    {
+      "date": "2024-01-01",
+      "value": 4.68647005
+    },
+    {
+      "date": "2024-02-07",
+      "value": 3.7797905
+    },
+    {
+      "date": "2024-03-20",
+      "value": 4.62301798
+    },
+    {
+      "date": "2024-04-01",
+      "value": 4.1239084
+    },
+    {
+      "date": "2024-05-08",
+      "value": 4.03215126
+    },
+    {
+      "date": "2024-06-19",
+      "value": 4.25127123
+    },
+    {
+      "date": "2024-07-01",
+      "value": 4.59164857
+    },
+    {
+      "date": "2024-08-07",
+      "value": 3.99258966
+    },
+    {
+      "date": "2024-09-25",
+      "value": 3.89698639
+    },
+    {
+      "date": "2024-10-01",
+      "value": 4.2061516
+    },
+    {
+      "date": "2024-11-06",
+      "value": 4.1058216
+    },
+    {
+      "date": "2024-12-11",
+      "value": 3.82583638
+    },
+    {
+      "date": "2025-01-01",
+      "value": 4.88656373
+    },
+    {
+      "date": "2025-02-19",
+      "value": 4.84538918
+    },
+    {
+      "date": "2025-03-01",
+      "value": 4.18313899
+    },
+    {
+      "date": "2025-04-02",
+      "value": 4.04741023
+    },
+    {
+      "date": "2025-05-01",
+      "value": 4.36591823
+    },
+    {
+      "date": "2025-06-01",
+      "value": 4.77025612
+    },
+    {
+      "date": "2025-07-01",
+      "value": 4.35318659
+    },
+    {
+      "date": "2025-08-01",
+      "value": 4.25771612
+    },
+    {
+      "date": "2025-09-01",
+      "value": 4.3637259
+    },
+    {
+      "date": "2025-10-01",
+      "value": 4.02961533
+    },
+    {
+      "date": "2025-11-01",
+      "value": 4.0386515
+    },
+    {
+      "date": "2025-12-01",
+      "value": 3.53459406
+    },
+    {
+      "date": "2026-01-01",
+      "value": 4.89944623
+    },
+    {
+      "date": "2026-02-01",
+      "value": 4.37112086
+    },
+    {
+      "date": "2026-03-01",
+      "value": 5.01335609
+    },
+    {
+      "date": "2026-04-01",
+      "value": 4.79
+    },
+    {
+      "date": "2026-05-01",
+      "value": 4.31
+    },
+    {
+      "date": "2026-06-01",
+      "value": 4.16
+    },
+    {
+      "date": "2026-07-01",
+      "value": 4.48
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

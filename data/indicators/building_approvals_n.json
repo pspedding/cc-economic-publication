@@ -1,0 +1,233 @@
+{
+  "slug": "building_approvals_n",
+  "name": "Building Approvals (count)",
+  "unit": "dwellings",
+  "freq": "monthly",
+  "section": "housing",
+  "group": "local",
+  "source": "ABS Building Approvals",
+  "format": "integer",
+  "description": "Number of new house building approvals in the Central Coast LGA.",
+  "contextSeries": [
+    "cash_rate"
+  ],
+  "contextNarrative": "Construction approvals are a forward indicator of housing supply. Higher interest rates raise borrowing costs for developers and buyers, dampening approval volumes with a typical 2\u20134 month lag after rate changes.",
+  "series": [
+    {
+      "date": "2022-04-06",
+      "value": 110.0
+    },
+    {
+      "date": "2022-05-04",
+      "value": 64.0
+    },
+    {
+      "date": "2022-06-08",
+      "value": 64.0
+    },
+    {
+      "date": "2022-07-06",
+      "value": 74.0
+    },
+    {
+      "date": "2022-08-03",
+      "value": 63.0
+    },
+    {
+      "date": "2022-09-07",
+      "value": 106.0
+    },
+    {
+      "date": "2022-10-05",
+      "value": 81.0
+    },
+    {
+      "date": "2022-11-02",
+      "value": 89.0
+    },
+    {
+      "date": "2022-12-07",
+      "value": 77.0
+    },
+    {
+      "date": "2023-01-01",
+      "value": 63.0
+    },
+    {
+      "date": "2023-02-08",
+      "value": 50.0
+    },
+    {
+      "date": "2023-03-08",
+      "value": 61.0
+    },
+    {
+      "date": "2023-04-05",
+      "value": 61.0
+    },
+    {
+      "date": "2023-05-03",
+      "value": 72.0
+    },
+    {
+      "date": "2023-06-07",
+      "value": 68.0
+    },
+    {
+      "date": "2023-07-05",
+      "value": 64.0
+    },
+    {
+      "date": "2023-08-02",
+      "value": 77.0
+    },
+    {
+      "date": "2023-09-06",
+      "value": 81.0
+    },
+    {
+      "date": "2023-10-04",
+      "value": 69.0
+    },
+    {
+      "date": "2023-11-08",
+      "value": 84.0
+    },
+    {
+      "date": "2023-12-06",
+      "value": 58.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": 55.0
+    },
+    {
+      "date": "2024-02-07",
+      "value": 58.0
+    },
+    {
+      "date": "2024-03-20",
+      "value": 65.0
+    },
+    {
+      "date": "2024-04-01",
+      "value": 40.0
+    },
+    {
+      "date": "2024-05-08",
+      "value": 59.0
+    },
+    {
+      "date": "2024-06-19",
+      "value": 44.0
+    },
+    {
+      "date": "2024-07-01",
+      "value": 74.0
+    },
+    {
+      "date": "2024-08-07",
+      "value": 58.0
+    },
+    {
+      "date": "2024-09-25",
+      "value": 76.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 51.0
+    },
+    {
+      "date": "2024-11-06",
+      "value": 66.0
+    },
+    {
+      "date": "2024-12-11",
+      "value": 52.0
+    },
+    {
+      "date": "2025-01-01",
+      "value": 37.0
+    },
+    {
+      "date": "2025-02-19",
+      "value": 46.0
+    },
+    {
+      "date": "2025-03-01",
+      "value": 72.0
+    },
+    {
+      "date": "2025-04-02",
+      "value": null
+    },
+    {
+      "date": "2025-05-01",
+      "value": null
+    },
+    {
+      "date": "2025-06-01",
+      "value": null
+    },
+    {
+      "date": "2025-07-01",
+      "value": null
+    },
+    {
+      "date": "2025-08-01",
+      "value": null
+    },
+    {
+      "date": "2025-09-01",
+      "value": null
+    },
+    {
+      "date": "2025-10-01",
+      "value": null
+    },
+    {
+      "date": "2025-11-01",
+      "value": null
+    },
+    {
+      "date": "2025-12-01",
+      "value": null
+    },
+    {
+      "date": "2026-01-01",
+      "value": null
+    },
+    {
+      "date": "2026-02-01",
+      "value": null
+    },
+    {
+      "date": "2026-03-01",
+      "value": null
+    },
+    {
+      "date": "2026-04-01",
+      "value": null
+    },
+    {
+      "date": "2026-05-01",
+      "value": null
+    },
+    {
+      "date": "2026-06-01",
+      "value": null
+    },
+    {
+      "date": "2026-07-01",
+      "value": null
+    },
+    {
+      "date": "2026-08-01",
+      "value": null
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ]
+}

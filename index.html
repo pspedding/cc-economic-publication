@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central Coast Economic Indicators</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="data/data.js"></script>
+<style>
+  /* ── Base ─────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cc-navy: #1a3a5c;
+    --cc-teal: #2a7f8f;
+    --cc-gold: #e8a020;
+    --cc-light: #f4f7fa;
+    --cc-mid:   #e1e8f0;
+    --cc-text:  #1a2533;
+    --cc-muted: #5a6b7d;
+    --cc-white: #ffffff;
+    --cc-red:   #c0392b;
+    --cc-green: #27ae60;
+    --radius: 8px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --section-gap: 2.5rem;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--cc-light);
+    color: var(--cc-text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── Header ──────────────────────────────────────────────────────────── */
+  header {
+    background: var(--cc-navy);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+  .header-branding h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  .header-branding .subtitle {
+    font-size: 0.78rem;
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+  .header-actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .btn-export {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(255,255,255,0.35);
+    background: transparent;
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .btn-export:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.6); }
+  .btn-export svg { width: 14px; height: 14px; fill: white; flex-shrink: 0; }
+
+  /* ── Nav ─────────────────────────────────────────────────────────────── */
+  nav {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.6rem 1.1rem;
+    border-bottom: 2.5px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  nav a:hover, nav a.active {
+    color: white;
+    border-bottom-color: var(--cc-gold);
+  }
+
+  /* ── Hero / Scorecard ────────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--cc-navy) 0%, #1e4d78 100%);
+    color: white;
+    padding: 2.5rem 2rem 3rem;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .hero .period {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 1.8rem;
+  }
+  .scorecard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+  }
+  .kpi-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+  }
+  .kpi-card:hover { background: rgba(255,255,255,0.16); }
+  .kpi-label { font-size: 0.72rem; opacity: 0.75; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; }
+  .kpi-value { font-size: 1.65rem; font-weight: 700; line-height: 1; margin-bottom: 0.35rem; }
+  .kpi-change { font-size: 0.8rem; font-weight: 500; }
+  .kpi-change.up { color: #6ee7b7; }
+  .kpi-change.down { color: #fca5a5; }
+  .kpi-change.neutral { opacity: 0.65; }
+
+  /* ── Main layout ─────────────────────────────────────────────────────── */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ── Sections ────────────────────────────────────────────────────────── */
+  .pub-section {
+    margin-bottom: var(--section-gap);
+    scroll-margin-top: 100px;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--cc-mid);
+  }
+  .section-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cc-navy);
+  }
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--cc-teal);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* ── Context narrative ───────────────────────────────────────────────── */
+  .context-narrative {
+    background: #eef4f9;
+    border-left: 4px solid var(--cc-teal);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--cc-muted);
+    line-height: 1.65;
+  }
+  .context-narrative strong { color: var(--cc-navy); }
+
+  /* ── Chart cards ─────────────────────────────────────────────────────── */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    gap: 1.2rem;
+  }
+  @media (max-width: 640px) { .chart-grid { grid-template-columns: 1fr; } }
+  .chart-grid.single { grid-template-columns: 1fr; }
+  .chart-card {
+    background: var(--cc-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.2rem 1.3rem 1rem;
+    border: 1px solid var(--cc-mid);
+  }
+  .chart-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  .chart-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cc-navy);
+    line-height: 1.3;
+  }
+  .chart-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.15rem;
+  }
+  .chart-source {
+    font-size: 0.7rem;
+    color: var(--cc-muted);
+  }
+  .freq-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: var(--cc-mid);
+    color: var(--cc-muted);
+  }
+
+  /* Lag control */
+  .lag-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .lag-controls label { font-size: 0.72rem; color: var(--cc-muted); font-weight: 600; }
+  .lag-slider { width: 100px; accent-color: var(--cc-teal); }
+  .lag-value { font-size: 0.72rem; font-weight: 700; color: var(--cc-teal); min-width: 50px; }
+  .lag-corr { font-size: 0.72rem; color: var(--cc-muted); }
+
+  .chart-wrap {
+    position: relative;
+    height: 220px;
+    margin-top: 0.8rem;
+  }
+
+  /* ── Context section ─────────────────────────────────────────────────── */
+  .context-section-note {
+    background: #fffbf0;
+    border: 1px solid #f0d060;
+    border-radius: var(--radius);
+    padding: 0.8rem 1rem;
+    font-size: 0.83rem;
+    color: #7a6010;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ── Footer ──────────────────────────────────────────────────────────── */
+  footer {
+    background: var(--cc-navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.78rem;
+    margin-top: 3rem;
+  }
+  footer strong { color: white; }
+
+  /* ── Print ───────────────────────────────────────────────────────────── */
+  @media print {
+    header, nav, .header-actions, .lag-controls, footer { display: none !important; }
+    body { background: white; }
+    main { max-width: 100%; padding: 0; }
+    .chart-grid { grid-template-columns: 1fr 1fr; }
+    .chart-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+    .hero { background: var(--cc-navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────────────────────── -->
+<header>
+  <div class="header-top">
+    <div class="header-branding">
+      <h1>Central Coast Economic Indicators</h1>
+      <div class="subtitle">Economic Development Unit · Central Coast Council</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn-export" onclick="exportReport('docx')" title="Download Word document">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v1H8v-1zm0 3h8v1H8v-1zm0-6h3v1H8v-1z"/></svg>
+        Word
+      </button>
+      <button class="btn-export" onclick="exportReport('pdf')" title="Download PDF">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM11.5 18H10v-5h1.5c1.1 0 2 .9 2 2v1c0 1.1-.9 2-2 2zm3.5-5h1v1h-1v1h1v1h-1v2h-1v-5h2v1h-1zm-8 0h1.5c.83 0 1.5.67 1.5 1.5S8.83 16 8 16H7.5v2h-1v-5zm1 2h.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5H7.5v1z"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+  <nav id="main-nav">
+    <a href="#overview" class="active">Overview</a>
+    <a href="#economy">Economy &amp; Labour</a>
+    <a href="#housing">Housing</a>
+    <a href="#transport">Transport</a>
+    <a href="#tourism">Tourism</a>
+    <a href="#context">National &amp; Global Context</a>
+  </nav>
+</header>
+
+<!-- ── Hero / Scorecard ───────────────────────────────────────────────────── -->
+<div class="hero" id="overview">
+  <h2>Economic Snapshot</h2>
+  <div class="period" id="snapshot-period">Latest available data</div>
+  <div class="scorecard" id="scorecard"></div>
+</div>
+
+<!-- ── Main content ───────────────────────────────────────────────────────── -->
+<main>
+
+  <!-- Economy & Labour ─────────────────────────────────────────────────── -->
+  <section class="pub-section" id="economy">
+    <div class="section-header">
+      <h2>Economy &amp; Labour</h2>
+      <span class="section-tag">Local</span>
+    </div>
+    <div class="context-narrative" id="narrative-economy">
+      The Central Coast labour market reflects both regional dynamics and the national monetary policy cycle. Unemployment and JobSeeker recipient volumes are sensitive leading indicators of economic stress, while retail spend tracks consumer confidence in real time.
+    </div>
+    <div class="chart-grid" id="charts-economy"></div>
+  </section>
+
+  <!-- Housing ──────────────────────────────────────────────────────────── -->
+  <section class="pub-section" id="housing">
+    <div class="section-header">
+      <h2>Housing &amp; Construction</h2>
+      <span class="section-tag">Local</span>
+    </div>
+    <div class="context-narrative" id="narrative-housing">
+      The Central Coast housing market is shaped by sea-change migration, constrained land supply, and the interest rate cycle. Residential vacancy rates below 1% since 2021 have kept upward pressure on rents, while building approvals signal future supply conditions.
+    </div>
+    <div class="chart-grid" id="charts-housing"></div>
+  </section>
+
+  <!-- Transport ────────────────────────────────────────────────────────── -->
+  <section class="pub-section" id="transport">
+    <div class="section-header">
+      <h2>Transport &amp; Mobility</h2>
+      <span class="section-tag">Local</span>
+    </div>
+    <div class="context-narrative" id="narrative-transport">
+      Vehicle registration data tracks both consumer confidence and the transition to electric vehicles. Oil price movements are a key driver of EV uptake, with observable lags of 1–2 months between a fuel price signal and new registration behaviour.
+    </div>
+    <div class="chart-grid" id="charts-transport"></div>
+  </section>
+
+  <!-- Tourism ──────────────────────────────────────────────────────────── -->
+  <section class="pub-section" id="tourism">
+    <div class="section-header">
+      <h2>Tourism &amp; Visitor Economy</h2>
+      <span class="section-tag">Local</span>
+    </div>
+    <div class="context-narrative" id="narrative-tourism">
+      The Central Coast's visitor economy is driven by domestic drive markets, proximity to Sydney, and a significant short-term rental (STRA) sector. Revenue and occupancy metrics from the STRA sector provide a near real-time view of visitor demand.
+    </div>
+    <div class="chart-grid" id="charts-tourism"></div>
+  </section>
+
+  <!-- National / Global Context ─────────────────────────────────────────── -->
+  <section class="pub-section" id="context">
+    <div class="section-header">
+      <h2>National &amp; Global Context</h2>
+      <span class="section-tag">Context</span>
+    </div>
+    <div class="context-section-note">
+      These indicators provide the macroeconomic backdrop that shapes the Central Coast's local conditions. They are sourced from national and global data providers and are displayed here as framing context, not direct local measures.
+    </div>
+    <div class="chart-grid" id="charts-context"></div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>Central Coast Economic Indicators</strong> · Economic Development Unit · Central Coast Council<br>
+  Data sources: ABS, RBA, REA Group, Transport for NSW, CommBank IQ, AllTheRooms, DSS, Business NSW, SQM Research<br>
+  <span id="footer-date"></span>
+</footer>
+
+<script>
+// ── Colour palette ──────────────────────────────────────────────────────────
+const COLORS = {
+  primary:   '#2a7f8f',
+  secondary: '#e8a020',
+  navy:      '#1a3a5c',
+  red:       '#c0392b',
+  green:     '#27ae60',
+  muted:     '#94a3b8',
+};
+
+// ── Section → indicators mapping ────────────────────────────────────────────
+const SECTION_MAP = {
+  economy:   ['unemployment', 'labour_participation', 'employment_pop_ratio',
+              'jobseeker', 'job_vacancies', 'retail_total', 'retail_discretionary',
+              'business_confidence_cc'],
+  housing:   ['house_price', 'house_price_yoy', 'house_rent', 'vacancy_rate',
+              'interested_buyers', 'building_approvals_n', 'cra_recipients'],
+  transport: ['vehicles_total', 'vehicles_private', 'vehicles_business'],
+  tourism:   ['airbnb_revenue', 'airbnb_revpal', 'retail_tourism'],
+  context:   ['cash_rate', 'cpi_yoy', 'us_fed_rate', 'avg_mortgage_rate',
+              'bond_yield_10yr', 'aud_usd', 'oil_price', 'iron_ore',
+              'asx200', 'bulk_commodities'],
+};
+
+// ── Scorecard config ─────────────────────────────────────────────────────────
+const SCORECARD_SLUGS = [
+  { slug: 'unemployment',      label: 'Unemployment Rate' },
+  { slug: 'house_price',       label: 'Avg House Price' },
+  { slug: 'house_rent',        label: 'Avg Weekly Rent' },
+  { slug: 'vacancy_rate',      label: 'Vacancy Rate' },
+  { slug: 'cash_rate',         label: 'Cash Rate' },
+  { slug: 'cpi_yoy',           label: 'CPI (YoY)' },
+  { slug: 'vehicles_total',    label: 'New Vehicles (mo)' },
+  { slug: 'airbnb_revenue',    label: 'STRA Revenue' },
+];
+
+// ── Lag-analysis pairs (slug → context slug) ─────────────────────────────────
+const LAG_PAIRS = {
+  vehicles_total:   'oil_price',
+  house_price:      'cash_rate',
+  unemployment:     'cash_rate',
+  building_approvals_n: 'cash_rate',
+  retail_total:     'cash_rate',
+};
+
+// ── Format helpers ───────────────────────────────────────────────────────────
+function formatVal(v, fmt) {
+  if (v === null || v === undefined) return '—';
+  switch (fmt) {
+    case 'percent_direct': return v.toFixed(2) + '%';
+    case 'dollar_0':   return '$' + Math.round(v).toLocaleString('en-AU');
+    case 'dollar_2':   return '$' + v.toFixed(2);
+    case 'decimal_1':  return v.toFixed(1);
+    case 'decimal_2':  return v.toFixed(2);
+    case 'decimal_4':  return v.toFixed(4);
+    case 'integer':    return Math.round(v).toLocaleString('en-AU');
+    default:           return String(v);
+  }
+}
+
+function lastNonNull(series) {
+  for (let i = series.length - 1; i >= 0; i--) {
+    if (series[i].value !== null) return series[i];
+  }
+  return null;
+}
+
+function prevNonNull(series, currentIdx) {
+  for (let i = currentIdx - 1; i >= 0; i--) {
+    if (series[i].value !== null) return series[i];
+  }
+  return null;
+}
+
+// ── Cross-correlation computation ────────────────────────────────────────────
+function crossCorr(x, y, lag) {
+  // Align by date, shift y by lag months
+  const xMap = {};
+  x.forEach(p => { if (p.value !== null) xMap[p.date] = p.value; });
+  const yMap = {};
+  y.forEach(p => { if (p.value !== null) yMap[p.date] = p.value; });
+
+  // Get shared dates in x, find corresponding lagged date in y
+  const pairs = [];
+  x.forEach(px => {
+    if (px.value === null) return;
+    // lag > 0: y leads x (shift y forward in time = shift y date back by lag)
+    const d = new Date(px.date);
+    d.setMonth(d.getMonth() - lag);
+    const lagDate = d.toISOString().slice(0, 7) + '-01'; // normalize to YYYY-MM-01
+    // find nearest y entry
+    const yVal = yMap[lagDate] ?? yMap[px.date.slice(0,7) + '-01'];
+    if (yVal !== undefined) pairs.push([px.value, yVal]);
+  });
+
+  if (pairs.length < 4) return null;
+  const n = pairs.length;
+  const mx = pairs.reduce((s, p) => s + p[0], 0) / n;
+  const my = pairs.reduce((s, p) => s + p[1], 0) / n;
+  const num = pairs.reduce((s, p) => s + (p[0]-mx)*(p[1]-my), 0);
+  const dx  = Math.sqrt(pairs.reduce((s, p) => s + (p[0]-mx)**2, 0));
+  const dy  = Math.sqrt(pairs.reduce((s, p) => s + (p[1]-my)**2, 0));
+  if (dx === 0 || dy === 0) return null;
+  return num / (dx * dy);
+}
+
+function bestLag(x, y, maxLag = 12) {
+  let best = { lag: 0, r: -Infinity };
+  for (let lag = 0; lag <= maxLag; lag++) {
+    const r = crossCorr(x, y, lag);
+    if (r !== null && Math.abs(r) > Math.abs(best.r)) best = { lag, r };
+  }
+  return best;
+}
+
+// ── Scorecard ────────────────────────────────────────────────────────────────
+function buildScorecard() {
+  const el = document.getElementById('scorecard');
+  let latestDate = '';
+  SCORECARD_SLUGS.forEach(({ slug, label }) => {
+    const ind = CC_ECONOMIC_DATA[slug];
+    if (!ind) return;
+    const last = lastNonNull(ind.series);
+    if (!last) return;
+    if (last.date > latestDate) latestDate = last.date;
+    const lastIdx = ind.series.indexOf(last);
+    const prev = prevNonNull(ind.series, lastIdx);
+    let changeHtml = '';
+    if (prev && prev.value !== null) {
+      const diff = last.value - prev.value;
+      const pct  = prev.value !== 0 ? (diff / Math.abs(prev.value)) * 100 : null;
+      const cls  = diff > 0 ? 'up' : diff < 0 ? 'down' : 'neutral';
+      const arrow = diff > 0 ? '▲' : diff < 0 ? '▼' : '–';
+      changeHtml = `<div class="kpi-change ${cls}">${arrow} ${pct !== null ? pct.toFixed(1)+'%' : formatVal(diff, ind.format)} vs prev</div>`;
+    }
+    el.innerHTML += `
+      <div class="kpi-card">
+        <div class="kpi-label">${label}</div>
+        <div class="kpi-value">${formatVal(last.value, ind.format)}</div>
+        ${changeHtml}
+      </div>`;
+  });
+  if (latestDate) {
+    const d = new Date(latestDate);
+    document.getElementById('snapshot-period').textContent =
+      'Latest data: ' + d.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+  }
+}
+
+// ── Chart rendering ──────────────────────────────────────────────────────────
+const chartInstances = {}; // slug → Chart instance
+
+function renderChart(slug, containerId, showContextSeries = true) {
+  const ind = CC_ECONOMIC_DATA[slug];
+  if (!ind) return;
+
+  const card = document.createElement('div');
+  card.className = 'chart-card';
+  card.id = 'card-' + slug;
+
+  const hasPair = LAG_PAIRS[slug] && CC_ECONOMIC_DATA[LAG_PAIRS[slug]];
+  const ctxSlug = LAG_PAIRS[slug];
+  const ctxInd  = hasPair ? CC_ECONOMIC_DATA[ctxSlug] : null;
+
+  // Auto-compute best lag
+  let autoLag = { lag: 0, r: null };
+  if (hasPair) {
+    autoLag = bestLag(ind.series, ctxInd.series, 12);
+  }
+
+  const lagId  = 'lag-' + slug;
+  const corrId = 'corr-' + slug;
+  const canvId = 'canvas-' + slug;
+
+  const lagHtml = hasPair ? `
+    <div class="lag-controls">
+      <label for="${lagId}">Lag (context leads by):</label>
+      <input type="range" id="${lagId}" class="lag-slider" min="0" max="12" value="${autoLag.lag}"
+             oninput="updateLag('${slug}', this.value)">
+      <span class="lag-value" id="${lagId}-val">${autoLag.lag} mo</span>
+      <span class="lag-corr" id="${corrId}">r = ${autoLag.r !== null ? autoLag.r.toFixed(2) : '—'}</span>
+    </div>` : '';
+
+  const ctxLabel = ctxInd ? ` <span style="color:${COLORS.secondary};font-size:0.7rem;font-weight:600;margin-left:0.5rem;">── ${ctxInd.name}</span>` : '';
+
+  card.innerHTML = `
+    <div class="chart-card-header">
+      <div>
+        <div class="chart-title">${ind.name}${ctxLabel}</div>
+        <div class="chart-meta">
+          <span class="chart-source">${ind.source}</span>
+          <span class="freq-badge">${ind.freq}</span>
+        </div>
+        ${lagHtml}
+      </div>
+    </div>
+    <div class="chart-wrap"><canvas id="${canvId}"></canvas></div>`;
+
+  document.getElementById(containerId).appendChild(card);
+  buildChartInstance(slug, autoLag.lag);
+}
+
+function buildChartInstance(slug, lag) {
+  const ind    = CC_ECONOMIC_DATA[slug];
+  const canvId = 'canvas-' + slug;
+  const canvas = document.getElementById(canvId);
+  if (!canvas) return;
+
+  if (chartInstances[slug]) {
+    chartInstances[slug].destroy();
+  }
+
+  const labels    = ind.series.map(p => p.date);
+  const values    = ind.series.map(p => p.value);
+
+  const datasets = [{
+    label: ind.name,
+    data: values,
+    borderColor: COLORS.primary,
+    backgroundColor: hexToRgba(COLORS.primary, 0.08),
+    borderWidth: 2,
+    pointRadius: 0,
+    pointHoverRadius: 4,
+    tension: 0.3,
+    fill: true,
+    yAxisID: 'y',
+  }];
+
+  // Context series with lag shift
+  const ctxSlug = LAG_PAIRS[slug];
+  const ctxInd  = ctxSlug ? CC_ECONOMIC_DATA[ctxSlug] : null;
+  if (ctxInd) {
+    // Shift context series forward in time by lag months
+    const shiftedCtx = ind.series.map(p => {
+      const target = new Date(p.date);
+      target.setMonth(target.getMonth() - lag);
+      const targetStr = target.toISOString().slice(0, 7);
+      const match = ctxInd.series.find(c => c.date.startsWith(targetStr));
+      return match ? match.value : null;
+    });
+    datasets.push({
+      label: ctxInd.name + (lag > 0 ? ` (lagged ${lag}mo)` : ''),
+      data: shiftedCtx,
+      borderColor: COLORS.secondary,
+      borderWidth: 2,
+      borderDash: [5, 3],
+      pointRadius: 0,
+      pointHoverRadius: 4,
+      tension: 0.3,
+      fill: false,
+      yAxisID: 'y2',
+    });
+  }
+
+  chartInstances[slug] = new Chart(canvas, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          display: !!ctxInd,
+          position: 'top',
+          labels: { boxWidth: 12, font: { size: 10 }, color: '#5a6b7d' }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const v = ctx.raw;
+              const dsInd = ctx.datasetIndex === 0 ? ind : ctxInd;
+              return ` ${dsInd.name}: ${formatVal(v, dsInd.format)}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          type: 'category',
+          ticks: {
+            maxTicksLimit: 8,
+            font: { size: 10 },
+            color: '#94a3b8',
+            maxRotation: 0,
+            callback: (val, idx, ticks) => {
+              const d = new Date(labels[idx]);
+              return d.toLocaleDateString('en-AU', { month: 'short', year: '2-digit' });
+            }
+          },
+          grid: { color: '#f0f4f8' },
+        },
+        y: {
+          position: 'left',
+          ticks: { font: { size: 10 }, color: '#94a3b8',
+            callback: v => formatVal(v, ind.format) },
+          grid: { color: '#f0f4f8' },
+        },
+        ...(ctxInd ? {
+          y2: {
+            position: 'right',
+            ticks: { font: { size: 10 }, color: COLORS.secondary,
+              callback: v => formatVal(v, ctxInd.format) },
+            grid: { drawOnChartArea: false },
+          }
+        } : {})
+      }
+    }
+  });
+}
+
+function updateLag(slug, lagStr) {
+  const lag = parseInt(lagStr);
+  const lagId  = 'lag-' + slug;
+  const corrId = 'corr-' + slug;
+  document.getElementById(lagId + '-val').textContent = lag + ' mo';
+
+  const ctxSlug = LAG_PAIRS[slug];
+  const ctxInd  = ctxSlug ? CC_ECONOMIC_DATA[ctxSlug] : null;
+  const ind     = CC_ECONOMIC_DATA[slug];
+
+  if (ctxInd) {
+    const r = crossCorr(ind.series, ctxInd.series, lag);
+    document.getElementById(corrId).textContent = 'r = ' + (r !== null ? r.toFixed(2) : '—');
+  }
+
+  buildChartInstance(slug, lag);
+}
+
+// ── Build all sections ───────────────────────────────────────────────────────
+function buildAllSections() {
+  Object.entries(SECTION_MAP).forEach(([section, slugs]) => {
+    const container = document.getElementById('charts-' + section);
+    if (!container) return;
+    slugs.forEach(slug => {
+      if (CC_ECONOMIC_DATA[slug]) renderChart(slug, 'charts-' + section);
+    });
+  });
+}
+
+// ── Nav active state ─────────────────────────────────────────────────────────
+function initNavScroll() {
+  const sections = ['overview','economy','housing','transport','tourism','context'];
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+}
+
+// ── Export ───────────────────────────────────────────────────────────────────
+function exportReport(format) {
+  // Phase 1: print-to-PDF via browser / server-side endpoint stub
+  if (format === 'pdf') {
+    window.print();
+    return;
+  }
+  // DOCX: will be implemented via proxy endpoint in Phase 2
+  alert('Word (DOCX) export will be available once the server-side export endpoint is configured.\n\nFor now, use PDF export via the browser print dialog.');
+}
+
+// ── Utility ───────────────────────────────────────────────────────────────────
+function hexToRgba(hex, alpha) {
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  buildScorecard();
+  buildAllSections();
+  initNavScroll();
+  document.getElementById('footer-date').textContent =
+    'Generated: ' + new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+});
+</script>
+</body>
+</html>
