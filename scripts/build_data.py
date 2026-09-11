@@ -26,7 +26,7 @@ DATA_JS  = os.path.join(os.path.dirname(__file__), "..", "data", "data.js")
 INDICATORS = {
     # ── Local: Labour & Economy ──────────────────────────────────────────────
     "unemployment": {
-        "col": "MRM Unemployment Rate",
+        "col": "Labor Force Unemployment %",
         "name": "Unemployment Rate",
         "unit": "%",
         "freq": "monthly",
@@ -139,7 +139,7 @@ INDICATORS = {
         "section": "housing",
         "group": "local",
         "source": "REA Group",
-        "format": "dollar_0",
+        "format": "dollar_millions_2",
         "description": "Average Central Coast house sale price.",
         "contextSeries": ["cash_rate", "avg_mortgage_rate"],
         "contextNarrative": (
@@ -179,19 +179,7 @@ INDICATORS = {
             "persisted since 2021 driven by sea-change migration and constrained supply."
         ),
     },
-    "interested_buyers": {
-        "col": "Interested House Buyers",
-        "name": "Listing Views per Property",
-        "unit": "views",
-        "freq": "monthly",
-        "section": "housing",
-        "group": "local",
-        "source": "REA Group",
-        "format": "integer",
-        "description": "Average listing visits per property — proxy for buyer demand.",
-        "contextSeries": ["house_price"],
-        "contextNarrative": "",
-    },
+
     "vacancy_rate": {
         "col": "Residential Vacancy Rate",
         "name": "Residential Vacancy Rate",
@@ -348,7 +336,7 @@ INDICATORS = {
         "section": "tourism",
         "group": "local",
         "source": "AllTheRooms STRA Analytics",
-        "format": "dollar_0",
+        "format": "millions_2",
         "description": "Total gross revenue across all active STRA listings on the Coast.",
         "contextSeries": ["retail_tourism"],
         "contextNarrative": (
@@ -416,6 +404,23 @@ INDICATORS = {
         "description": "New business vehicle registrations in the Central Coast LGA.",
         "contextSeries": [],
         "contextNarrative": "",
+    },
+    "vehicles_evs": {
+        "col": "EVs",
+        "name": "Electric Vehicle Registrations",
+        "unit": "count",
+        "freq": "monthly",
+        "section": "transport",
+        "group": "local",
+        "source": "Transport for NSW",
+        "format": "integer",
+        "description": "New electric vehicle registrations in the Central Coast LGA.",
+        "contextSeries": ["oil_price"],
+        "contextNarrative": (
+            "EV registrations provide a view of household and business uptake of "
+            "lower-emissions transport. Adoption is influenced by fuel prices, model "
+            "availability, charging infrastructure, and broader cost-of-living pressures."
+        ),
     },
 
     # ── Context: Monetary Policy ──────────────────────────────────────────────
@@ -596,10 +601,10 @@ INDICATORS = {
         ),
     },
 
-    # ── STRA: ADR + Occupancy (from Columns Removed sheet) ───────────────────
+    # ── STRA: ADR + Occupancy ────────────────────────────────────────────────
     "airbnb_adr": {
         "col": "Airbnb ADR",
-        "sheet": "Columns Removed",
+        "sheet": "Interest Rate Decisions",
         "name": "STRA Average Daily Rate (ADR)",
         "unit": "AUD",
         "freq": "monthly",
@@ -617,8 +622,8 @@ INDICATORS = {
         ),
     },
     "airbnb_occupancy": {
-        "col": "Airbnb Occupancy",
-        "sheet": "Columns Removed",
+        "col": "Airbnb Occupancy Rate",
+        "sheet": "Interest Rate Decisions",
         "name": "STRA Occupancy Rate",
         "unit": "%",
         "freq": "monthly",
@@ -631,12 +636,10 @@ INDICATORS = {
         "contextNarrative": "",
     },
 
-    # ── Unit Price (from House Price Data sheet) ──────────────────────────────
-    # Note: this sheet uses text month keys — parsed separately in extract()
-    # Placeholder entry so it appears in INDICATORS dict; extraction is custom
+    # ── Unit Price ───────────────────────────────────────────────────────────
     "unit_price": {
-        "col": "__custom__",
-        "sheet": "House Price Data",
+        "col": "Average Unit Price",
+        "sheet": "Interest Rate Decisions",
         "name": "Average Unit Price",
         "unit": "AUD",
         "freq": "monthly",
@@ -710,65 +713,25 @@ def extract():
     data_rows_main = rows_main[1:]
     col_idx_main = {h: i for i, h in enumerate(headers_main) if h is not None}
 
-    # --- Sheet 2: Columns Removed (ADR, Occupancy) ---
-    ws_cr = wb["Columns Removed"]
-    rows_cr = list(ws_cr.iter_rows(values_only=True))
-    headers_cr = list(rows_cr[0])
-    data_rows_cr = rows_cr[1:]
-    col_idx_cr = {h: i for i, h in enumerate(headers_cr) if h is not None}
-
-    # --- Sheet 3: House Price Data (Unit Price - text month keys) ---
-    ws_hp = wb["House Price Data"]
-    rows_hp = list(ws_hp.iter_rows(values_only=True))
-    # Build unit_price series from col index 1 (House Price Current) as proxy
-    # NOTE: Unit Price not in this sheet yet; House Price Data has house price only.
-    # We parse it for completeness and to provide a longer house price series.
-    hp_headers = list(rows_hp[0])
-
     all_indicators = {}
 
     for slug, cfg in INDICATORS.items():
         col_name = cfg["col"]
-        sheet    = cfg.get("sheet", "Interest Rate Decisions")
-
-        # --- Custom extraction: unit_price (not yet in spreadsheet) ---
-        if col_name == "__custom__":
-            print(f"  [SKIP] {slug}: no column in spreadsheet yet (manual data needed)")
+        # All indicators now read from main sheet
+        if col_name not in col_idx_main:
+            print(f"  [WARN] column not found: '{col_name}' → skipping {slug}")
             continue
-
-        # --- Columns Removed sheet ---
-        if sheet == "Columns Removed":
-            if col_name not in col_idx_cr:
-                print(f"  [WARN] column not found in Columns Removed: {col_name} → skipping {slug}")
+        ci      = col_idx_main[col_name]
+        date_ci = col_idx_main["Effective Date"]
+        series  = []
+        for row in data_rows_main:
+            date_val = row[date_ci] if len(row) > date_ci else None
+            data_val = row[ci] if len(row) > ci else None
+            if date_val is None:
                 continue
-            ci      = col_idx_cr[col_name]
-            date_ci = col_idx_cr["Effective Date"]
-            series  = []
-            for row in data_rows_cr:
-                date_val = row[date_ci] if len(row) > date_ci else None
-                data_val = row[ci] if len(row) > ci else None
-                if date_val is None:
-                    continue
-                v = safe_float(data_val)
-                series.append({"date": fmt_date(date_val), "value": v})
-            series.sort(key=lambda x: x["date"])
-
-        # --- Main sheet ---
-        else:
-            if col_name not in col_idx_main:
-                print(f"  [WARN] column not found: {col_name} → skipping {slug}")
-                continue
-            ci      = col_idx_main[col_name]
-            date_ci = col_idx_main["Effective Date"]
-            series  = []
-            for row in data_rows_main:
-                date_val = row[date_ci] if len(row) > date_ci else None
-                data_val = row[ci] if len(row) > ci else None
-                if date_val is None:
-                    continue
-                v = safe_float(data_val)
-                series.append({"date": fmt_date(date_val), "value": v})
-            series.sort(key=lambda x: x["date"])
+            v = safe_float(data_val)
+            series.append({"date": fmt_date(date_val), "value": v})
+        series.sort(key=lambda x: x["date"])
 
         indicator = {
             "slug": slug,

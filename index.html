@@ -6,7 +6,7 @@
 <title>Central Coast Economic Indicators</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-<script src="data/data.js"></script>
+<script src="data/data.js?v=20260911"></script>
 <style>
   /* ── Base ─────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -560,7 +560,7 @@
       <span class="section-tag">Local</span>
     </div>
     <div class="context-narrative" id="narrative-transport">
-      Vehicle registration data tracks both consumer confidence and fleet renewal. Total, private and business registrations are available from Transport for NSW. <strong>Note:</strong> EV-specific registration data is not yet included in the source spreadsheet — it will be added in the next data refresh once the EV breakdown column is available.
+      Vehicle registration data tracks both consumer confidence and fleet renewal. Total, private, business and electric vehicle registrations are available from Transport for NSW, with EV registrations providing a useful signal of changing household and fleet preferences.
     </div>
     <div class="chart-grid" id="charts-transport"></div>
   </section>
@@ -665,9 +665,9 @@ const SECTION_MAP = {
   economy:   ['unemployment', 'labour_participation', 'employment_pop_ratio',
               'jobseeker', 'job_vacancies', 'retail_total', 'retail_discretionary',
               'business_confidence_cc'],
-  housing:   ['house_price', 'house_price_yoy', 'house_rent', 'vacancy_rate',
+  housing:   ['house_price', 'house_price_yoy', 'unit_price', 'house_rent', 'vacancy_rate',
               'building_approvals_n', 'cra_recipients'],
-  transport: ['vehicles_total', 'vehicles_private', 'vehicles_business'],
+  transport: ['vehicles_total', 'vehicles_private', 'vehicles_business', 'vehicles_evs'],
   tourism:   ['airbnb_revenue', 'airbnb_revpal', 'airbnb_adr', 'airbnb_occupancy', 'retail_tourism'],
   context:   ['cash_rate', 'cpi_yoy', 'us_fed_rate', 'avg_mortgage_rate',
               'bond_yield_10yr', 'aud_usd', 'oil_price', 'iron_ore',
@@ -731,6 +731,8 @@ function formatVal(v, fmt) {
     case 'dollar_0':        return '$' + Math.round(v).toLocaleString('en-AU');
     case 'dollar_2':        return '$' + v.toFixed(2);
     case 'dollar_millions': return '$' + (v / 1e6).toFixed(1) + 'M';
+    case 'dollar_millions_2': return '$' + (v / 1e6).toFixed(2) + 'M';
+    case 'millions_2':      return (v / 1e6).toFixed(2) + 'M';
     case 'decimal_1':       return v.toFixed(1);
     case 'decimal_2':       return v.toFixed(2);
     case 'decimal_4':       return v.toFixed(4);
