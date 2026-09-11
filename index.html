@@ -80,6 +80,25 @@
     transition: background 0.15s, border-color 0.15s;
   }
   .btn-export:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.6); }
+
+.macro-dropdown {
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 0.82rem;
+  margin-right: 0.6rem;
+}
+
+.macro-dropdown:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.macro-dropdown:focus {
+  outline: none;
+  border-color: var(--cc-gold);
+}
   .btn-export svg { width: 14px; height: 14px; fill: white; flex-shrink: 0; }
 
   /* ── Nav ─────────────────────────────────────────────────────────────── */
@@ -280,6 +299,170 @@
   }
   footer strong { color: white; }
 
+  /* ── Macro dropdown in header ──────────────────────────────────────────── */
+  .macro-dropdown-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .macro-dropdown-wrap label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .macro-dropdown {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: white;
+    border-radius: var(--radius);
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: auto;
+  }
+  .macro-dropdown option { background: var(--cc-navy); color: white; }
+  .macro-dropdown:focus { outline: none; border-color: var(--cc-gold); }
+
+  /* ── Correlation panel ───────────────────────────────────────────────── */
+  .corr-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .corr-controls label { font-size: 0.85rem; font-weight: 600; color: var(--cc-navy); }
+  .corr-panels {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 1.2rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .corr-panels { grid-template-columns: 1fr; } }
+  .corr-chart-wrap {
+    background: var(--cc-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--cc-mid);
+    padding: 1rem;
+    min-height: 300px;
+  }
+  .corr-list {
+    background: var(--cc-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--cc-mid);
+    padding: 1rem;
+    max-height: 520px;
+    overflow-y: auto;
+  }
+  .corr-group-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.4rem 0;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid var(--cc-mid);
+  }
+  .corr-group-title.pos { color: var(--cc-green); }
+  .corr-group-title.neg { color: var(--cc-red); }
+  .corr-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #f0f4f8;
+    font-size: 0.8rem;
+  }
+  .corr-row:last-child { border-bottom: none; }
+  .corr-row-name { flex: 1; color: var(--cc-text); line-height: 1.3; }
+  .corr-row-r {
+    font-weight: 700;
+    font-size: 0.78rem;
+    min-width: 48px;
+    text-align: right;
+  }
+  .corr-row-r.pos { color: var(--cc-green); }
+  .corr-row-r.neg { color: var(--cc-red); }
+  .btn-plot {
+    padding: 0.2rem 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: var(--cc-teal);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn-plot:hover { background: var(--cc-navy); }
+
+  /* ── Data Explorer ───────────────────────────────────────────────────── */
+  .explorer-controls {
+    background: var(--cc-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--cc-mid);
+    padding: 1.2rem 1.3rem;
+    margin-bottom: 0;
+  }
+  .explorer-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .explorer-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+    min-width: 200px;
+  }
+  .explorer-field label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--cc-navy);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .explorer-select {
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--cc-mid);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: var(--cc-text);
+    background: var(--cc-white);
+    cursor: pointer;
+  }
+  .explorer-select:focus { outline: none; border-color: var(--cc-teal); }
+  .explorer-lag-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .explorer-lag-row label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--cc-muted);
+  }
+  .btn-reset {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: transparent;
+    border: 1.5px solid var(--cc-mid);
+    border-radius: var(--radius);
+    color: var(--cc-muted);
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .btn-reset:hover { border-color: var(--cc-teal); color: var(--cc-teal); }
+
   /* ── Print ───────────────────────────────────────────────────────────── */
   @media print {
     header, nav, .header-actions, .lag-controls, footer { display: none !important; }
@@ -301,6 +484,19 @@
       <div class="subtitle">Economic Development Unit · Central Coast Council</div>
     </div>
     <div class="header-actions">
+      <div class="macro-dropdown-wrap">
+        <label for="macro-selector">Compare charts against:</label>
+        <select id="macro-selector" class="macro-dropdown" onchange="onMacroChange()">
+          <option value="cash_rate">Cash Rate Target (%)</option>
+          <option value="bond_yield_10yr">AU 10yr Bond Yield (%)</option>
+          <option value="avg_mortgage_rate">Avg Mortgage Rate (%)</option>
+          <option value="cpi_yoy">CPI YoY Change (%)</option>
+          <option value="us_fed_rate">US Fed Funds Rate (%)</option>
+          <option value="oil_price">Oil Price (USD/bbl)</option>
+          <option value="aud_usd">AUD/USD</option>
+          <option value="asx200">ASX 200</option>
+        </select>
+      </div>
       <button class="btn-export" onclick="exportReport('docx')" title="Download Word document">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v1H8v-1zm0 3h8v1H8v-1zm0-6h3v1H8v-1z"/></svg>
         Word
@@ -317,7 +513,9 @@
     <a href="#housing">Housing</a>
     <a href="#transport">Transport</a>
     <a href="#tourism">Tourism</a>
+    <a href="#correlation">Correlation</a>
     <a href="#context">National &amp; Global Context</a>
+    <a href="#explorer">Data Explorer</a>
   </nav>
 </header>
 
@@ -379,6 +577,25 @@
     <div class="chart-grid" id="charts-tourism"></div>
   </section>
 
+  <!-- Correlation Analysis ──────────────────────────────────────────────── -->
+  <section class="pub-section" id="correlation">
+    <div class="section-header">
+      <h2>Correlation Analysis</h2>
+      <span class="section-tag">Pearson r</span>
+    </div>
+    <div class="context-narrative">
+      Select any regional indicator to see how strongly it correlates with all other indicators in the dataset. Bars show Pearson r at zero lag. Click <strong>Plot</strong> to load any pair into the Data Explorer with lag analysis.
+    </div>
+    <div class="corr-controls">
+      <label for="corr-indicator-select">Analyse indicator:</label>
+      <select id="corr-indicator-select" class="explorer-select" onchange="buildCorrelationPanel()"></select>
+    </div>
+    <div class="corr-panels" id="corr-panels">
+      <div class="corr-chart-wrap"><canvas id="corr-bar-chart"></canvas></div>
+      <div class="corr-list" id="corr-list"></div>
+    </div>
+  </section>
+
   <!-- National / Global Context ─────────────────────────────────────────── -->
   <section class="pub-section" id="context">
     <div class="section-header">
@@ -389,6 +606,39 @@
       These indicators provide the macroeconomic backdrop that shapes the Central Coast's local conditions. They are sourced from national and global data providers and are displayed here as framing context, not direct local measures.
     </div>
     <div class="chart-grid" id="charts-context"></div>
+  </section>
+
+  <!-- Data Explorer ────────────────────────────────────────────────────── -->
+  <section class="pub-section" id="explorer">
+    <div class="section-header">
+      <h2>Data Explorer</h2>
+      <span class="section-tag">Interactive</span>
+    </div>
+    <div class="context-narrative">
+      Compare any regional indicator against any macroeconomic context series. Adjust the lag slider to find leading/lagging relationships. The r-value updates in real time.
+    </div>
+    <div class="explorer-controls">
+      <div class="explorer-row">
+        <div class="explorer-field">
+          <label for="exp-regional">Regional indicator</label>
+          <select id="exp-regional" class="explorer-select" onchange="updateExplorer()"></select>
+        </div>
+        <div class="explorer-field">
+          <label for="exp-macro">Compare against</label>
+          <select id="exp-macro" class="explorer-select" onchange="updateExplorer()"></select>
+        </div>
+      </div>
+      <div class="explorer-lag-row">
+        <label>Context leads by:</label>
+        <input type="range" id="exp-lag" class="lag-slider" min="0" max="12" value="0" oninput="updateExplorerLag()">
+        <span class="lag-value" id="exp-lag-val">0 mo</span>
+        <span class="lag-corr" id="exp-corr">r = —</span>
+        <button class="btn-reset" onclick="resetExplorer()">↺ Reset</button>
+      </div>
+    </div>
+    <div class="chart-card" style="margin-top:1rem;">
+      <div class="chart-wrap" style="height:320px;"><canvas id="explorer-canvas"></canvas></div>
+    </div>
   </section>
 
 </main>
@@ -424,6 +674,31 @@ const SECTION_MAP = {
               'asx200', 'bulk_commodities'],
 };
 
+// All local (regional) indicator slugs — used for dropdowns
+const LOCAL_SLUGS = [
+  ...SECTION_MAP.economy,
+  ...SECTION_MAP.housing,
+  ...SECTION_MAP.transport,
+  ...SECTION_MAP.tourism,
+];
+
+// All macro (context) indicator slugs available in the global selector
+const MACRO_OPTIONS = [
+  { slug: 'cash_rate',        label: 'Cash Rate Target (%)' },
+  { slug: 'bond_yield_10yr',  label: 'AU 10yr Bond Yield (%)' },
+  { slug: 'avg_mortgage_rate',label: 'Avg Mortgage Rate (%)' },
+  { slug: 'cpi_yoy',          label: 'CPI YoY Change (%)' },
+  { slug: 'us_fed_rate',      label: 'US Fed Funds Rate (%)' },
+  { slug: 'oil_price',        label: 'Oil Price (USD/bbl)' },
+  { slug: 'aud_usd',          label: 'AUD/USD' },
+  { slug: 'asx200',           label: 'ASX 200' },
+];
+
+// ── Global macro selection state ─────────────────────────────────────────────
+// Tracks current global macro slug + per-chart current lag
+let globalMacroSlug = 'cash_rate';
+const chartLags = {};      // slug → current lag (integer)
+
 // ── Scorecard config ─────────────────────────────────────────────────────────
 const SCORECARD_SLUGS = [
   { slug: 'unemployment',      label: 'Unemployment Rate' },
@@ -436,13 +711,13 @@ const SCORECARD_SLUGS = [
   { slug: 'airbnb_revenue',    label: 'STRA Revenue' },
 ];
 
-// ── Lag-analysis pairs (slug → context slug) ─────────────────────────────────
-const LAG_PAIRS = {
-  vehicles_total:   'oil_price',
-  house_price:      'cash_rate',
-  unemployment:     'cash_rate',
+// ── Default lag pairs (used only for initial best-lag calculation per chart) ──
+const DEFAULT_LAG_PAIRS = {
+  vehicles_total:       'oil_price',
+  house_price:          'cash_rate',
+  unemployment:         'cash_rate',
   building_approvals_n: 'cash_rate',
-  retail_total:     'cash_rate',
+  retail_total:         'cash_rate',
 };
 
 // ── Format helpers ───────────────────────────────────────────────────────────
@@ -552,7 +827,37 @@ function buildScorecard() {
 // ── Chart rendering ──────────────────────────────────────────────────────────
 const chartInstances = {}; // slug → Chart instance
 
-function renderChart(slug, containerId, showContextSeries = true) {
+// ── onMacroChange: global dropdown handler ──────────────────────────────────
+function onMacroChange() {
+  globalMacroSlug = document.getElementById('macro-selector').value;
+  // Re-render all section charts that have a lag control
+  ['economy','housing','transport','tourism'].forEach(section => {
+    (SECTION_MAP[section] || []).forEach(slug => {
+      const lagEl = document.getElementById('lag-' + slug);
+      if (!lagEl) return; // no context series on this chart
+      const ind    = CC_ECONOMIC_DATA[slug];
+      const ctxInd = CC_ECONOMIC_DATA[globalMacroSlug];
+      if (!ind || !ctxInd) return;
+      const auto = bestLag(ind.series, ctxInd.series, 12);
+      chartLags[slug] = auto.lag;
+      lagEl.value = auto.lag;
+      const lagValEl = document.getElementById('lag-' + slug + '-val');
+      if (lagValEl) lagValEl.textContent = auto.lag + ' mo';
+      const corrEl = document.getElementById('corr-' + slug);
+      if (corrEl) corrEl.textContent = 'r = ' + (auto.r !== null ? auto.r.toFixed(2) : '—');
+      // Update subtitle in chart title
+      const titleEl = document.querySelector('#card-' + slug + ' .chart-title');
+      if (titleEl) {
+        titleEl.innerHTML = ind.name +
+          ' <span style="color:' + COLORS.secondary + ';font-size:0.7rem;font-weight:600;margin-left:0.5rem;">── ' + ctxInd.name + '</span>';
+      }
+      buildChartInstance(slug, auto.lag);
+    });
+  });
+}
+
+// ── renderChart ──────────────────────────────────────────────────────────────
+function renderChart(slug, containerId) {
   const ind = CC_ECONOMIC_DATA[slug];
   if (!ind) return;
 
@@ -560,40 +865,37 @@ function renderChart(slug, containerId, showContextSeries = true) {
   card.className = 'chart-card';
   card.id = 'card-' + slug;
 
-  const hasPair = LAG_PAIRS[slug] && CC_ECONOMIC_DATA[LAG_PAIRS[slug]];
-  const ctxSlug = LAG_PAIRS[slug];
-  const ctxInd  = hasPair ? CC_ECONOMIC_DATA[ctxSlug] : null;
+  // Use global macro slug; default lag pairs only used for initial best-lag calc
+  const ctxInd = CC_ECONOMIC_DATA[globalMacroSlug];
 
-  // Auto-compute best lag
   let autoLag = { lag: 0, r: null };
-  if (hasPair) {
-    autoLag = bestLag(ind.series, ctxInd.series, 12);
-  }
+  if (ctxInd) autoLag = bestLag(ind.series, ctxInd.series, 12);
+  chartLags[slug] = autoLag.lag;
 
   const lagId  = 'lag-' + slug;
   const corrId = 'corr-' + slug;
   const canvId = 'canvas-' + slug;
 
-  const lagHtml = hasPair ? `
+  const lagHtml = `
     <div class="lag-controls">
       <label for="${lagId}">Lag (context leads by):</label>
       <input type="range" id="${lagId}" class="lag-slider" min="0" max="12" value="${autoLag.lag}"
              oninput="updateLag('${slug}', this.value)">
       <span class="lag-value" id="${lagId}-val">${autoLag.lag} mo</span>
       <span class="lag-corr" id="${corrId}">r = ${autoLag.r !== null ? autoLag.r.toFixed(2) : '—'}</span>
-    </div>` : '';
-
-  const ctxLabel = ctxInd ? ` <span style="color:${COLORS.secondary};font-size:0.7rem;font-weight:600;margin-left:0.5rem;">── ${ctxInd.name}</span>` : '';
+    </div>`;
 
   card.innerHTML = `
     <div class="chart-card-header">
       <div>
-        <div class="chart-title">${ind.name}${ctxLabel}</div>
+        <div class="chart-title">${ind.name}
+          <span style="color:${COLORS.secondary};font-size:0.7rem;font-weight:600;margin-left:0.5rem;">── ${ctxInd ? ctxInd.name : ''}</span>
+        </div>
         <div class="chart-meta">
           <span class="chart-source">${ind.source}</span>
           <span class="freq-badge">${ind.freq}</span>
         </div>
-        ${lagHtml}
+        ${ctxInd ? lagHtml : ''}
       </div>
     </div>
     <div class="chart-wrap"><canvas id="${canvId}"></canvas></div>`;
@@ -602,18 +904,25 @@ function renderChart(slug, containerId, showContextSeries = true) {
   buildChartInstance(slug, autoLag.lag);
 }
 
-function buildChartInstance(slug, lag) {
-  const ind    = CC_ECONOMIC_DATA[slug];
-  const canvId = 'canvas-' + slug;
-  const canvas = document.getElementById(canvId);
-  if (!canvas) return;
+// ── buildChartInstance ───────────────────────────────────────────────────────
+function buildChartInstance(slug, lag, canvasId, primarySlug, macroSlug) {
+  // When called from section charts: slug=primary, uses globalMacroSlug
+  // When called from explorer: canvasId/primarySlug/macroSlug are explicit
+  const isExplorer = !!canvasId;
+  const pSlug = primarySlug || slug;
+  const mSlug = macroSlug   || globalMacroSlug;
+  const cId   = canvasId    || ('canvas-' + slug);
 
-  if (chartInstances[slug]) {
-    chartInstances[slug].destroy();
-  }
+  const ind    = CC_ECONOMIC_DATA[pSlug];
+  const ctxInd = CC_ECONOMIC_DATA[mSlug];
+  const canvas = document.getElementById(cId);
+  if (!canvas || !ind) return;
 
-  const labels    = ind.series.map(p => p.date);
-  const values    = ind.series.map(p => p.value);
+  const instanceKey = canvasId || slug;
+  if (chartInstances[instanceKey]) chartInstances[instanceKey].destroy();
+
+  const labels = ind.series.map(p => p.date);
+  const values = ind.series.map(p => p.value);
 
   const datasets = [{
     label: ind.name,
@@ -628,11 +937,7 @@ function buildChartInstance(slug, lag) {
     yAxisID: 'y',
   }];
 
-  // Context series with lag shift
-  const ctxSlug = LAG_PAIRS[slug];
-  const ctxInd  = ctxSlug ? CC_ECONOMIC_DATA[ctxSlug] : null;
   if (ctxInd) {
-    // Shift context series forward in time by lag months
     const shiftedCtx = ind.series.map(p => {
       const target = new Date(p.date);
       target.setMonth(target.getMonth() - lag);
@@ -654,7 +959,7 @@ function buildChartInstance(slug, lag) {
     });
   }
 
-  chartInstances[slug] = new Chart(canvas, {
+  chartInstances[instanceKey] = new Chart(canvas, {
     type: 'line',
     data: { labels, datasets },
     options: {
@@ -662,16 +967,14 @@ function buildChartInstance(slug, lag) {
       maintainAspectRatio: false,
       interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: {
-          display: !!ctxInd,
-          position: 'top',
-          labels: { boxWidth: 12, font: { size: 10 }, color: '#5a6b7d' }
-        },
+        legend: { display: !!ctxInd, position: 'top',
+          labels: { boxWidth: 12, font: { size: 10 }, color: '#5a6b7d' } },
         tooltip: {
           callbacks: {
             label: ctx => {
               const v = ctx.raw;
               const dsInd = ctx.datasetIndex === 0 ? ind : ctxInd;
+              if (!dsInd) return '';
               return ` ${dsInd.name}: ${formatVal(v, dsInd.format)}`;
             }
           }
@@ -680,12 +983,8 @@ function buildChartInstance(slug, lag) {
       scales: {
         x: {
           type: 'category',
-          ticks: {
-            maxTicksLimit: 8,
-            font: { size: 10 },
-            color: '#94a3b8',
-            maxRotation: 0,
-            callback: (val, idx, ticks) => {
+          ticks: { maxTicksLimit: 8, font: { size: 10 }, color: '#94a3b8', maxRotation: 0,
+            callback: (val, idx) => {
               const d = new Date(labels[idx]);
               return d.toLocaleDateString('en-AU', { month: 'short', year: '2-digit' });
             }
@@ -711,22 +1010,216 @@ function buildChartInstance(slug, lag) {
   });
 }
 
+// ── updateLag (section charts) ───────────────────────────────────────────────
 function updateLag(slug, lagStr) {
-  const lag = parseInt(lagStr);
-  const lagId  = 'lag-' + slug;
-  const corrId = 'corr-' + slug;
-  document.getElementById(lagId + '-val').textContent = lag + ' mo';
-
-  const ctxSlug = LAG_PAIRS[slug];
-  const ctxInd  = ctxSlug ? CC_ECONOMIC_DATA[ctxSlug] : null;
-  const ind     = CC_ECONOMIC_DATA[slug];
-
-  if (ctxInd) {
+  const lag    = parseInt(lagStr);
+  chartLags[slug] = lag;
+  const lagValEl = document.getElementById('lag-' + slug + '-val');
+  if (lagValEl) lagValEl.textContent = lag + ' mo';
+  const corrEl = document.getElementById('corr-' + slug);
+  const ctxInd = CC_ECONOMIC_DATA[globalMacroSlug];
+  const ind    = CC_ECONOMIC_DATA[slug];
+  if (corrEl && ctxInd && ind) {
     const r = crossCorr(ind.series, ctxInd.series, lag);
-    document.getElementById(corrId).textContent = 'r = ' + (r !== null ? r.toFixed(2) : '—');
+    corrEl.textContent = 'r = ' + (r !== null ? r.toFixed(2) : '—');
+  }
+  buildChartInstance(slug, lag);
+}
+
+// ── Pearson r at lag=0 (for correlation panel) ───────────────────────────────
+function pearsonR(slugA, slugB) {
+  const a = CC_ECONOMIC_DATA[slugA];
+  const b = CC_ECONOMIC_DATA[slugB];
+  if (!a || !b) return null;
+  const bMap = {};
+  b.series.forEach(p => { if (p.value !== null) bMap[p.date.slice(0,7)] = p.value; });
+  const pairs = [];
+  a.series.forEach(p => {
+    if (p.value === null) return;
+    const bv = bMap[p.date.slice(0,7)];
+    if (bv !== undefined) pairs.push([p.value, bv]);
+  });
+  if (pairs.length < 10) return null;
+  const n  = pairs.length;
+  const mx = pairs.reduce((s, p) => s + p[0], 0) / n;
+  const my = pairs.reduce((s, p) => s + p[1], 0) / n;
+  const num = pairs.reduce((s, p) => s + (p[0]-mx)*(p[1]-my), 0);
+  const dx  = Math.sqrt(pairs.reduce((s, p) => s + (p[0]-mx)**2, 0));
+  const dy  = Math.sqrt(pairs.reduce((s, p) => s + (p[1]-my)**2, 0));
+  if (dx === 0 || dy === 0) return null;
+  return num / (dx * dy);
+}
+
+// ── Correlation Panel ────────────────────────────────────────────────────────
+let corrBarChart = null;
+
+function buildCorrelationPanel() {
+  const anchorSlug = document.getElementById('corr-indicator-select').value;
+  if (!anchorSlug) return;
+
+  // Compute r against all other indicators
+  const results = [];
+  Object.keys(CC_ECONOMIC_DATA).forEach(slug => {
+    if (slug === anchorSlug) return;
+    const r = pearsonR(anchorSlug, slug);
+    if (r === null || Math.abs(r) < 0.2) return;
+    results.push({ slug, name: CC_ECONOMIC_DATA[slug].name, r });
+  });
+  results.sort((a, b) => b.r - a.r);
+
+  // Bar chart
+  if (corrBarChart) corrBarChart.destroy();
+  const barCanvas = document.getElementById('corr-bar-chart');
+  const barLabels = results.map(d => d.name);
+  const barValues = results.map(d => parseFloat(d.r.toFixed(3)));
+  const barColors = results.map(d => d.r >= 0 ? 'rgba(39,174,96,0.75)' : 'rgba(192,57,43,0.75)');
+  const barBorders = results.map(d => d.r >= 0 ? '#27ae60' : '#c0392b');
+
+  corrBarChart = new Chart(barCanvas, {
+    type: 'bar',
+    data: {
+      labels: barLabels,
+      datasets: [{ label: 'Pearson r', data: barValues,
+        backgroundColor: barColors, borderColor: barBorders, borderWidth: 1 }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: {
+          label: ctx => ' r = ' + ctx.raw.toFixed(3)
+        }}
+      },
+      scales: {
+        x: { min: -1, max: 1, ticks: { font: { size: 10 } },
+          grid: { color: '#f0f4f8' } },
+        y: { ticks: { font: { size: 10 }, color: '#1a2533' } }
+      }
+    }
+  });
+
+  // Dynamically set canvas height
+  barCanvas.parentElement.style.height = Math.max(200, results.length * 28) + 'px';
+
+  // Ranked list
+  const listEl = document.getElementById('corr-list');
+  const pos = results.filter(d => d.r >= 0);
+  const neg = results.filter(d => d.r < 0).reverse(); // worst first
+
+  let html = '';
+  if (pos.length) {
+    html += '<div class="corr-group-title pos">&#9650; Positively correlated</div>';
+    pos.forEach(d => {
+      html += `<div class="corr-row">
+        <span class="corr-row-name">${d.name}</span>
+        <span class="corr-row-r pos">r = ${d.r.toFixed(2)}</span>
+        <button class="btn-plot" onclick="plotInExplorer('${anchorSlug}','${d.slug}')">Plot</button>
+      </div>`;
+    });
+  }
+  if (neg.length) {
+    html += '<div class="corr-group-title neg" style="margin-top:0.75rem;">&#9660; Negatively correlated</div>';
+    neg.forEach(d => {
+      html += `<div class="corr-row">
+        <span class="corr-row-name">${d.name}</span>
+        <span class="corr-row-r neg">r = ${d.r.toFixed(2)}</span>
+        <button class="btn-plot" onclick="plotInExplorer('${anchorSlug}','${d.slug}')">Plot</button>
+      </div>`;
+    });
+  }
+  if (!html) html = '<p style="color:var(--cc-muted);font-size:0.85rem;padding:0.5rem 0;">No strong correlations found (|r| ≥ 0.2).</p>';
+  listEl.innerHTML = html;
+}
+
+// ── Data Explorer ────────────────────────────────────────────────────────────
+let explorerChart = null;
+
+function populateExplorerDropdowns() {
+  const regSel  = document.getElementById('exp-regional');
+  const macSel  = document.getElementById('exp-macro');
+  const corrSel = document.getElementById('corr-indicator-select');
+
+  LOCAL_SLUGS.forEach(slug => {
+    const ind = CC_ECONOMIC_DATA[slug];
+    if (!ind) return;
+    const opt = document.createElement('option');
+    opt.value = slug; opt.textContent = ind.name;
+    regSel.appendChild(opt);
+    const opt2 = opt.cloneNode(true);
+    corrSel.appendChild(opt2);
+  });
+
+  MACRO_OPTIONS.forEach(({ slug, label }) => {
+    const opt = document.createElement('option');
+    opt.value = slug; opt.textContent = label;
+    macSel.appendChild(opt);
+  });
+}
+
+function updateExplorer() {
+  const rSlug = document.getElementById('exp-regional').value;
+  const mSlug = document.getElementById('exp-macro').value;
+  const lag   = parseInt(document.getElementById('exp-lag').value);
+
+  const rInd = CC_ECONOMIC_DATA[rSlug];
+  const mInd = CC_ECONOMIC_DATA[mSlug];
+  if (!rInd || !mInd) return;
+
+  const r = crossCorr(rInd.series, mInd.series, lag);
+  document.getElementById('exp-corr').textContent = 'r = ' + (r !== null ? r.toFixed(2) : '—');
+  buildChartInstance(null, lag, 'explorer-canvas', rSlug, mSlug);
+}
+
+function updateExplorerLag() {
+  const lag = parseInt(document.getElementById('exp-lag').value);
+  document.getElementById('exp-lag-val').textContent = lag + ' mo';
+  updateExplorer();
+}
+
+function resetExplorer() {
+  document.getElementById('exp-regional').selectedIndex = 0;
+  document.getElementById('exp-macro').selectedIndex    = 0;
+  document.getElementById('exp-lag').value = '0';
+  document.getElementById('exp-lag-val').textContent = '0 mo';
+  document.getElementById('exp-corr').textContent = 'r = —';
+  if (chartInstances['explorer-canvas']) {
+    chartInstances['explorer-canvas'].destroy();
+    delete chartInstances['explorer-canvas'];
+  }
+  updateExplorer();
+}
+
+function plotInExplorer(regionalSlug, compareSlug) {
+  // If compareSlug is a context indicator, put it in macro dropdown
+  // Otherwise put it in regional and use globalMacro for compare
+  const compareInd = CC_ECONOMIC_DATA[compareSlug];
+  const regSel  = document.getElementById('exp-regional');
+  const macSel  = document.getElementById('exp-macro');
+  const lagEl   = document.getElementById('exp-lag');
+
+  // Try to set regional
+  for (let opt of regSel.options) { if (opt.value === regionalSlug) { regSel.value = regionalSlug; break; } }
+  // Try to set macro (compare) — if not available in macro list, find best available
+  let macSet = false;
+  for (let opt of macSel.options) { if (opt.value === compareSlug) { macSel.value = compareSlug; macSet = true; break; } }
+  if (!macSet) {
+    // compare slug is another local indicator — just use current global macro
+    for (let opt of macSel.options) { if (opt.value === globalMacroSlug) { macSel.value = globalMacroSlug; break; } }
   }
 
-  buildChartInstance(slug, lag);
+  // Auto-find best lag
+  const rInd = CC_ECONOMIC_DATA[regionalSlug];
+  const mInd = CC_ECONOMIC_DATA[macSel.value];
+  if (rInd && mInd) {
+    const auto = bestLag(rInd.series, mInd.series, 12);
+    lagEl.value = auto.lag;
+    document.getElementById('exp-lag-val').textContent = auto.lag + ' mo';
+  }
+
+  updateExplorer();
+  document.getElementById('explorer').scrollIntoView({ behavior: 'smooth' });
 }
 
 // ── Build all sections ───────────────────────────────────────────────────────
@@ -742,13 +1235,13 @@ function buildAllSections() {
 
 // ── Nav active state ─────────────────────────────────────────────────────────
 function initNavScroll() {
-  const sections = ['overview','economy','housing','transport','tourism','context'];
+  const sections = ['overview','economy','housing','transport','tourism','correlation','context','explorer'];
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         navLinks.forEach(a => a.classList.remove('active'));
-        const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        const link = document.querySelector('nav a[href="#' + entry.target.id + '"]');
         if (link) link.classList.add('active');
       }
     });
@@ -761,16 +1254,11 @@ function initNavScroll() {
 
 // ── Export ───────────────────────────────────────────────────────────────────
 function exportReport(format) {
-  // Phase 1: print-to-PDF via browser / server-side endpoint stub
-  if (format === 'pdf') {
-    window.print();
-    return;
-  }
-  // DOCX: will be implemented via proxy endpoint in Phase 2
+  if (format === 'pdf') { window.print(); return; }
   alert('Word (DOCX) export will be available once the server-side export endpoint is configured.\n\nFor now, use PDF export via the browser print dialog.');
 }
 
-// ── Utility ───────────────────────────────────────────────────────────────────
+// ── Utility ──────────────────────────────────────────────────────────────────
 function hexToRgba(hex, alpha) {
   const r = parseInt(hex.slice(1,3), 16);
   const g = parseInt(hex.slice(3,5), 16);
@@ -778,11 +1266,14 @@ function hexToRgba(hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`;
 }
 
-// ── Init ───────────────────────────────────────────────────────────────────────
+// ── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   buildScorecard();
   buildAllSections();
+  populateExplorerDropdowns();
+  buildCorrelationPanel();
   initNavScroll();
+  updateExplorer();
   document.getElementById('footer-date').textContent =
     'Generated: ' + new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 });
