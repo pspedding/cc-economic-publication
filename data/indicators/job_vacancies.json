@@ -6,7 +6,7 @@
   "section": "economy",
   "group": "local",
   "source": "Jobs & Skills Australia IVI",
-  "format": "decimal_1",
+  "format": "integer",
   "description": "Online job vacancy index \u2014 proxy for employer demand on the Coast.",
   "contextSeries": [
     "unemployment"

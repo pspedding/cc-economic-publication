@@ -1,12 +1,12 @@
 {
   "slug": "retail_discretionary",
   "name": "Discretionary Retail Spend",
-  "unit": "index",
+  "unit": "AUD",
   "freq": "monthly",
   "section": "economy",
   "group": "local",
   "source": "CommBank IQ",
-  "format": "decimal_1",
+  "format": "dollar_millions",
   "description": "Discretionary (non-essential) retail card spend index.",
   "contextSeries": [
     "cash_rate"

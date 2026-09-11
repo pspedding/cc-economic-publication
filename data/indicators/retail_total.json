@@ -1,12 +1,12 @@
 {
   "slug": "retail_total",
   "name": "Total Retail Spend",
-  "unit": "index",
+  "unit": "AUD",
   "freq": "monthly",
   "section": "economy",
   "group": "local",
   "source": "CommBank IQ",
-  "format": "decimal_1",
+  "format": "dollar_millions",
   "description": "Total retail card spend index for the Central Coast.",
   "contextSeries": [
     "cash_rate",

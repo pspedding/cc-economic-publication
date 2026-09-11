@@ -1,12 +1,12 @@
 {
   "slug": "retail_tourism",
   "name": "Tourism & Entertainment Spend",
-  "unit": "index",
+  "unit": "AUD",
   "freq": "monthly",
   "section": "tourism",
   "group": "local",
   "source": "CommBank IQ",
-  "format": "decimal_1",
+  "format": "dollar_millions",
   "description": "Tourism and entertainment card spend index \u2014 visitor economy proxy.",
   "contextSeries": [
     "airbnb_revenue"

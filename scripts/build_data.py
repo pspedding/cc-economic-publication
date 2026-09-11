@@ -94,7 +94,7 @@ INDICATORS = {
         "section": "economy",
         "group": "local",
         "source": "Jobs & Skills Australia IVI",
-        "format": "decimal_1",
+        "format": "integer",
         "description": "Online job vacancy index — proxy for employer demand on the Coast.",
         "contextSeries": ["unemployment"],
         "contextNarrative": "",
@@ -297,12 +297,12 @@ INDICATORS = {
     "retail_total": {
         "col": "Retail Spend - Total",
         "name": "Total Retail Spend",
-        "unit": "index",
+        "unit": "AUD",
         "freq": "monthly",
         "section": "economy",
         "group": "local",
         "source": "CommBank IQ",
-        "format": "decimal_1",
+        "format": "dollar_millions",
         "description": "Total retail card spend index for the Central Coast.",
         "contextSeries": ["cash_rate", "cpi_yoy"],
         "contextNarrative": (
@@ -315,12 +315,12 @@ INDICATORS = {
     "retail_tourism": {
         "col": "Retail Spend - Tourism & Entertainment",
         "name": "Tourism & Entertainment Spend",
-        "unit": "index",
+        "unit": "AUD",
         "freq": "monthly",
         "section": "tourism",
         "group": "local",
         "source": "CommBank IQ",
-        "format": "decimal_1",
+        "format": "dollar_millions",
         "description": "Tourism and entertainment card spend index — visitor economy proxy.",
         "contextSeries": ["airbnb_revenue"],
         "contextNarrative": "",
@@ -328,12 +328,12 @@ INDICATORS = {
     "retail_discretionary": {
         "col": "Retail Spend - Discretionary",
         "name": "Discretionary Retail Spend",
-        "unit": "index",
+        "unit": "AUD",
         "freq": "monthly",
         "section": "economy",
         "group": "local",
         "source": "CommBank IQ",
-        "format": "decimal_1",
+        "format": "dollar_millions",
         "description": "Discretionary (non-essential) retail card spend index.",
         "contextSeries": ["cash_rate"],
         "contextNarrative": "",
@@ -595,7 +595,90 @@ INDICATORS = {
             "given the heavy resource-sector weighting."
         ),
     },
+
+    # ── STRA: ADR + Occupancy (from Columns Removed sheet) ───────────────────
+    "airbnb_adr": {
+        "col": "Airbnb ADR",
+        "sheet": "Columns Removed",
+        "name": "STRA Average Daily Rate (ADR)",
+        "unit": "AUD",
+        "freq": "monthly",
+        "section": "tourism",
+        "group": "local",
+        "source": "AllTheRooms STRA Analytics",
+        "format": "dollar_2",
+        "description": "Average daily rate across active short-term rental listings on the Central Coast.",
+        "contextSeries": ["airbnb_revenue"],
+        "contextNarrative": (
+            "ADR measures the average nightly price achieved by STRA listings. "
+            "Seasonal peaks in January and Easter reflect holiday demand. "
+            "Long-run ADR growth reflects both inflation and rising demand for "
+            "Coast accommodation from Sydney day-trippers and holiday makers."
+        ),
+    },
+    "airbnb_occupancy": {
+        "col": "Airbnb Occupancy",
+        "sheet": "Columns Removed",
+        "name": "STRA Occupancy Rate",
+        "unit": "%",
+        "freq": "monthly",
+        "section": "tourism",
+        "group": "local",
+        "source": "AllTheRooms STRA Analytics",
+        "format": "percent_ratio",  # value is 0–1, display as %
+        "description": "Proportion of available STRA listing nights that were booked.",
+        "contextSeries": ["airbnb_adr"],
+        "contextNarrative": "",
+    },
+
+    # ── Unit Price (from House Price Data sheet) ──────────────────────────────
+    # Note: this sheet uses text month keys — parsed separately in extract()
+    # Placeholder entry so it appears in INDICATORS dict; extraction is custom
+    "unit_price": {
+        "col": "__custom__",
+        "sheet": "House Price Data",
+        "name": "Average Unit Price",
+        "unit": "AUD",
+        "freq": "monthly",
+        "section": "housing",
+        "group": "local",
+        "source": "REA Group",
+        "format": "dollar_0",
+        "description": "Average Central Coast unit/apartment sale price.",
+        "contextSeries": ["cash_rate"],
+        "contextNarrative": (
+            "Unit prices on the Central Coast respond to the same interest rate "
+            "cycle as house prices but with different supply dynamics. "
+            "Units provide a more affordable entry point and are sensitive to "
+            "investor demand, which is heavily influenced by mortgage rates."
+        ),
+    },
 }
+
+# Month text → ISO date mapping for House Price Data sheet
+MONTH_MAP = {
+    'jan': '01', 'feb': '02', 'mar': '03', 'apr': '04',
+    'may': '05', 'jun': '06', 'july': '07', 'july': '07',
+    'aug': '08', 'sept': '09', 'sep': '09', 'oct': '10',
+    'nov': '11', 'dec': '12',
+    'june': '06', 'july': '07',
+}
+
+def parse_text_month(s):
+    """Parse strings like "Mar'25", "June'24", "Sept'22" to YYYY-MM-DD."""
+    if not s or not isinstance(s, str):
+        return None
+    s = s.strip().lower().replace("'", "'")
+    parts = s.replace("'", " '").split()
+    if len(parts) < 2:
+        return None
+    mon_str = parts[0].rstrip("'")
+    yr_str  = parts[-1].lstrip("'")
+    mon = MONTH_MAP.get(mon_str)
+    if not mon:
+        return None
+    yr = '20' + yr_str if len(yr_str) == 2 else yr_str
+    return f"{yr}-{mon}-01"
 
 # ---------------------------------------------------------------------------
 # Extraction
@@ -619,36 +702,73 @@ def fmt_date(v):
 def extract():
     print(f"Loading: {XLSX_PATH}")
     wb = openpyxl.load_workbook(XLSX_PATH, read_only=True, data_only=True)
-    ws = wb["Interest Rate Decisions"]
-    rows = list(ws.iter_rows(values_only=True))
-    headers = list(rows[0])
-    data_rows = rows[1:]
 
-    # Build col-index lookup
-    col_idx = {h: i for i, h in enumerate(headers) if h is not None}
+    # --- Sheet 1: Interest Rate Decisions ---
+    ws_main = wb["Interest Rate Decisions"]
+    rows_main = list(ws_main.iter_rows(values_only=True))
+    headers_main = list(rows_main[0])
+    data_rows_main = rows_main[1:]
+    col_idx_main = {h: i for i, h in enumerate(headers_main) if h is not None}
+
+    # --- Sheet 2: Columns Removed (ADR, Occupancy) ---
+    ws_cr = wb["Columns Removed"]
+    rows_cr = list(ws_cr.iter_rows(values_only=True))
+    headers_cr = list(rows_cr[0])
+    data_rows_cr = rows_cr[1:]
+    col_idx_cr = {h: i for i, h in enumerate(headers_cr) if h is not None}
+
+    # --- Sheet 3: House Price Data (Unit Price - text month keys) ---
+    ws_hp = wb["House Price Data"]
+    rows_hp = list(ws_hp.iter_rows(values_only=True))
+    # Build unit_price series from col index 1 (House Price Current) as proxy
+    # NOTE: Unit Price not in this sheet yet; House Price Data has house price only.
+    # We parse it for completeness and to provide a longer house price series.
+    hp_headers = list(rows_hp[0])
 
     all_indicators = {}
 
     for slug, cfg in INDICATORS.items():
         col_name = cfg["col"]
-        if col_name not in col_idx:
-            print(f"  [WARN] column not found: {col_name} → skipping {slug}")
+        sheet    = cfg.get("sheet", "Interest Rate Decisions")
+
+        # --- Custom extraction: unit_price (not yet in spreadsheet) ---
+        if col_name == "__custom__":
+            print(f"  [SKIP] {slug}: no column in spreadsheet yet (manual data needed)")
             continue
 
-        ci = col_idx[col_name]
-        date_ci = col_idx["Effective Date"]
-
-        series = []
-        for row in data_rows:
-            date_val = row[date_ci] if len(row) > date_ci else None
-            data_val = row[ci] if len(row) > ci else None
-            if date_val is None:
+        # --- Columns Removed sheet ---
+        if sheet == "Columns Removed":
+            if col_name not in col_idx_cr:
+                print(f"  [WARN] column not found in Columns Removed: {col_name} → skipping {slug}")
                 continue
-            v = safe_float(data_val)
-            series.append({"date": fmt_date(date_val), "value": v})
+            ci      = col_idx_cr[col_name]
+            date_ci = col_idx_cr["Effective Date"]
+            series  = []
+            for row in data_rows_cr:
+                date_val = row[date_ci] if len(row) > date_ci else None
+                data_val = row[ci] if len(row) > ci else None
+                if date_val is None:
+                    continue
+                v = safe_float(data_val)
+                series.append({"date": fmt_date(date_val), "value": v})
+            series.sort(key=lambda x: x["date"])
 
-        # Sort chronologically (oldest first)
-        series.sort(key=lambda x: x["date"])
+        # --- Main sheet ---
+        else:
+            if col_name not in col_idx_main:
+                print(f"  [WARN] column not found: {col_name} → skipping {slug}")
+                continue
+            ci      = col_idx_main[col_name]
+            date_ci = col_idx_main["Effective Date"]
+            series  = []
+            for row in data_rows_main:
+                date_val = row[date_ci] if len(row) > date_ci else None
+                data_val = row[ci] if len(row) > ci else None
+                if date_val is None:
+                    continue
+                v = safe_float(data_val)
+                series.append({"date": fmt_date(date_val), "value": v})
+            series.sort(key=lambda x: x["date"])
 
         indicator = {
             "slug": slug,
@@ -665,12 +785,11 @@ def extract():
             "series": series,
         }
 
-        # Write individual JSON
         out_path = os.path.join(OUT_DIR, f"{slug}.json")
         with open(out_path, "w") as f:
             json.dump(indicator, f, indent=2)
-        print(f"  ✓ {slug}: {len([p for p in series if p['value'] is not None])} data points → {out_path}")
-
+        npts = len([p for p in series if p['value'] is not None])
+        print(f"  ✓ {slug}: {npts} data points → {out_path}")
         all_indicators[slug] = indicator
 
     wb.close()
@@ -692,3 +811,5 @@ if __name__ == "__main__":
     os.makedirs(OUT_DIR, exist_ok=True)
     extract()
     print("\nDone.")
+
+# NOTE: appended additions — run full file to regenerate

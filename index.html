@@ -560,7 +560,7 @@
       <span class="section-tag">Local</span>
     </div>
     <div class="context-narrative" id="narrative-transport">
-      Vehicle registration data tracks both consumer confidence and the transition to electric vehicles. Oil price movements are a key driver of EV uptake, with observable lags of 1–2 months between a fuel price signal and new registration behaviour.
+      Vehicle registration data tracks both consumer confidence and fleet renewal. Total, private and business registrations are available from Transport for NSW. <strong>Note:</strong> EV-specific registration data is not yet included in the source spreadsheet — it will be added in the next data refresh once the EV breakdown column is available.
     </div>
     <div class="chart-grid" id="charts-transport"></div>
   </section>
@@ -666,9 +666,9 @@ const SECTION_MAP = {
               'jobseeker', 'job_vacancies', 'retail_total', 'retail_discretionary',
               'business_confidence_cc'],
   housing:   ['house_price', 'house_price_yoy', 'house_rent', 'vacancy_rate',
-              'interested_buyers', 'building_approvals_n', 'cra_recipients'],
+              'building_approvals_n', 'cra_recipients'],
   transport: ['vehicles_total', 'vehicles_private', 'vehicles_business'],
-  tourism:   ['airbnb_revenue', 'airbnb_revpal', 'retail_tourism'],
+  tourism:   ['airbnb_revenue', 'airbnb_revpal', 'airbnb_adr', 'airbnb_occupancy', 'retail_tourism'],
   context:   ['cash_rate', 'cpi_yoy', 'us_fed_rate', 'avg_mortgage_rate',
               'bond_yield_10yr', 'aud_usd', 'oil_price', 'iron_ore',
               'asx200', 'bulk_commodities'],
@@ -702,9 +702,11 @@ const chartLags = {};      // slug → current lag (integer)
 // ── Scorecard config ─────────────────────────────────────────────────────────
 const SCORECARD_SLUGS = [
   { slug: 'unemployment',      label: 'Unemployment Rate' },
+  { slug: 'job_vacancies',     label: 'Job Vacancies' },
   { slug: 'house_price',       label: 'Avg House Price' },
   { slug: 'house_rent',        label: 'Avg Weekly Rent' },
   { slug: 'vacancy_rate',      label: 'Vacancy Rate' },
+  { slug: 'retail_total',      label: 'Total Retail Spend' },
   { slug: 'cash_rate',         label: 'Cash Rate' },
   { slug: 'cpi_yoy',           label: 'CPI (YoY)' },
   { slug: 'vehicles_total',    label: 'New Vehicles (mo)' },
@@ -724,13 +726,15 @@ const DEFAULT_LAG_PAIRS = {
 function formatVal(v, fmt) {
   if (v === null || v === undefined) return '—';
   switch (fmt) {
-    case 'percent_direct': return v.toFixed(2) + '%';
-    case 'dollar_0':   return '$' + Math.round(v).toLocaleString('en-AU');
-    case 'dollar_2':   return '$' + v.toFixed(2);
-    case 'decimal_1':  return v.toFixed(1);
-    case 'decimal_2':  return v.toFixed(2);
-    case 'decimal_4':  return v.toFixed(4);
-    case 'integer':    return Math.round(v).toLocaleString('en-AU');
+    case 'percent_direct':  return v.toFixed(2) + '%';
+    case 'percent_ratio':   return (v * 100).toFixed(1) + '%';
+    case 'dollar_0':        return '$' + Math.round(v).toLocaleString('en-AU');
+    case 'dollar_2':        return '$' + v.toFixed(2);
+    case 'dollar_millions': return '$' + (v / 1e6).toFixed(1) + 'M';
+    case 'decimal_1':       return v.toFixed(1);
+    case 'decimal_2':       return v.toFixed(2);
+    case 'decimal_4':       return v.toFixed(4);
+    case 'integer':         return Math.round(v).toLocaleString('en-AU');
     default:           return String(v);
   }
 }
