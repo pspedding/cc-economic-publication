@@ -782,10 +782,10 @@ function crossCorr(x, y, lag) {
 }
 
 function bestLag(x, y, maxLag = 12) {
-  let best = { lag: 0, r: -Infinity };
+  let best = { lag: 0, r: null };
   for (let lag = 0; lag <= maxLag; lag++) {
     const r = crossCorr(x, y, lag);
-    if (r !== null && Math.abs(r) > Math.abs(best.r)) best = { lag, r };
+    if (r !== null && (best.r === null || Math.abs(r) > Math.abs(best.r))) best = { lag, r };
   }
   return best;
 }
