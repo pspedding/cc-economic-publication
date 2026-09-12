@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Central Coast Economic Indicators</title>
+<!-- GoatCounter analytics -->
+<script data-goatcounter="https://seechange.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script src="data/data.js?v=20260911b"></script>
@@ -298,6 +301,46 @@
     margin-top: 3rem;
   }
   footer strong { color: white; }
+  footer a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+  footer a:hover { color: white; }
+
+  /* ── Info modal ──────────────────────────────────────────────────────── */
+  .info-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.45); z-index: 2000; align-items: center; justify-content: center;
+  }
+  .info-overlay.open { display: flex; }
+  .info-modal {
+    background: white; border-radius: 10px; width: 720px; max-width: 96vw;
+    max-height: 85vh; display: flex; flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  }
+  .info-modal-header {
+    background: var(--cc-navy); color: white; padding: 14px 18px;
+    border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center;
+  }
+  .info-modal-header h2 { font-size: 1rem; font-weight: 600; }
+  .info-close { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; line-height: 1; }
+  .info-search { padding: 10px 16px; border-bottom: 1px solid #eee; }
+  .info-search input { width: 100%; padding: 7px 10px; border: 1px solid #ccd; border-radius: 5px; font-size: 0.85rem; }
+  .info-table-wrap { overflow-y: auto; flex: 1; }
+  table.info-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  table.info-table th { background: #f0f4f8; padding: 8px 12px; text-align: left; font-weight: 600; color: #444; border-bottom: 2px solid #dde; position: sticky; top: 0; }
+  table.info-table td { padding: 7px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  table.info-table tr:hover td { background: #f7f9fc; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 0.7rem; font-weight: 600; }
+  .badge-monthly { background: #dbeafe; color: #1d4ed8; }
+  .badge-quarterly { background: #dcfce7; color: #166534; }
+  .badge-annual { background: #fef9c3; color: #854d0e; }
+  .badge-gap { background: #f3e8ff; color: #6b21a8; }
+  .btn-info {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4);
+    color: white; border-radius: 50%; width: 32px; height: 32px;
+    font-size: 1rem; cursor: pointer; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1; margin-left: 0.5rem;
+  }
+  .btn-info:hover { background: rgba(255,255,255,0.28); }
 
   /* ── Macro dropdown in header ──────────────────────────────────────────── */
   .macro-dropdown-wrap {
@@ -501,6 +544,7 @@
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v1H8v-1zm0 3h8v1H8v-1zm0-6h3v1H8v-1z"/></svg>
         Word
       </button>
+      <button class="btn-info" onclick="toggleInfo()" title="Indicator Definitions &amp; Metadata">ℹ</button>
       <button class="btn-export" onclick="exportReport('pdf')" title="Download PDF">
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM11.5 18H10v-5h1.5c1.1 0 2 .9 2 2v1c0 1.1-.9 2-2 2zm3.5-5h1v1h-1v1h1v1h-1v2h-1v-5h2v1h-1zm-8 0h1.5c.83 0 1.5.67 1.5 1.5S8.83 16 8 16H7.5v2h-1v-5zm1 2h.5c.28 0 .5-.22.5-.5s-.22-.5-.5-.5H7.5v1z"/></svg>
         PDF
@@ -643,10 +687,30 @@
 
 </main>
 
+<!-- ── Info Modal ── -->
+<div class="info-overlay" id="info-overlay" onclick="if(event.target===this)toggleInfo()">
+  <div class="info-modal">
+    <div class="info-modal-header">
+      <h2>Indicator Definitions &amp; Metadata</h2>
+      <button class="info-close" onclick="toggleInfo()">✕</button>
+    </div>
+    <div class="info-search">
+      <input type="text" id="info-search" placeholder="Search indicators…" oninput="filterInfoTable(this.value)" />
+    </div>
+    <div class="info-table-wrap">
+      <table class="info-table" id="info-table">
+        <thead><tr><th>Indicator</th><th>Content Area</th><th>Source</th><th>Frequency</th><th>Scope</th></tr></thead>
+        <tbody id="info-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 <footer>
   <strong>Central Coast Economic Indicators</strong> · Economic Development Unit · Central Coast Council<br>
   Data sources: ABS, RBA, REA Group, Transport for NSW, CommBank IQ, AllTheRooms, DSS, Business NSW, SQM Research<br>
-  <span id="footer-date"></span>
+  <span id="footer-date"></span><br><br>
+  <a href="https://public.tableau.com/app/profile/central.coast.council/viz/CashRateEconomicDataModel-CentralCoastLGA/CashRateAnalysis" target="_blank" rel="noopener">For more information, view the full Tableau dashboard ↗</a>
 </footer>
 
 <script>
@@ -1229,6 +1293,84 @@ function plotInExplorer(regionalSlug, compareSlug) {
 }
 
 // ── Build all sections ───────────────────────────────────────────────────────
+// ── Indicator metadata (from spreadsheet) ──────────────────────────────────
+const INDICATOR_META = [
+  { name: 'Airbnb ADR',                                  contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Airbnb Gross Revenue',                        contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Airbnb Occupancy Rate',                       contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Airbnb RevPAL',                               contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'ASX 200 (month-end close)',                   contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'AU 10yr Govt Bond Yield (%)',                 contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'AUD/USD',                                     contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
+  { name: 'Avg Mortgage Rate - Outstanding, All Inst (%)', contentArea: 'Macroeconomic',    source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'Average House Price',                         contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Average House Rent (P/W)',                    contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Average Unit Price',                          contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Building Approvals - New Houses',             contentArea: 'Housing',             source: 'ABS Building Approvals',         frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Building Approvals - New Houses ($000)',      contentArea: 'Housing',             source: 'ABS Building Approvals',         frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Business NSW - CC Business Confidence',      contentArea: 'Business Confidence', source: 'Business NSW',                   frequency: 'Quarterly', scope: 'Central Coast' },
+  { name: 'Business NSW - CC Rank vs 17 Regions',       contentArea: 'Business Confidence', source: 'Business NSW',                   frequency: 'Quarterly', scope: 'Central Coast' },
+  { name: 'Business NSW - NSW Business Confidence',     contentArea: 'Business Confidence', source: 'Business NSW',                   frequency: 'Quarterly', scope: 'NSW' },
+  { name: 'Business Vehicles',                           contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Cash Rate Target (%)',                        contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'Change % Points',                             contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'Commercial DA Applications Assessed',         contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Commercial DA Value',                         contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Commonwealth Rent Assistance Recipients',     contentArea: 'Socio-Economic',      source: 'DSS Benefit Recipients',         frequency: 'Quarterly', scope: 'Central Coast' },
+  { name: 'Company Insolvencies (ASIC)',                 contentArea: 'Insolvencies',        source: 'ASIC',                           frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'CPI Year over Year % Change',                 contentArea: 'Macroeconomic',       source: 'ABS CPI',                        frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'CRB Commodity Index',                         contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
+  { name: 'Employment to Population Ratio',              contentArea: 'Economy',             source: 'ABS Labour Force Survey',        frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'EVs (Electric Vehicles)',                     contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'House Price YoY (%)',                         contentArea: 'Economy',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Investor Housing Credit (AUD $B)',            contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'Iron Ore Spot Price (USD/t)',                 contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
+  { name: 'Job Vacancies',                               contentArea: 'Economy',             source: 'IVI Job Vacancies',              frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Jobseeker Recipients',                        contentArea: 'Economy',             source: 'DSS / Jobseeker',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Labor Force Unemployment %',                 contentArea: 'Economy',             source: 'ABS Labour Force Survey',        frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Labour Force Participation Rate',             contentArea: 'Economy',             source: 'ABS Labour Force Survey',        frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Oil Price (USD/bbl)',                         contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
+  { name: 'Owner-Occupier Housing Credit (AUD $B)',     contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'Personal Insolvencies (AFSA)',                contentArea: 'Insolvencies',        source: 'AFSA',                           frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Private Vehicles',                            contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'RBA Bulk Commodities Index - AUD',           contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'RBA Trade-Weighted Index (TWI)',              contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
+  { name: 'Residential DA Applications Assessed',        contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Residential DA Value',                        contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Residential Vacancy Rate',                    contentArea: 'Housing',             source: 'Property Market (SQM Research)', frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Retail Spend - Discretionary',                contentArea: 'Economy',             source: 'CommBank IQ Retail Spend',       frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Retail Spend - Total',                        contentArea: 'Economy',             source: 'CommBank IQ Retail Spend',       frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Retail Spend - Tourism & Entertainment',     contentArea: 'Economy',             source: 'CommBank IQ Retail Spend',       frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Total DA Applications Assessed',              contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Total DA Value',                              contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'Total New Vehicle Registrations',             contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
+  { name: 'US Fed Funds Rate (%)',                       contentArea: 'Macroeconomic',       source: 'US Federal Reserve',             frequency: 'Monthly',   scope: 'Global' },
+];
+
+function buildInfoTable() {
+  const tbody = document.getElementById('info-tbody');
+  const freqClass = { Monthly: 'monthly', Quarterly: 'quarterly', Annual: 'annual' };
+  INDICATOR_META.sort((a, b) => a.name.localeCompare(b.name)).forEach(ind => {
+    const cls = freqClass[ind.frequency] || 'gap';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${ind.name}</td><td>${ind.contentArea}</td><td>${ind.source}</td>` +
+      `<td><span class="badge badge-${cls}">${ind.frequency || '—'}</span></td>` +
+      `<td style="font-size:0.75rem;color:#555">${ind.scope}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function filterInfoTable(q) {
+  const rows = document.querySelectorAll('#info-tbody tr');
+  const lq = q.toLowerCase();
+  rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(lq) ? '' : 'none'; });
+}
+
+function toggleInfo() {
+  document.getElementById('info-overlay').classList.toggle('open');
+}
+
+
 function buildAllSections() {
   Object.entries(SECTION_MAP).forEach(([section, slugs]) => {
     const container = document.getElementById('charts-' + section);
@@ -1280,6 +1422,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildCorrelationPanel();
   initNavScroll();
   updateExplorer();
+  buildInfoTable();
   document.getElementById('footer-date').textContent =
     'Generated: ' + new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 });
