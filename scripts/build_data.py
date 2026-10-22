@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 build_data.py — Extract CC Economic Publication data from spreadsheet
-Reads: Cash_Rate_Economic_Data_Model_CC_LGA_updated.xlsx (from Dropbox sync)
+Reads: Cash_Rate_Economic_Data_Model_CC_LGA_updated - latest.xlsx (from Dropbox sync)
 Writes: data/indicators/*.json + data/data.js (bundled for static serving)
 
 Run: python3 scripts/build_data.py
@@ -14,7 +14,7 @@ from datetime import datetime
 import openpyxl
 
 XLSX_PATH = os.path.expanduser(
-    "~/dropbox-sync/Cash_Rate_Economic_Data_Model_CC_LGA_updated.xlsx"
+    "~/dropbox-sync/Cash_Rate_Economic_Data_Model_CC_LGA_updated - latest.xlsx"
 )
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "indicators")
 DATA_JS  = os.path.join(os.path.dirname(__file__), "..", "data", "data.js")

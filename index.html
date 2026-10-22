@@ -869,7 +869,8 @@ function buildScorecard() {
     if (!ind) return;
     const last = lastNonNull(ind.series);
     if (!last) return;
-    if (last.date > latestDate) latestDate = last.date;
+    // The headline month reflects local indicators; context series such as the cash rate can lead it.
+    if (ind.group === 'local' && last.date > latestDate) latestDate = last.date;
     const lastIdx = ind.series.indexOf(last);
     const prev = prevNonNull(ind.series, lastIdx);
     let changeHtml = '';

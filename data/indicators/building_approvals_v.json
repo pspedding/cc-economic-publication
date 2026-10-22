@@ -217,14 +217,18 @@
     },
     {
       "date": "2026-07-01",
-      "value": null
+      "value": 55538.973
     },
     {
       "date": "2026-08-01",
-      "value": null
+      "value": 42770.1
     },
     {
       "date": "2026-09-01",
+      "value": null
+    },
+    {
+      "date": "2026-10-01",
       "value": null
     }
   ]
