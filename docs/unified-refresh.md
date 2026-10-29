@@ -237,3 +237,46 @@ node tests/refresh_acceptance.js /path/to/staged-run/data
 The private acceptance package supplies run manifests, reports, test logs, candidate
 files, code patch/recovery bundle and local invocation details. Private workbook
 snapshots, live download URLs and credentials are excluded from the package/repo.
+
+## Revision intake and separate approval controls
+
+For each future refresh, an operator uses the existing authenticated Dropbox
+connector to read metadata for the exact configured logical workbook path and
+compares its revision to the last reviewed source manifest. This is an on-demand
+check today: **no new polling task, scheduler integration or unattended publication
+has been installed**. A changed revision triggers source intake, not publication.
+
+1. Read revision, size, server/client modification times and available content-hash
+   metadata. Acquire that exact revision into a separate local snapshot; verify
+   size, Dropbox block content hash and SHA-256, then recheck remote metadata.
+   If the revision changes during capture, discard the mixed acquisition and retry
+   only as an explicitly bounded new intake. Never use an unrelated backup file.
+2. Copy the private configuration to a new revision-specific local JSON file.
+   Change only its workbook path/revision/hash, current approved-baseline path/hash
+   and isolated staging root as appropriate. This is **configuration/data intake**,
+   not a program-code edit or a credential/security change. The tracked example
+   remains the historical 29 October example; do not overwrite it per release.
+3. **Clear both manual and automatic approval lists for a new revision.** The
+   source's new revision is not permission to reuse old value approvals. Initially
+   run with empty approval lists: new observations, revisions and missing values
+   appear as held proposals while the candidate retains the last approved values.
+4. Verify schema, date basis, formula caches, geography and authority, then obtain
+   approval of the exact desired old/new/month changes. Add only those rules to
+   that revision-specific config and rerun. The run manifest binds the source hash,
+   approved-baseline hash and exact approval rules; retain both pre-approval report
+   and approved candidate as separate immutable runs.
+5. Source approval and observation approval remain separate: approving the acquired
+   workbook does not approve every cell change, and an approved value does not
+   authorise a new source or provider. Automatic-source numeric history cannot
+   overwrite non-null manual values; vacancy and authority conflicts stay held.
+6. Review the sanitized report/diff and tests before a data-only PR is prepared.
+   The tool has **no publication command**, auto-merge or scheduler hook. Explicit
+   approval is required before pushing a new release branch/opening its PR where
+   not already authorised, and again before merging a main-targeting PR because
+   Pages publishes main automatically. Scheduled acquisition/authentication remains
+   a later operational design/approval step, not an implied capability of the CLI.
+
+Thus a legitimate new workbook revision needs no edit to Python/JavaScript code.
+Hash mismatches intentionally fail until the new source intake is reviewed and
+configured; they must not be bypassed by disabling verification. A missing Dropbox
+source leaves the prior approved data untouched and never counts as a fresh success.
