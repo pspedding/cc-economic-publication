@@ -11,6 +11,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script src="data/data.js?v=20260911b"></script>
 <link rel="stylesheet" href="scripts/macro-analysis.css">
+<link rel="stylesheet" href="scripts/scatter.css">
 <style>
   /* ── Base ─────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -731,6 +732,24 @@
     <div class="chart-card" style="margin-top:1rem;">
       <div class="chart-wrap" style="height:320px;"><canvas id="explorer-canvas"></canvas></div>
     </div>
+    <div class="chart-card" id="scatter-card" aria-labelledby="scatter-heading">
+      <h3 id="scatter-heading">Monthly scatter — same-month analysis</h3>
+      <p>X = Compare Against; Y = Primary Indicator. Only strictly paired calendar months are plotted. The lag slider above applies to the time-series view only; scatter statistics use no lag or fallback values.</p>
+      <div class="scatter-controls">
+        <label for="scatter-from">From <select id="scatter-from" class="explorer-select"></select></label>
+        <label for="scatter-to">To <select id="scatter-to" class="explorer-select"></select></label>
+        <button type="button" id="scatter-all-history" class="btn-reset">All History</button>
+        <label><input type="checkbox" id="scatter-trend"> OLS trend line</label>
+        <label><input type="checkbox" id="scatter-outliers"> Residual flags</label>
+        <label><input type="checkbox" id="scatter-years"> Colour by year</label>
+      </div>
+      <p id="scatter-stats" aria-live="polite"></p>
+      <p id="scatter-status" role="status"></p>
+      <div class="scatter-plot"><canvas id="scatter-canvas" role="img" aria-label="Same-month scatter of the selected indicators; month and values available by hover or touch"></canvas></div>
+      <p id="scatter-year-key"></p>
+      <p id="scatter-provenance"></p>
+      <p>OLS includes an intercept. Residual flags use |residual / sample residual standard deviation| ≥ 1.75, an exploratory threshold, not a test of significance. Flagged points remain in every calculation and are not necessarily data errors. Correlation does not establish causation; shared trends and serial correlation can be misleading.</p>
+    </div>
   </section>
 
 </main>
@@ -1305,6 +1324,7 @@ function updateExplorer() {
   const r = crossCorr(rInd.series, mInd.series, lag);
   document.getElementById('exp-corr').textContent = 'r = ' + (r !== null ? r.toFixed(2) : '—');
   buildChartInstance(null, lag, 'explorer-canvas', rSlug, mSlug);
+  if (globalThis.ExplorerScatter) globalThis.ExplorerScatter.render();
 }
 
 function updateExplorerLag() {
@@ -1499,5 +1519,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script src="scripts/macro-analysis.js"></script>
 <script src="scripts/macro-view.js"></script>
+<script src="scripts/scatter-analysis.js"></script>
+<script src="scripts/scatter-view.js"></script>
 </body>
 </html>

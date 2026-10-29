@@ -1,0 +1,17 @@
+#scatter-card {min-width:0; margin-top:1rem;}
+#scatter-card h3 {margin:0 0 .5rem;}
+#scatter-card p {font-size:.85rem; line-height:1.55; overflow-wrap:anywhere;}
+.scatter-controls {display:flex; flex-wrap:wrap; align-items:end; gap:.75rem; margin:1rem 0;}
+.scatter-controls label {display:flex; gap:.4rem; align-items:center; font-size:.85rem;}
+.scatter-controls select,.scatter-controls button {min-height:44px;}
+.scatter-controls input {width:18px; height:18px;}
+.scatter-plot {position:relative; width:100%; height:390px; min-width:0;}
+#scatter-year-key {display:flex; flex-wrap:wrap; gap:.7rem;}
+.scatter-year {display:inline-flex; align-items:center; gap:.3rem;}
+.scatter-swatch {display:inline-block; width:12px; height:12px; border-radius:50%;}
+@media (max-width:600px) {
+  .scatter-controls {align-items:stretch; gap:.5rem;}
+  .scatter-controls label {min-height:44px; flex-wrap:wrap;}
+  .scatter-plot {height:340px;}
+  #scatter-card {padding:1rem;}
+}
