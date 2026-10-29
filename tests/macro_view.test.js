@@ -55,7 +55,8 @@ test('macro-versus-macro, regional-versus-macro and correlation-to-Explorer navi
   p.run("plotInExplorer('anz_consumer_confidence','westpac_consumer_sentiment')");
   assert.equal(p.nodes.get('exp-regional').value,'anz_consumer_confidence');assert.equal(p.nodes.get('exp-macro').value,'westpac_consumer_sentiment');
   p.nodes.get('exp-regional').value='house_price';p.run('updateExplorer()');assert.equal(p.run("chartInstances['explorer-canvas'].data.datasets.length"),2);
-  p.run('resetExplorer()');assert.equal(p.nodes.get('exp-regional').value,'house_price');
+  // A real select resets to its first option; the harness now models selectedIndex.
+  p.run('resetExplorer()');assert.equal(p.nodes.get('exp-regional').value,'unemployment');
 });
 test('responsive configuration covers desktop and mobile; static CSS contracts are not rendered-layout tests',()=>{
   for(const width of [1280,768,360]){
