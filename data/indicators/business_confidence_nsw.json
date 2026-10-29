@@ -133,15 +133,15 @@
     },
     {
       "date": "2024-10-01",
-      "value": -54.0
+      "value": -54
     },
     {
       "date": "2024-11-06",
-      "value": -54.0
+      "value": -54
     },
     {
       "date": "2024-12-11",
-      "value": -54.0
+      "value": -54
     },
     {
       "date": "2025-01-01",
@@ -169,15 +169,15 @@
     },
     {
       "date": "2025-07-01",
-      "value": -40.0
+      "value": -40
     },
     {
       "date": "2025-08-01",
-      "value": -40.0
+      "value": -40
     },
     {
       "date": "2025-09-01",
-      "value": -40.0
+      "value": -40
     },
     {
       "date": "2025-10-01",
@@ -205,15 +205,15 @@
     },
     {
       "date": "2026-04-01",
-      "value": -78.0
+      "value": -78
     },
     {
       "date": "2026-05-01",
-      "value": -78.0
+      "value": -78
     },
     {
       "date": "2026-06-01",
-      "value": -78.0
+      "value": -78
     },
     {
       "date": "2026-07-01",
@@ -231,5 +231,8 @@
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "New South Wales",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-06"
 }

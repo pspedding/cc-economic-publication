@@ -15,7 +15,7 @@
   "series": [
     {
       "date": "2022-04-06",
-      "value": 7435.0
+      "value": 7435
     },
     {
       "date": "2022-05-04",
@@ -135,7 +135,7 @@
     },
     {
       "date": "2024-10-01",
-      "value": 8160.0
+      "value": 8160
     },
     {
       "date": "2024-11-06",
@@ -223,15 +223,18 @@
     },
     {
       "date": "2026-08-01",
-      "value": 9076.0
+      "value": 9076
     },
     {
       "date": "2026-09-01",
-      "value": 9008.0
+      "value": 9008
     },
     {
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Australia",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-09"
 }

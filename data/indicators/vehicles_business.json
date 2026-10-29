@@ -25,211 +25,214 @@
     },
     {
       "date": "2022-07-06",
-      "value": 238.0
+      "value": 238
     },
     {
       "date": "2022-08-03",
-      "value": 285.0
+      "value": 285
     },
     {
       "date": "2022-09-07",
-      "value": 289.0
+      "value": 289
     },
     {
       "date": "2022-10-05",
-      "value": 233.0
+      "value": 233
     },
     {
       "date": "2022-11-02",
-      "value": 246.0
+      "value": 246
     },
     {
       "date": "2022-12-07",
-      "value": 258.0
+      "value": 258
     },
     {
       "date": "2023-01-01",
-      "value": 181.0
+      "value": 181
     },
     {
       "date": "2023-02-08",
-      "value": 210.0
+      "value": 210
     },
     {
       "date": "2023-03-08",
-      "value": 213.0
+      "value": 213
     },
     {
       "date": "2023-04-05",
-      "value": 185.0
+      "value": 185
     },
     {
       "date": "2023-05-03",
-      "value": 263.0
+      "value": 263
     },
     {
       "date": "2023-06-07",
-      "value": 395.0
+      "value": 395
     },
     {
       "date": "2023-07-05",
-      "value": 215.0
+      "value": 215
     },
     {
       "date": "2023-08-02",
-      "value": 260.0
+      "value": 260
     },
     {
       "date": "2023-09-06",
-      "value": 264.0
+      "value": 264
     },
     {
       "date": "2023-10-04",
-      "value": 264.0
+      "value": 264
     },
     {
       "date": "2023-11-08",
-      "value": 291.0
+      "value": 291
     },
     {
       "date": "2023-12-06",
-      "value": 212.0
+      "value": 212
     },
     {
       "date": "2024-01-01",
-      "value": 193.0
+      "value": 193
     },
     {
       "date": "2024-02-07",
-      "value": 245.0
+      "value": 245
     },
     {
       "date": "2024-03-20",
-      "value": 241.0
+      "value": 241
     },
     {
       "date": "2024-04-01",
-      "value": 195.0
+      "value": 195
     },
     {
       "date": "2024-05-08",
-      "value": 279.0
+      "value": 279
     },
     {
       "date": "2024-06-19",
-      "value": 323.0
+      "value": 323
     },
     {
       "date": "2024-07-01",
-      "value": 264.0
+      "value": 264
     },
     {
       "date": "2024-08-07",
-      "value": 234.0
+      "value": 234
     },
     {
       "date": "2024-09-25",
-      "value": 243.0
+      "value": 243
     },
     {
       "date": "2024-10-01",
-      "value": 210.0
+      "value": 210
     },
     {
       "date": "2024-11-06",
-      "value": 252.0
+      "value": 252
     },
     {
       "date": "2024-12-11",
-      "value": 177.0
+      "value": 177
     },
     {
       "date": "2025-01-01",
-      "value": 165.0
+      "value": 165
     },
     {
       "date": "2025-02-19",
-      "value": 230.0
+      "value": 230
     },
     {
       "date": "2025-03-01",
-      "value": 224.0
+      "value": 224
     },
     {
       "date": "2025-04-02",
-      "value": 167.0
+      "value": 167
     },
     {
       "date": "2025-05-01",
-      "value": 283.0
+      "value": 283
     },
     {
       "date": "2025-06-01",
-      "value": 354.0
+      "value": 354
     },
     {
       "date": "2025-07-01",
-      "value": 241.0
+      "value": 241
     },
     {
       "date": "2025-08-01",
-      "value": 237.0
+      "value": 237
     },
     {
       "date": "2025-09-01",
-      "value": 267.0
+      "value": 267
     },
     {
       "date": "2025-10-01",
-      "value": 193.0
+      "value": 193
     },
     {
       "date": "2025-11-01",
-      "value": 310.0
+      "value": 310
     },
     {
       "date": "2025-12-01",
-      "value": 199.0
+      "value": 199
     },
     {
       "date": "2026-01-01",
-      "value": 192.0
+      "value": 192
     },
     {
       "date": "2026-02-01",
-      "value": 231.0
+      "value": 231
     },
     {
       "date": "2026-03-01",
-      "value": 275.0
+      "value": 275
     },
     {
       "date": "2026-04-01",
-      "value": 218.0
+      "value": 218
     },
     {
       "date": "2026-05-01",
-      "value": 269.0
+      "value": 269
     },
     {
       "date": "2026-06-01",
-      "value": 366.0
+      "value": 366
     },
     {
       "date": "2026-07-01",
-      "value": 254.0
+      "value": 254
     },
     {
       "date": "2026-08-01",
-      "value": 248.0
+      "value": 248
     },
     {
       "date": "2026-09-01",
-      "value": 201.0
+      "value": 201
     },
     {
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Central Coast",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-09"
 }

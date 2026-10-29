@@ -758,6 +758,15 @@ const MACRO_OPTIONS = [
   { slug: 'asx200',           label: 'ASX 200' },
 ];
 
+// Data-only integration: expose verified new inputs without changing layout,
+// existing chart lists, defaults, correlation logic or lead/lag behaviour.
+Object.entries(CC_ECONOMIC_DATA).forEach(([slug, ind]) => {
+  if (ind.group === 'context' && ind.validationStatus === 'verified' &&
+      !MACRO_OPTIONS.some(option => option.slug === slug)) {
+    MACRO_OPTIONS.push({ slug, label: ind.name + ' (' + ind.unit + ')' });
+  }
+});
+
 // ── Global macro selection state ─────────────────────────────────────────────
 // Tracks current global macro slug + per-chart current lag
 let globalMacroSlug = 'cash_rate';
@@ -1351,7 +1360,12 @@ const INDICATOR_META = [
 function buildInfoTable() {
   const tbody = document.getElementById('info-tbody');
   const freqClass = { Monthly: 'monthly', Quarterly: 'quarterly', Annual: 'annual' };
-  INDICATOR_META.sort((a, b) => a.name.localeCompare(b.name)).forEach(ind => {
+  const verifiedAdditions = Object.entries(CC_ECONOMIC_DATA)
+    .filter(([slug, ind]) => ind.validationStatus === 'verified' && slug !== 'bond_yield_10yr')
+    .map(([, ind]) => ({ name: ind.name, contentArea: 'Macroeconomic', source: ind.source,
+      frequency: 'Monthly', scope: ind.geography }));
+  [...INDICATOR_META.filter(ind => ind.name !== 'CRB Commodity Index'), ...verifiedAdditions]
+    .sort((a, b) => a.name.localeCompare(b.name)).forEach(ind => {
     const cls = freqClass[ind.frequency] || 'gap';
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${ind.name}</td><td>${ind.contentArea}</td><td>${ind.source}</td>` +

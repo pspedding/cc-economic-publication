@@ -19,7 +19,7 @@
     },
     {
       "date": "2022-05-04",
-      "value": 1400.0
+      "value": 1400
     },
     {
       "date": "2022-06-08",
@@ -115,7 +115,7 @@
     },
     {
       "date": "2024-05-08",
-      "value": 1557.0
+      "value": 1557
     },
     {
       "date": "2024-06-19",
@@ -143,7 +143,7 @@
     },
     {
       "date": "2024-12-11",
-      "value": 1610.0
+      "value": 1610
     },
     {
       "date": "2025-01-01",
@@ -207,7 +207,7 @@
     },
     {
       "date": "2026-04-01",
-      "value": 1739.0
+      "value": 1739
     },
     {
       "date": "2026-05-01",
@@ -233,5 +233,8 @@
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Australia",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-08"
 }

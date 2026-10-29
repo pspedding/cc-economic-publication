@@ -1,0 +1,238 @@
+{
+  "slug": "westpac_consumer_sentiment",
+  "name": "Westpac\u2013Melbourne Institute Consumer Sentiment (SA)",
+  "unit": "index points",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "Westpac\u2013Melbourne Institute via RBA H3",
+  "format": "decimal_2",
+  "description": "Westpac-Melbourne Institute consumer sentiment index",
+  "contextSeries": [],
+  "contextNarrative": "",
+  "series": [
+    {
+      "date": "2022-04-01",
+      "value": 95.8
+    },
+    {
+      "date": "2022-05-01",
+      "value": 90.4
+    },
+    {
+      "date": "2022-06-01",
+      "value": 86.4
+    },
+    {
+      "date": "2022-07-01",
+      "value": 83.8
+    },
+    {
+      "date": "2022-08-01",
+      "value": 81.2
+    },
+    {
+      "date": "2022-09-01",
+      "value": 84.4
+    },
+    {
+      "date": "2022-10-01",
+      "value": 83.7
+    },
+    {
+      "date": "2022-11-01",
+      "value": 78.0
+    },
+    {
+      "date": "2022-12-01",
+      "value": 80.3
+    },
+    {
+      "date": "2023-01-01",
+      "value": 84.3
+    },
+    {
+      "date": "2023-02-01",
+      "value": 78.5
+    },
+    {
+      "date": "2023-03-01",
+      "value": 78.5
+    },
+    {
+      "date": "2023-04-01",
+      "value": 85.8
+    },
+    {
+      "date": "2023-05-01",
+      "value": 79.0
+    },
+    {
+      "date": "2023-06-01",
+      "value": 79.2
+    },
+    {
+      "date": "2023-07-01",
+      "value": 81.3
+    },
+    {
+      "date": "2023-08-01",
+      "value": 81.0
+    },
+    {
+      "date": "2023-09-01",
+      "value": 79.7
+    },
+    {
+      "date": "2023-10-01",
+      "value": 82.0
+    },
+    {
+      "date": "2023-11-01",
+      "value": 79.9
+    },
+    {
+      "date": "2023-12-01",
+      "value": 82.1
+    },
+    {
+      "date": "2024-01-01",
+      "value": 81.0
+    },
+    {
+      "date": "2024-02-01",
+      "value": 86.0
+    },
+    {
+      "date": "2024-03-01",
+      "value": 84.4
+    },
+    {
+      "date": "2024-04-01",
+      "value": 82.4
+    },
+    {
+      "date": "2024-05-01",
+      "value": 82.2
+    },
+    {
+      "date": "2024-06-01",
+      "value": 83.6
+    },
+    {
+      "date": "2024-07-01",
+      "value": 82.7
+    },
+    {
+      "date": "2024-08-01",
+      "value": 85.0
+    },
+    {
+      "date": "2024-09-01",
+      "value": 84.6
+    },
+    {
+      "date": "2024-10-01",
+      "value": 89.8
+    },
+    {
+      "date": "2024-11-01",
+      "value": 94.6
+    },
+    {
+      "date": "2024-12-01",
+      "value": 92.8
+    },
+    {
+      "date": "2025-01-01",
+      "value": 92.1
+    },
+    {
+      "date": "2025-02-01",
+      "value": 92.2
+    },
+    {
+      "date": "2025-03-01",
+      "value": 95.9
+    },
+    {
+      "date": "2025-04-01",
+      "value": 90.1
+    },
+    {
+      "date": "2025-05-01",
+      "value": 92.1
+    },
+    {
+      "date": "2025-06-01",
+      "value": 92.6
+    },
+    {
+      "date": "2025-07-01",
+      "value": 93.1
+    },
+    {
+      "date": "2025-08-01",
+      "value": 98.5
+    },
+    {
+      "date": "2025-09-01",
+      "value": 95.4
+    },
+    {
+      "date": "2025-10-01",
+      "value": 92.1
+    },
+    {
+      "date": "2025-11-01",
+      "value": 103.8
+    },
+    {
+      "date": "2025-12-01",
+      "value": 94.5
+    },
+    {
+      "date": "2026-01-01",
+      "value": 92.9
+    },
+    {
+      "date": "2026-02-01",
+      "value": 90.5
+    },
+    {
+      "date": "2026-03-01",
+      "value": 91.6
+    },
+    {
+      "date": "2026-04-01",
+      "value": 80.1
+    },
+    {
+      "date": "2026-05-01",
+      "value": 83.0
+    },
+    {
+      "date": "2026-06-01",
+      "value": 80.6
+    },
+    {
+      "date": "2026-07-01",
+      "value": 83.9
+    },
+    {
+      "date": "2026-08-01",
+      "value": 88.9
+    },
+    {
+      "date": "2026-09-01",
+      "value": 84.4
+    }
+  ],
+  "geography": "Australia",
+  "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
+  "sourceSeriesId": "GICWMICS",
+  "basis": "seasonally adjusted; Westpac\u2013Melbourne Institute index republished by RBA H3",
+  "latestObservationMonth": "2026-09",
+  "validationStatus": "verified",
+  "observationMonthKey": "YYYY-MM derived from date; never publication date"
+}
