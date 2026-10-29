@@ -6221,7 +6221,7 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 4.5
       },
       {
         "date": "2026-10-01",
@@ -6230,7 +6230,7 @@ const CC_ECONOMIC_DATA = {
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "us_fed_rate": {
     "slug": "us_fed_rate",
