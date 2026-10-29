@@ -1,0 +1,20 @@
+{
+  "workbook": {
+    "path": "/path/to/acquired-master.xlsx",
+    "sha256": "<WORKBOOK_SHA256>",
+    "revision": "<DROPBOX_REVISION>",
+    "logical_path": "Dropbox /Moltbot/Cash_Rate_Economic_Data_Model_CC_LGA_updated - latest.xlsx"
+  },
+  "baseline": "../data/data.js",
+  "baseline_sha256": "<BASELINE_SHA256>",
+  "additional": "../data/sources/macro_additional.csv",
+  "additional_sha256": "<ADDITIONAL_SHA256>",
+  "additional_metadata": "../data/sources/macro_metadata.json",
+  "additional_metadata_sha256": "<ADDITIONAL_METADATA_SHA256>",
+  "output_root": "/path/to/private-staging",
+  "protected_paths": [
+    "/path/to/production-extraction-project",
+    "/path/to/original-dashboard-checkout"
+  ],
+  "approvals": []
+}

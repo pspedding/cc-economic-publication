@@ -13,9 +13,8 @@ import sys
 from datetime import datetime
 import openpyxl
 
-XLSX_PATH = os.path.expanduser(
-    "~/dropbox-sync/Cash_Rate_Economic_Data_Model_CC_LGA_updated - latest.xlsx"
-)
+# Machine paths belong in explicit configuration, never an obsolete Dropbox alias.
+XLSX_PATH = os.environ.get('DASHBOARD_CORE_WORKBOOK')
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "indicators")
 DATA_JS  = os.path.join(os.path.dirname(__file__), "..", "data", "data.js")
 
@@ -703,6 +702,8 @@ def fmt_date(v):
     return str(v)
 
 def extract():
+    if not XLSX_PATH:
+        raise ValueError('Configure a workbook explicitly; use --refresh-config for staging')
     print(f"Loading: {XLSX_PATH}")
     wb = openpyxl.load_workbook(XLSX_PATH, read_only=True, data_only=True)
 
@@ -785,9 +786,15 @@ if __name__ == "__main__":
     parser.add_argument('--baseline-snapshot',type=Path,help='Existing public dashboard bundle as JSON; no private workbook required')
     parser.add_argument('--additional',type=Path)
     parser.add_argument('--additional-metadata',type=Path)
+    parser.add_argument('--refresh-config',type=Path,help='Unified staging-only refresh configuration')
+    parser.add_argument('--mode',choices=['on-demand','monthly'],default='on-demand')
     parser.add_argument('--output-root',type=Path,default=Path(__file__).resolve().parents[1]/'data')
     args=parser.parse_args()
-    if any([args.baseline_snapshot,args.additional,args.additional_metadata]):
+    if args.refresh_config:
+        if any([args.baseline_snapshot,args.additional,args.additional_metadata]):parser.error('Refresh configuration cannot be mixed with legacy sources')
+        from refresh_data import load_config,run
+        print(json.dumps(run(load_config(args.refresh_config),args.mode,os.environ.get('DASHBOARD_WORKBOOK_URL')),indent=2))
+    elif any([args.baseline_snapshot,args.additional,args.additional_metadata]):
         if not all([args.baseline_snapshot,args.additional,args.additional_metadata]):parser.error('Supply all three source paths')
         from macro_data import merge,write_outputs
         data,excluded=merge(json.loads(args.baseline_snapshot.read_text()),args.additional,args.additional_metadata)
