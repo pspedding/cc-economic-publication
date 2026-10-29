@@ -1,0 +1,23 @@
+indicator,month,original,corrected,authority,reason
+ANZ_RoyMorgan_ConsumerConfidence_Index,2024-03,82.2,82.0,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,official completed monthly history
+ANZ_RoyMorgan_MoM_IndexPts,2024-03,-0.9,-1.1,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2024-03,4.7,4.5,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_minus_Westpac_IndexPts,2024-03,-2.2,-2.4,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_MoM_IndexPts,2024-04,-0.3,-0.1,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_ConsumerConfidence_Index,2024-06,79.9,79.5,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,official completed monthly history
+ANZ_RoyMorgan_MoM_IndexPts,2024-06,-0.8,-1.2,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2024-06,6.0,5.6,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_minus_Westpac_IndexPts,2024-06,-3.7,-4.1,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_MoM_IndexPts,2024-07,0.9,1.3,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2025-03,3.5,3.7,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_ConsumerConfidence_Index,2025-04,85.0,83.4,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,official completed monthly history
+ANZ_RoyMorgan_MoM_IndexPts,2025-04,-0.7,-2.3,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2025-04,3.1,1.5,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_minus_Westpac_IndexPts,2025-04,-5.1,-6.7,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_MoM_IndexPts,2025-05,2.9,4.5,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2025-06,6.4,6.8,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2026-04,-21.4,-19.8,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_ConsumerConfidence_Index,2026-09,70.5,74.6,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,official completed monthly history
+ANZ_RoyMorgan_MoM_IndexPts,2026-09,-3.9,0.2,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_RoyMorgan_YoY_IndexPts,2026-09,-16.8,-12.7,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation
+ANZ_minus_Westpac_IndexPts,2026-09,-13.9,-9.8,https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings,recomputed after monthly headline reconciliation

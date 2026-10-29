@@ -91,7 +91,7 @@
     },
     {
       "date": "2023-11-08",
-      "value": 723.0
+      "value": 723
     },
     {
       "date": "2023-12-06",
@@ -233,5 +233,8 @@
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Australia",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-08"
 }

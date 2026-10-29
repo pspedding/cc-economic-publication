@@ -1,0 +1,238 @@
+{
+  "slug": "anz_consumer_confidence",
+  "name": "ANZ\u2013Roy Morgan Consumer Confidence (Monthly)",
+  "unit": "index points",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "ANZ\u2013Roy Morgan monthly history",
+  "format": "decimal_2",
+  "description": "completed calendar-month survey index; no asterisk/provisional observations",
+  "contextSeries": [],
+  "contextNarrative": "",
+  "series": [
+    {
+      "date": "2022-04-01",
+      "value": 95.3
+    },
+    {
+      "date": "2022-05-01",
+      "value": 90.3
+    },
+    {
+      "date": "2022-06-01",
+      "value": 85.0
+    },
+    {
+      "date": "2022-07-01",
+      "value": 82.8
+    },
+    {
+      "date": "2022-08-01",
+      "value": 83.6
+    },
+    {
+      "date": "2022-09-01",
+      "value": 85.7
+    },
+    {
+      "date": "2022-10-01",
+      "value": 84.2
+    },
+    {
+      "date": "2022-11-01",
+      "value": 80.2
+    },
+    {
+      "date": "2022-12-01",
+      "value": 82.8
+    },
+    {
+      "date": "2023-01-01",
+      "value": 86.9
+    },
+    {
+      "date": "2023-02-01",
+      "value": 80.5
+    },
+    {
+      "date": "2023-03-01",
+      "value": 77.5
+    },
+    {
+      "date": "2023-04-01",
+      "value": 78.5
+    },
+    {
+      "date": "2023-05-01",
+      "value": 76.8
+    },
+    {
+      "date": "2023-06-01",
+      "value": 73.9
+    },
+    {
+      "date": "2023-07-01",
+      "value": 73.8
+    },
+    {
+      "date": "2023-08-01",
+      "value": 76.8
+    },
+    {
+      "date": "2023-09-01",
+      "value": 78.5
+    },
+    {
+      "date": "2023-10-01",
+      "value": 77.9
+    },
+    {
+      "date": "2023-11-01",
+      "value": 75.5
+    },
+    {
+      "date": "2023-12-01",
+      "value": 79.0
+    },
+    {
+      "date": "2024-01-01",
+      "value": 84.0
+    },
+    {
+      "date": "2024-02-01",
+      "value": 83.1
+    },
+    {
+      "date": "2024-03-01",
+      "value": 82.0
+    },
+    {
+      "date": "2024-04-01",
+      "value": 81.9
+    },
+    {
+      "date": "2024-05-01",
+      "value": 80.7
+    },
+    {
+      "date": "2024-06-01",
+      "value": 79.5
+    },
+    {
+      "date": "2024-07-01",
+      "value": 80.8
+    },
+    {
+      "date": "2024-08-01",
+      "value": 82.8
+    },
+    {
+      "date": "2024-09-01",
+      "value": 83.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 84.3
+    },
+    {
+      "date": "2024-11-01",
+      "value": 86.6
+    },
+    {
+      "date": "2024-12-01",
+      "value": 85.9
+    },
+    {
+      "date": "2025-01-01",
+      "value": 86.6
+    },
+    {
+      "date": "2025-02-01",
+      "value": 87.5
+    },
+    {
+      "date": "2025-03-01",
+      "value": 85.7
+    },
+    {
+      "date": "2025-04-01",
+      "value": 83.4
+    },
+    {
+      "date": "2025-05-01",
+      "value": 87.9
+    },
+    {
+      "date": "2025-06-01",
+      "value": 86.3
+    },
+    {
+      "date": "2025-07-01",
+      "value": 87.1
+    },
+    {
+      "date": "2025-08-01",
+      "value": 89.0
+    },
+    {
+      "date": "2025-09-01",
+      "value": 87.3
+    },
+    {
+      "date": "2025-10-01",
+      "value": 84.6
+    },
+    {
+      "date": "2025-11-01",
+      "value": 84.5
+    },
+    {
+      "date": "2025-12-01",
+      "value": 84.4
+    },
+    {
+      "date": "2026-01-01",
+      "value": 82.6
+    },
+    {
+      "date": "2026-02-01",
+      "value": 78.7
+    },
+    {
+      "date": "2026-03-01",
+      "value": 70.5
+    },
+    {
+      "date": "2026-04-01",
+      "value": 63.6
+    },
+    {
+      "date": "2026-05-01",
+      "value": 66.0
+    },
+    {
+      "date": "2026-06-01",
+      "value": 70.8
+    },
+    {
+      "date": "2026-07-01",
+      "value": 75.4
+    },
+    {
+      "date": "2026-08-01",
+      "value": 74.4
+    },
+    {
+      "date": "2026-09-01",
+      "value": 74.6
+    }
+  ],
+  "geography": "Australia",
+  "sourceUrl": "https://www.roymorgan.com/morgan-poll/consumer-confidence-anz-roy-morgan-australian-cc-monthly-ratings",
+  "sourceSeriesId": "publisher monthly ratings",
+  "basis": "completed calendar-month survey index; no asterisk/provisional observations",
+  "latestObservationMonth": "2026-09",
+  "validationStatus": "verified",
+  "observationMonthKey": "YYYY-MM derived from date; never publication date"
+}

@@ -1,0 +1,37 @@
+/* Scoped additions: existing charts, grids and navigation retain their styling. */
+#explorer .explorer-select { width:100%; min-width:0; max-width:100%; }
+#macro-analysis .macro-panels { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.2rem; }
+#macro-analysis .macro-panel { min-width:0; max-height:none; overflow:visible; }
+#macro-analysis .macro-policy-panel { grid-column:1 / -1; }
+#macro-analysis h3 { color:var(--cc-navy); font-size:1rem; margin-bottom:.6rem; }
+#macro-analysis .macro-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; margin-bottom:.8rem; }
+#macro-analysis .macro-field { display:flex; flex-direction:column; min-width:0; gap:.25rem; font-size:.82rem; }
+#macro-analysis select { width:100%; min-width:0; min-height:44px; }
+#macro-analysis .macro-period { margin-bottom:1.2rem; }
+#macro-analysis .macro-period .explorer-row { margin-bottom:.5rem; }
+#macro-analysis .macro-chart { position:relative; height:300px; width:100%; min-width:0; }
+#macro-analysis .macro-policy-panel .macro-chart { height:340px; }
+#macro-analysis .macro-source, #macro-analysis .macro-detail { font-size:.8rem; color:var(--cc-muted); margin-top:.7rem; overflow-wrap:anywhere; }
+#macro-analysis .macro-spreads { display:flex; flex-wrap:wrap; gap:.4rem 1rem; margin-bottom:.6rem; font-size:.83rem; font-weight:600; }
+#macro-analysis .macro-inverted { color:var(--cc-red); }
+#macro-analysis .macro-toggles { display:flex; flex-wrap:wrap; gap:.4rem 1.2rem; margin:.5rem 0 .8rem; border:0; }
+#macro-analysis .macro-toggles legend { font-size:.8rem; font-weight:600; color:var(--cc-navy); }
+#macro-analysis .macro-toggles label { display:flex; align-items:center; gap:.4rem; min-height:44px; font-size:.82rem; }
+#macro-analysis .macro-toggles input { width:18px; height:18px; accent-color:var(--cc-teal); }
+#macro-analysis .macro-error { color:var(--cc-red); font-size:.83rem; }
+#macro-analysis .macro-period button { min-height:44px; padding:.35rem .8rem; }
+@media (max-width:800px) {
+  #macro-analysis .macro-panels { grid-template-columns:minmax(0,1fr); }
+  #macro-analysis .macro-policy-panel { grid-column:auto; }
+}
+@media (max-width:480px) {
+  #explorer .explorer-field { min-width:0; flex-basis:100%; }
+  #macro-analysis .macro-controls { grid-template-columns:minmax(0,1fr); }
+  #macro-analysis .macro-chart, #macro-analysis .macro-policy-panel .macro-chart { height:280px; }
+  #macro-analysis .macro-period .explorer-field { min-width:0; flex-basis:100%; }
+  #macro-analysis .macro-panel { padding:1rem; }
+}
+@media print {
+  #macro-analysis .macro-panels { display:block; }
+  #macro-analysis .macro-panel { break-inside:avoid; margin-bottom:1rem; }
+}

@@ -1,0 +1,238 @@
+{
+  "slug": "nsw_retail_other",
+  "name": "NSW Experimental Retail \u2014 Other (SA)",
+  "unit": "AUD million",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "ABS Monthly Household Spending Indicator (experimental retail)",
+  "format": "decimal_2",
+  "description": "Turnover ;  Other retailing ;  New South Wales ;  Current Price ;",
+  "contextSeries": [],
+  "contextNarrative": "",
+  "series": [
+    {
+      "date": "2022-04-01",
+      "value": 1630.6
+    },
+    {
+      "date": "2022-05-01",
+      "value": 1610.8
+    },
+    {
+      "date": "2022-06-01",
+      "value": 1624.6
+    },
+    {
+      "date": "2022-07-01",
+      "value": 1678.1
+    },
+    {
+      "date": "2022-08-01",
+      "value": 1611.2
+    },
+    {
+      "date": "2022-09-01",
+      "value": 1606.6
+    },
+    {
+      "date": "2022-10-01",
+      "value": 1598.3
+    },
+    {
+      "date": "2022-11-01",
+      "value": 1609.2
+    },
+    {
+      "date": "2022-12-01",
+      "value": 1634.9
+    },
+    {
+      "date": "2023-01-01",
+      "value": 1640.7
+    },
+    {
+      "date": "2023-02-01",
+      "value": 1651.9
+    },
+    {
+      "date": "2023-03-01",
+      "value": 1659.6
+    },
+    {
+      "date": "2023-04-01",
+      "value": 1697.6
+    },
+    {
+      "date": "2023-05-01",
+      "value": 1695.6
+    },
+    {
+      "date": "2023-06-01",
+      "value": 1688.2
+    },
+    {
+      "date": "2023-07-01",
+      "value": 1689.1
+    },
+    {
+      "date": "2023-08-01",
+      "value": 1719.2
+    },
+    {
+      "date": "2023-09-01",
+      "value": 1748.7
+    },
+    {
+      "date": "2023-10-01",
+      "value": 1711.8
+    },
+    {
+      "date": "2023-11-01",
+      "value": 1720.6
+    },
+    {
+      "date": "2023-12-01",
+      "value": 1744.6
+    },
+    {
+      "date": "2024-01-01",
+      "value": 1821.3
+    },
+    {
+      "date": "2024-02-01",
+      "value": 1779.7
+    },
+    {
+      "date": "2024-03-01",
+      "value": 1792.9
+    },
+    {
+      "date": "2024-04-01",
+      "value": 1824.2
+    },
+    {
+      "date": "2024-05-01",
+      "value": 1834.3
+    },
+    {
+      "date": "2024-06-01",
+      "value": 1838.6
+    },
+    {
+      "date": "2024-07-01",
+      "value": 1836.0
+    },
+    {
+      "date": "2024-08-01",
+      "value": 1859.4
+    },
+    {
+      "date": "2024-09-01",
+      "value": 1852.1
+    },
+    {
+      "date": "2024-10-01",
+      "value": 1865.4
+    },
+    {
+      "date": "2024-11-01",
+      "value": 1851.0
+    },
+    {
+      "date": "2024-12-01",
+      "value": 1878.8
+    },
+    {
+      "date": "2025-01-01",
+      "value": 1892.8
+    },
+    {
+      "date": "2025-02-01",
+      "value": 1907.0
+    },
+    {
+      "date": "2025-03-01",
+      "value": 1896.1
+    },
+    {
+      "date": "2025-04-01",
+      "value": 1911.4
+    },
+    {
+      "date": "2025-05-01",
+      "value": 1916.3
+    },
+    {
+      "date": "2025-06-01",
+      "value": 1971.6
+    },
+    {
+      "date": "2025-07-01",
+      "value": 1961.2
+    },
+    {
+      "date": "2025-08-01",
+      "value": 1947.2
+    },
+    {
+      "date": "2025-09-01",
+      "value": 1970.8
+    },
+    {
+      "date": "2025-10-01",
+      "value": 1997.5
+    },
+    {
+      "date": "2025-11-01",
+      "value": 2017.5
+    },
+    {
+      "date": "2025-12-01",
+      "value": 2009.7
+    },
+    {
+      "date": "2026-01-01",
+      "value": 2033.3
+    },
+    {
+      "date": "2026-02-01",
+      "value": 2045.7
+    },
+    {
+      "date": "2026-03-01",
+      "value": 2068.1
+    },
+    {
+      "date": "2026-04-01",
+      "value": 2047.9
+    },
+    {
+      "date": "2026-05-01",
+      "value": 2068.4
+    },
+    {
+      "date": "2026-06-01",
+      "value": 2066.0
+    },
+    {
+      "date": "2026-07-01",
+      "value": 2098.5
+    },
+    {
+      "date": "2026-08-01",
+      "value": 2088.7
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    }
+  ],
+  "geography": "New South Wales",
+  "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
+  "sourceSeriesId": "A130276714T",
+  "basis": "seasonally adjusted; current prices",
+  "latestObservationMonth": "2026-08",
+  "validationStatus": "verified",
+  "observationMonthKey": "YYYY-MM derived from date; never publication date"
+}

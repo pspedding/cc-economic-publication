@@ -185,15 +185,15 @@
     },
     {
       "date": "2025-11-01",
-      "value": 0.0
+      "value": 0
     },
     {
       "date": "2025-12-01",
-      "value": 36696.0
+      "value": 36696
     },
     {
       "date": "2026-01-01",
-      "value": 18200.0
+      "value": 18200
     },
     {
       "date": "2026-02-01",
@@ -231,5 +231,8 @@
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Central Coast",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-08"
 }

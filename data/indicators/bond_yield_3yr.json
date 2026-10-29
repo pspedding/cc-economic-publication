@@ -1,0 +1,238 @@
+{
+  "slug": "bond_yield_3yr",
+  "name": "AU 3-Year Government Bond Yield (Monthly Average)",
+  "unit": "%",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "RBA F2.1",
+  "format": "percent_direct",
+  "description": "Yields on Australian government bonds, interpolated, 3 years maturity",
+  "contextSeries": [],
+  "contextNarrative": "",
+  "series": [
+    {
+      "date": "2022-04-01",
+      "value": 2.534
+    },
+    {
+      "date": "2022-05-01",
+      "value": 2.888
+    },
+    {
+      "date": "2022-06-01",
+      "value": 3.291
+    },
+    {
+      "date": "2022-07-01",
+      "value": 3.007
+    },
+    {
+      "date": "2022-08-01",
+      "value": 3.062
+    },
+    {
+      "date": "2022-09-01",
+      "value": 3.405
+    },
+    {
+      "date": "2022-10-01",
+      "value": 3.448
+    },
+    {
+      "date": "2022-11-01",
+      "value": 3.274
+    },
+    {
+      "date": "2022-12-01",
+      "value": 3.188
+    },
+    {
+      "date": "2023-01-01",
+      "value": 3.208
+    },
+    {
+      "date": "2023-02-01",
+      "value": 3.393
+    },
+    {
+      "date": "2023-03-01",
+      "value": 3.122
+    },
+    {
+      "date": "2023-04-01",
+      "value": 2.992
+    },
+    {
+      "date": "2023-05-01",
+      "value": 3.199
+    },
+    {
+      "date": "2023-06-01",
+      "value": 3.841
+    },
+    {
+      "date": "2023-07-01",
+      "value": 3.975
+    },
+    {
+      "date": "2023-08-01",
+      "value": 3.836
+    },
+    {
+      "date": "2023-09-01",
+      "value": 3.905
+    },
+    {
+      "date": "2023-10-01",
+      "value": 4.122
+    },
+    {
+      "date": "2023-11-01",
+      "value": 4.186
+    },
+    {
+      "date": "2023-12-01",
+      "value": 3.812
+    },
+    {
+      "date": "2024-01-01",
+      "value": 3.741
+    },
+    {
+      "date": "2024-02-01",
+      "value": 3.711
+    },
+    {
+      "date": "2024-03-01",
+      "value": 3.654
+    },
+    {
+      "date": "2024-04-01",
+      "value": 3.853
+    },
+    {
+      "date": "2024-05-01",
+      "value": 3.969
+    },
+    {
+      "date": "2024-06-01",
+      "value": 3.939
+    },
+    {
+      "date": "2024-07-01",
+      "value": 4.033
+    },
+    {
+      "date": "2024-08-01",
+      "value": 3.575
+    },
+    {
+      "date": "2024-09-01",
+      "value": 3.495
+    },
+    {
+      "date": "2024-10-01",
+      "value": 3.805
+    },
+    {
+      "date": "2024-11-01",
+      "value": 4.074
+    },
+    {
+      "date": "2024-12-01",
+      "value": 3.85
+    },
+    {
+      "date": "2025-01-01",
+      "value": 3.908
+    },
+    {
+      "date": "2025-02-01",
+      "value": 3.823
+    },
+    {
+      "date": "2025-03-01",
+      "value": 3.762
+    },
+    {
+      "date": "2025-04-01",
+      "value": 3.37
+    },
+    {
+      "date": "2025-05-01",
+      "value": 3.451
+    },
+    {
+      "date": "2025-06-01",
+      "value": 3.318
+    },
+    {
+      "date": "2025-07-01",
+      "value": 3.388
+    },
+    {
+      "date": "2025-08-01",
+      "value": 3.375
+    },
+    {
+      "date": "2025-09-01",
+      "value": 3.451
+    },
+    {
+      "date": "2025-10-01",
+      "value": 3.469
+    },
+    {
+      "date": "2025-11-01",
+      "value": 3.732
+    },
+    {
+      "date": "2025-12-01",
+      "value": 4.089
+    },
+    {
+      "date": "2026-01-01",
+      "value": 4.149
+    },
+    {
+      "date": "2026-02-01",
+      "value": 4.267
+    },
+    {
+      "date": "2026-03-01",
+      "value": 4.556
+    },
+    {
+      "date": "2026-04-01",
+      "value": 4.647
+    },
+    {
+      "date": "2026-05-01",
+      "value": 4.629
+    },
+    {
+      "date": "2026-06-01",
+      "value": 4.453
+    },
+    {
+      "date": "2026-07-01",
+      "value": 4.498
+    },
+    {
+      "date": "2026-08-01",
+      "value": 4.554
+    },
+    {
+      "date": "2026-09-01",
+      "value": 4.91
+    }
+  ],
+  "geography": "Australia",
+  "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
+  "sourceSeriesId": "FCMYGBAG3",
+  "basis": "average of daily end-of-day yields; RBA interpolated constant maturity",
+  "latestObservationMonth": "2026-09",
+  "validationStatus": "verified",
+  "observationMonthKey": "YYYY-MM derived from date; never publication date"
+}

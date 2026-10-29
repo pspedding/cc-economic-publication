@@ -233,5 +233,8 @@
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Central Coast",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-09"
 }

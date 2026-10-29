@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <script src="data/data.js?v=20260911b"></script>
+<link rel="stylesheet" href="scripts/macro-analysis.css">
 <style>
   /* ── Base ─────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -559,6 +560,7 @@
     <a href="#tourism">Tourism</a>
     <a href="#correlation">Correlation</a>
     <a href="#context">National &amp; Global Context</a>
+    <a href="#macro-analysis">Macroeconomic Analysis</a>
     <a href="#explorer">Data Explorer</a>
   </nav>
 </header>
@@ -652,6 +654,52 @@
     <div class="chart-grid" id="charts-context"></div>
   </section>
 
+  <!-- Macroeconomic Analysis: verified monthly observations ────────────── -->
+  <section class="pub-section" id="macro-analysis" aria-labelledby="macro-heading">
+    <div class="section-header"><h2 id="macro-heading">Macroeconomic Analysis</h2><span class="section-tag">Monthly data</span></div>
+    <p id="macro-status" class="context-narrative" role="status" aria-live="polite">Loading monthly observations…</p>
+    <div class="explorer-controls macro-period">
+      <div class="explorer-row">
+        <div class="explorer-field"><label for="macro-from">History from</label><select id="macro-from" class="explorer-select"></select></div>
+        <div class="explorer-field"><label for="macro-to">History to</label><select id="macro-to" class="explorer-select"></select></div>
+      </div>
+      <button id="macro-all-history" type="button" class="btn-plot">All history</button>
+      <p class="macro-detail">This range coordinates the spread and monetary-policy charts. The two yield-curve months are independent.</p>
+      <p id="macro-range-message" class="macro-error" role="alert"></p>
+    </div>
+    <div class="macro-panels">
+      <article class="chart-card macro-panel">
+        <h3>Australian Government Bond Yield Curve</h3>
+        <div class="macro-controls">
+          <label class="macro-field" for="macro-month-a">Month A<select id="macro-month-a" class="explorer-select"></select></label>
+          <label class="macro-field" for="macro-month-b">Month B<select id="macro-month-b" class="explorer-select"></select></label>
+        </div>
+        <div class="macro-spreads" aria-live="polite"><span id="macro-spread-a"></span><span id="macro-spread-b"></span></div>
+        <div class="macro-chart"><canvas id="macro-curve-canvas" role="img" aria-label="Two selected monthly government yield curves" aria-describedby="macro-curve-detail">Yield curve values are summarised below.</canvas></div>
+        <p id="macro-curve-detail" class="macro-detail" aria-live="polite"></p>
+        <p class="macro-source">Source: <a href="https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv" target="_blank" rel="noopener">RBA F2.1</a>, average daily end-of-day yields for each month, % p.a. RBA interpolates underlying bond yields to constant maturities of 2, 3, 5 and 10 years. Straight segments only connect those supplied points; the dashboard adds no maturity observations.</p>
+      </article>
+      <article class="chart-card macro-panel">
+        <h3>Historical 10Y–2Y Yield Spread</h3>
+        <div class="macro-chart"><canvas id="macro-history-canvas" role="img" aria-label="Historical 10 year minus 2 year yield spread in basis points" aria-describedby="macro-inversions">Inversion periods are summarised below.</canvas></div>
+        <p id="macro-inversions" class="macro-detail" aria-live="polite"></p>
+        <p class="macro-source">Calculated from same-month <a href="https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv" target="_blank" rel="noopener">RBA F2.1</a> yields: 100 × (10Y − 2Y). The dashed line is zero; red shading/points indicate negative spreads. Inversion means 10Y is below 2Y, not proof of a cause or a prediction. Missing months remain gaps.</p>
+      </article>
+      <article class="chart-card macro-panel macro-policy-panel">
+        <h3>Monetary Policy and Interest Rates</h3>
+        <fieldset class="macro-toggles"><legend>Show series</legend>
+          <label><input id="macro-policy-cash_rate" type="checkbox" checked>Cash rate target</label>
+          <label><input id="macro-policy-bond_yield_2yr" type="checkbox" checked>2Y government yield</label>
+          <label><input id="macro-policy-bond_yield_10yr" type="checkbox" checked>10Y government yield</label>
+          <label><input id="macro-policy-cpi_yoy" type="checkbox" checked>Headline CPI annual change</label>
+        </fieldset>
+        <div class="macro-chart"><canvas id="macro-policy-canvas" role="img" aria-label="Cash rate, government bond yields and annual inflation by calendar month" aria-describedby="macro-policy-detail">Availability is summarised below.</canvas></div>
+        <p id="macro-policy-detail" class="macro-detail" aria-live="polite"></p>
+        <p class="macro-source">All series join by observation calendar month, not publication date or row position. Cash rate: the existing master’s RBA target snapshot at its recorded effective date, not a monthly average or independently verified decision calendar. Yields: <a href="https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv" target="_blank" rel="noopener">RBA F2.1 monthly averages</a>. CPI: annual percentage change from the existing master’s ABS monthly CPI indicator, not an interest rate. Sources and measurement conventions differ; lines are visual guides, with no missing-value filling.</p>
+      </article>
+    </div>
+  </section>
+
   <!-- Data Explorer ────────────────────────────────────────────────────── -->
   <section class="pub-section" id="explorer">
     <div class="section-header">
@@ -659,12 +707,12 @@
       <span class="section-tag">Interactive</span>
     </div>
     <div class="context-narrative">
-      Compare any regional indicator against any macroeconomic context series. Adjust the lag slider to find leading/lagging relationships. The r-value updates in real time.
+      Compare a regional or macroeconomic primary indicator against a macroeconomic context series. Adjust the lag slider to explore leading/lagging relationships. The r-value updates in real time. Existing lag conventions are retained: when a shifted observation is unavailable, the calculation may fall back to the unshifted month. This can affect interpretation and does not establish causation.
     </div>
     <div class="explorer-controls">
       <div class="explorer-row">
         <div class="explorer-field">
-          <label for="exp-regional">Regional indicator</label>
+          <label for="exp-regional">Primary indicator — regional or macro</label>
           <select id="exp-regional" class="explorer-select" onchange="updateExplorer()"></select>
         </div>
         <div class="explorer-field">
@@ -757,6 +805,15 @@ const MACRO_OPTIONS = [
   { slug: 'aud_usd',          label: 'AUD/USD' },
   { slug: 'asx200',           label: 'ASX 200' },
 ];
+
+// Data-only integration: expose verified new inputs without changing layout,
+// existing chart lists, defaults, correlation logic or lead/lag behaviour.
+Object.entries(CC_ECONOMIC_DATA).forEach(([slug, ind]) => {
+  if (ind.group === 'context' && ind.validationStatus === 'verified' &&
+      !MACRO_OPTIONS.some(option => option.slug === slug)) {
+    MACRO_OPTIONS.push({ slug, label: ind.name + ' (' + ind.unit + ')' });
+  }
+});
 
 // ── Global macro selection state ─────────────────────────────────────────────
 // Tracks current global macro slug + per-chart current lag
@@ -1226,6 +1283,13 @@ function populateExplorerDropdowns() {
     const opt = document.createElement('option');
     opt.value = slug; opt.textContent = label;
     macSel.appendChild(opt);
+    // Add macro primary/anchor choices without changing existing defaults or lag logic.
+    if (![...regSel.options].some(option => option.value === slug)) {
+      const primary = opt.cloneNode(true);
+      primary.textContent = 'Macro: ' + label;
+      regSel.appendChild(primary);
+      corrSel.appendChild(primary.cloneNode(true));
+    }
   });
 }
 
@@ -1351,7 +1415,12 @@ const INDICATOR_META = [
 function buildInfoTable() {
   const tbody = document.getElementById('info-tbody');
   const freqClass = { Monthly: 'monthly', Quarterly: 'quarterly', Annual: 'annual' };
-  INDICATOR_META.sort((a, b) => a.name.localeCompare(b.name)).forEach(ind => {
+  const verifiedAdditions = Object.entries(CC_ECONOMIC_DATA)
+    .filter(([slug, ind]) => ind.validationStatus === 'verified' && slug !== 'bond_yield_10yr')
+    .map(([, ind]) => ({ name: ind.name, contentArea: 'Macroeconomic', source: ind.source,
+      frequency: 'Monthly', scope: ind.geography }));
+  [...INDICATOR_META.filter(ind => ind.name !== 'CRB Commodity Index'), ...verifiedAdditions]
+    .sort((a, b) => a.name.localeCompare(b.name)).forEach(ind => {
     const cls = freqClass[ind.frequency] || 'gap';
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${ind.name}</td><td>${ind.contentArea}</td><td>${ind.source}</td>` +
@@ -1384,7 +1453,7 @@ function buildAllSections() {
 
 // ── Nav active state ─────────────────────────────────────────────────────────
 function initNavScroll() {
-  const sections = ['overview','economy','housing','transport','tourism','correlation','context','explorer'];
+  const sections = ['overview','economy','housing','transport','tourism','correlation','context','macro-analysis','explorer'];
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -1428,5 +1497,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Generated: ' + new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 });
 </script>
+<script src="scripts/macro-analysis.js"></script>
+<script src="scripts/macro-view.js"></script>
 </body>
 </html>

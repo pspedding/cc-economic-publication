@@ -15,15 +15,15 @@
   "series": [
     {
       "date": "2022-04-06",
-      "value": -50.0
+      "value": -50
     },
     {
       "date": "2022-05-04",
-      "value": -50.0
+      "value": -50
     },
     {
       "date": "2022-06-08",
-      "value": -50.0
+      "value": -50
     },
     {
       "date": "2022-07-06",
@@ -87,15 +87,15 @@
     },
     {
       "date": "2023-10-04",
-      "value": -66.0
+      "value": -66
     },
     {
       "date": "2023-11-08",
-      "value": -66.0
+      "value": -66
     },
     {
       "date": "2023-12-06",
-      "value": -66.0
+      "value": -66
     },
     {
       "date": "2024-01-01",
@@ -183,39 +183,39 @@
     },
     {
       "date": "2025-10-01",
-      "value": -18.0
+      "value": -18
     },
     {
       "date": "2025-11-01",
-      "value": -18.0
+      "value": -18
     },
     {
       "date": "2025-12-01",
-      "value": -18.0
+      "value": -18
     },
     {
       "date": "2026-01-01",
-      "value": -42.0
+      "value": -42
     },
     {
       "date": "2026-02-01",
-      "value": -42.0
+      "value": -42
     },
     {
       "date": "2026-03-01",
-      "value": -42.0
+      "value": -42
     },
     {
       "date": "2026-04-01",
-      "value": -80.0
+      "value": -80
     },
     {
       "date": "2026-05-01",
-      "value": -80.0
+      "value": -80
     },
     {
       "date": "2026-06-01",
-      "value": -80.0
+      "value": -80
     },
     {
       "date": "2026-07-01",
@@ -233,5 +233,8 @@
       "date": "2026-10-01",
       "value": null
     }
-  ]
+  ],
+  "geography": "Central Coast",
+  "basis": "Existing published definition and date semantics retained",
+  "latestObservationMonth": "2026-06"
 }
