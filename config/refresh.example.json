@@ -1,27 +1,20 @@
 {
   "workbook": {
     "path": "/path/to/acquired-master.xlsx",
-    "sha256": "a9cffa4b97e1166ca88a142acb8bbdd4b41be4211f348e35dde4c1f3790698ad",
-    "revision": "65ef581c01c810321afbe",
+    "sha256": "<WORKBOOK_SHA256>",
+    "revision": "<DROPBOX_REVISION>",
     "logical_path": "Dropbox /Moltbot/Cash_Rate_Economic_Data_Model_CC_LGA_updated - latest.xlsx"
   },
   "baseline": "../data/data.js",
-  "baseline_sha256": "874a05fbb6c819e1e86b2252d8d25d17ee5d99bad13d255865c61226771c137b",
+  "baseline_sha256": "<BASELINE_SHA256>",
   "additional": "../data/sources/macro_additional.csv",
-  "additional_sha256": "1b3c447c30b3746ecf6f1873b89043afce8a37df0327fdd59e6895fce0f7b820",
+  "additional_sha256": "<ADDITIONAL_SHA256>",
   "additional_metadata": "../data/sources/macro_metadata.json",
-  "additional_metadata_sha256": "cf2e3343aee1db3ddeb4e6b13324ea8f9824113452f037dfe44039d1fe7eb3ff",
+  "additional_metadata_sha256": "<ADDITIONAL_METADATA_SHA256>",
   "output_root": "/path/to/private-staging",
   "protected_paths": [
     "/path/to/production-extraction-project",
     "/path/to/original-dashboard-checkout"
   ],
-  "approvals": [
-    {
-      "indicator": "cpi_yoy",
-      "month": "2026-09",
-      "old": null,
-      "new": 4.5
-    }
-  ]
+  "approvals": []
 }

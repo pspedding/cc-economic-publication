@@ -27,8 +27,9 @@ fixtures; it is not the source of the new core observations.
 
 Copy `config/refresh.example.json` to a private, ignored `*.local.json` file and
 replace placeholder paths. Paths resolve relative to that config, not the shell's
-working directory. The example pins the reviewed workbook revision and input hashes
-and carries **only the owner-approved September CPI staging rule**. New source
+working directory. The reusable example contains revision/hash placeholders and an **empty approval
+list**. Actual reviewed values and the approved September CPI staging rule remain
+in private revision-specific configuration. New source
 revisions/baselines require an explicitly updated reviewed configuration, never an
 unnoticed floating input.
 
@@ -255,7 +256,8 @@ has been installed**. A changed revision triggers source intake, not publication
    Change only its workbook path/revision/hash, current approved-baseline path/hash
    and isolated staging root as appropriate. This is **configuration/data intake**,
    not a program-code edit or a credential/security change. The tracked example
-   remains the historical 29 October example; do not overwrite it per release.
+   remains a placeholder-only template; do not insert real release hashes/revisions
+   or approved change rules into it per release.
 3. **Clear both manual and automatic approval lists for a new revision.** The
    source's new revision is not permission to reuse old value approvals. Initially
    run with empty approval lists: new observations, revisions and missing values
