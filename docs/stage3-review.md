@@ -93,7 +93,7 @@ required before deployment. No deployment is authorised by this Stage 3 review.
 ## Local preview and manual acceptance
 
 ```sh
-cd /Users/openclaw-spedding/.openclaw/workspace/projects/cc-economic-publication
+cd /path/to/cc-economic-publication
 ../macro-data-pipeline/.venv/bin/python -m http.server 18765 --bind 127.0.0.1
 ```
 
