@@ -12,6 +12,7 @@
 <script src="data/data.js?v=20260911b"></script>
 <link rel="stylesheet" href="scripts/macro-analysis.css">
 <link rel="stylesheet" href="scripts/scatter.css">
+<link rel="stylesheet" href="scripts/indicator-metadata.css">
 <style>
   /* ── Base ─────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -756,19 +757,18 @@
 
 <!-- ── Info Modal ── -->
 <div class="info-overlay" id="info-overlay" onclick="if(event.target===this)toggleInfo()">
-  <div class="info-modal">
+  <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-title">
     <div class="info-modal-header">
-      <h2>Indicator Definitions &amp; Metadata</h2>
-      <button class="info-close" onclick="toggleInfo()">✕</button>
+      <h2 id="info-title">Indicator Definitions &amp; Metadata</h2>
+      <button class="info-close" onclick="toggleInfo()" aria-label="Close indicator directory">✕</button>
     </div>
     <div class="info-search">
-      <input type="text" id="info-search" placeholder="Search indicators…" oninput="filterInfoTable(this.value)" />
+      <input type="text" id="info-search" aria-label="Search indicator directory" placeholder="Search indicators…" oninput="filterInfoTable(this.value)" />
     </div>
+    <p class="metadata-intro">Expand a subject, then an indicator for full metadata. Latest Period and Latest Value refer to the same most recent finite, non-null observation, not the release date or a carried-forward value. Source wording is reproduced from published objects; missing references are not verified provenance.</p>
+    <p id="info-count" role="status" aria-live="polite"></p>
     <div class="info-table-wrap">
-      <table class="info-table" id="info-table">
-        <thead><tr><th>Indicator</th><th>Content Area</th><th>Source</th><th>Frequency</th><th>Scope</th></tr></thead>
-        <tbody id="info-tbody"></tbody>
-      </table>
+      <div id="info-tbody"></div>
     </div>
   </div>
 </div>
@@ -1378,86 +1378,17 @@ function plotInExplorer(regionalSlug, compareSlug) {
 }
 
 // ── Build all sections ───────────────────────────────────────────────────────
-// ── Indicator metadata (from spreadsheet) ──────────────────────────────────
-const INDICATOR_META = [
-  { name: 'Airbnb ADR',                                  contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Airbnb Gross Revenue',                        contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Airbnb Occupancy Rate',                       contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Airbnb RevPAL',                               contentArea: 'Tourism',             source: 'STRA',                           frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'ASX 200 (month-end close)',                   contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'AU 10yr Govt Bond Yield (%)',                 contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'AUD/USD',                                     contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
-  { name: 'Avg Mortgage Rate - Outstanding, All Inst (%)', contentArea: 'Macroeconomic',    source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'Average House Price',                         contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Average House Rent (P/W)',                    contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Average Unit Price',                          contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Building Approvals - New Houses',             contentArea: 'Housing',             source: 'ABS Building Approvals',         frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Building Approvals - New Houses ($000)',      contentArea: 'Housing',             source: 'ABS Building Approvals',         frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Business NSW - CC Business Confidence',      contentArea: 'Business Confidence', source: 'Business NSW',                   frequency: 'Quarterly', scope: 'Central Coast' },
-  { name: 'Business NSW - CC Rank vs 17 Regions',       contentArea: 'Business Confidence', source: 'Business NSW',                   frequency: 'Quarterly', scope: 'Central Coast' },
-  { name: 'Business NSW - NSW Business Confidence',     contentArea: 'Business Confidence', source: 'Business NSW',                   frequency: 'Quarterly', scope: 'NSW' },
-  { name: 'Business Vehicles',                           contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Cash Rate Target (%)',                        contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'Change % Points',                             contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'Commercial DA Applications Assessed',         contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Commercial DA Value',                         contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Commonwealth Rent Assistance Recipients',     contentArea: 'Socio-Economic',      source: 'DSS Benefit Recipients',         frequency: 'Quarterly', scope: 'Central Coast' },
-  { name: 'Company Insolvencies (ASIC)',                 contentArea: 'Insolvencies',        source: 'ASIC',                           frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'CPI Year over Year % Change',                 contentArea: 'Macroeconomic',       source: 'ABS CPI',                        frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'CRB Commodity Index',                         contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
-  { name: 'Employment to Population Ratio',              contentArea: 'Economy',             source: 'ABS Labour Force Survey',        frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'EVs (Electric Vehicles)',                     contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'House Price YoY (%)',                         contentArea: 'Economy',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Investor Housing Credit (AUD $B)',            contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'Iron Ore Spot Price (USD/t)',                 contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
-  { name: 'Job Vacancies',                               contentArea: 'Economy',             source: 'IVI Job Vacancies',              frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Jobseeker Recipients',                        contentArea: 'Economy',             source: 'DSS / Jobseeker',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Labor Force Unemployment %',                 contentArea: 'Economy',             source: 'ABS Labour Force Survey',        frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Labour Force Participation Rate',             contentArea: 'Economy',             source: 'ABS Labour Force Survey',        frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Oil Price (USD/bbl)',                         contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Global' },
-  { name: 'Owner-Occupier Housing Credit (AUD $B)',     contentArea: 'Macroeconomic',       source: '—',                              frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'Personal Insolvencies (AFSA)',                contentArea: 'Insolvencies',        source: 'AFSA',                           frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Private Vehicles',                            contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'RBA Bulk Commodities Index - AUD',           contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'RBA Trade-Weighted Index (TWI)',              contentArea: 'Macroeconomic',       source: 'RBA',                            frequency: 'Monthly',   scope: 'Australia' },
-  { name: 'Residential DA Applications Assessed',        contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Residential DA Value',                        contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Residential Vacancy Rate',                    contentArea: 'Housing',             source: 'Property Market (SQM Research)', frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Retail Spend - Discretionary',                contentArea: 'Economy',             source: 'CommBank IQ Retail Spend',       frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Retail Spend - Total',                        contentArea: 'Economy',             source: 'CommBank IQ Retail Spend',       frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Retail Spend - Tourism & Entertainment',     contentArea: 'Economy',             source: 'CommBank IQ Retail Spend',       frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Total DA Applications Assessed',              contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Total DA Value',                              contentArea: 'Housing',             source: 'Property Market',                frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'Total New Vehicle Registrations',             contentArea: 'Economy',             source: 'TfNSW New Vehicle Registrations', frequency: 'Monthly',   scope: 'Central Coast' },
-  { name: 'US Fed Funds Rate (%)',                       contentArea: 'Macroeconomic',       source: 'US Federal Reserve',             frequency: 'Monthly',   scope: 'Global' },
-];
-
+// ── Active published metadata; no separate legacy or worksheet inventory ──────
 function buildInfoTable() {
-  const tbody = document.getElementById('info-tbody');
-  const freqClass = { Monthly: 'monthly', Quarterly: 'quarterly', Annual: 'annual' };
-  const verifiedAdditions = Object.entries(CC_ECONOMIC_DATA)
-    .filter(([slug, ind]) => ind.validationStatus === 'verified' && slug !== 'bond_yield_10yr')
-    .map(([, ind]) => ({ name: ind.name, contentArea: 'Macroeconomic', source: ind.source,
-      frequency: 'Monthly', scope: ind.geography }));
-  [...INDICATOR_META.filter(ind => ind.name !== 'CRB Commodity Index'), ...verifiedAdditions]
-    .sort((a, b) => a.name.localeCompare(b.name)).forEach(ind => {
-    const cls = freqClass[ind.frequency] || 'gap';
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${ind.name}</td><td>${ind.contentArea}</td><td>${ind.source}</td>` +
-      `<td><span class="badge badge-${cls}">${ind.frequency || '—'}</span></td>` +
-      `<td style="font-size:0.75rem;color:#555">${ind.scope}</td>`;
-    tbody.appendChild(tr);
-  });
+  if (globalThis.IndicatorMetadataView) globalThis.IndicatorMetadataView.render(CC_ECONOMIC_DATA);
 }
 
 function filterInfoTable(q) {
-  const rows = document.querySelectorAll('#info-tbody tr');
-  const lq = q.toLowerCase();
-  rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(lq) ? '' : 'none'; });
+  if (globalThis.IndicatorMetadataView) globalThis.IndicatorMetadataView.filter(q);
 }
 
 function toggleInfo() {
-  document.getElementById('info-overlay').classList.toggle('open');
+  if (globalThis.IndicatorMetadataView) globalThis.IndicatorMetadataView.toggle();
 }
 
 
@@ -1521,5 +1452,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="scripts/macro-view.js"></script>
 <script src="scripts/scatter-analysis.js"></script>
 <script src="scripts/scatter-view.js"></script>
+<script src="scripts/indicator-metadata.js"></script>
+<script src="scripts/indicator-metadata-view.js"></script>
 </body>
 </html>
