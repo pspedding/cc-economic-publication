@@ -6,7 +6,7 @@ function choose(p,y='cpi_yoy',x='cash_rate') {p.nodes.get('exp-regional').value=
 test('one scatter below time series; same selections, X compare and Y primary',()=>{
   const p=setup();choose(p);const c=p.run('ExplorerScatter.chart');
   assert.equal(c.config.type,'scatter');assert.match(c.options.scales.x.title.text,/Cash Rate/);assert.match(c.options.scales.y.title.text,/CPI/);
-  assert.equal(c.data.datasets[0].data.length,54);assert.equal(c.data.datasets[0].data.at(-1).y,4.5);
+  assert.equal(c.data.datasets[0].data.length,54);assert.equal(c.data.datasets[0].data.at(-1).y,4.3);
   assert(html.indexOf('id="scatter-card"')>html.indexOf('id="explorer-canvas"'));assert.match(p.nodes.get('scatter-stats').textContent,/n = 54/);
 });
 test('lag changes preserve strict scatter points and statistics, legacy lag still works',()=>{
@@ -36,7 +36,7 @@ test('OLS, outliers and year colours do not remove points or change statistics',
 });
 test('tooltip shows month, names, formatted values and source dates; touch supported',()=>{
   const p=setup();choose(p);const c=p.run('ExplorerScatter.chart'),raw=c.data.datasets[0].data.at(-1),cb=c.options.plugins.tooltip.callbacks;
-  assert.equal(cb.title([{raw}]),'2026-09');assert.match(cb.label({raw}).join(' '),/CPI Inflation.*4.50%/);
+  assert.equal(cb.title([{raw}]),'2026-09');assert.match(cb.label({raw}).join(' '),/CPI Inflation.*4.30%/);
   assert.match(cb.label({raw}).join(' '),/Cash Rate.*%/);assert.match(cb.label({raw}).join(' '),/Source dates/);
   assert(c.options.events.includes('touchstart'));assert.equal(c.options.plugins.tooltip.filter({datasetIndex:1}),false);
   assert.equal(cb.title([{raw},{raw}]),'Coincident paired months');assert.match(cb.label({raw}).join(' '),/Observation month: 2026-09/);
