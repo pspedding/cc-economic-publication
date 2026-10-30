@@ -1,0 +1,235 @@
+{
+  "slug": "sydney_dwelling_mom",
+  "name": "Sydney All Dwellings \u2014 Monthly Growth",
+  "unit": "%",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "PropTrack Home Price Index",
+  "format": "percent_direct",
+  "description": "Publisher-reported monthly all-dwellings HPI growth; not calculated from median values.",
+  "contextSeries": [],
+  "series": [
+    {
+      "date": "2022-04-01",
+      "value": -0.1
+    },
+    {
+      "date": "2022-05-01",
+      "value": -0.29
+    },
+    {
+      "date": "2022-06-01",
+      "value": -0.4
+    },
+    {
+      "date": "2022-07-01",
+      "value": -0.7
+    },
+    {
+      "date": "2022-08-01",
+      "value": -0.49
+    },
+    {
+      "date": "2022-09-01",
+      "value": -0.18
+    },
+    {
+      "date": "2022-10-01",
+      "value": -0.21
+    },
+    {
+      "date": "2022-11-01",
+      "value": -0.14
+    },
+    {
+      "date": "2022-12-01",
+      "value": -0.19
+    },
+    {
+      "date": "2023-01-01",
+      "value": -0.06
+    },
+    {
+      "date": "2023-02-01",
+      "value": 0.36
+    },
+    {
+      "date": "2023-03-01",
+      "value": 0.27
+    },
+    {
+      "date": "2023-04-01",
+      "value": 0.4
+    },
+    {
+      "date": "2023-05-01",
+      "value": 0.58
+    },
+    {
+      "date": "2023-06-01",
+      "value": 0.63
+    },
+    {
+      "date": "2023-07-01",
+      "value": 0.28
+    },
+    {
+      "date": "2023-08-01",
+      "value": 0.47
+    },
+    {
+      "date": "2023-09-01",
+      "value": 0.48
+    },
+    {
+      "date": "2023-10-01",
+      "value": 0.37
+    },
+    {
+      "date": "2023-11-01",
+      "value": 0.32
+    },
+    {
+      "date": "2023-12-01",
+      "value": -0.08
+    },
+    {
+      "date": "2024-01-01",
+      "value": -0.04
+    },
+    {
+      "date": "2024-02-01",
+      "value": 0.55
+    },
+    {
+      "date": "2024-03-01",
+      "value": 0.4
+    },
+    {
+      "date": "2024-04-01",
+      "value": 0.25
+    },
+    {
+      "date": "2024-05-01",
+      "value": 0.42
+    },
+    {
+      "date": "2024-06-01",
+      "value": 0.41
+    },
+    {
+      "date": "2024-07-01",
+      "value": 0.12
+    },
+    {
+      "date": "2024-08-01",
+      "value": 0.3
+    },
+    {
+      "date": "2024-09-01",
+      "value": 0.0
+    },
+    {
+      "date": "2024-10-01",
+      "value": 0.2
+    },
+    {
+      "date": "2024-11-01",
+      "value": 0.1
+    },
+    {
+      "date": "2024-12-01",
+      "value": -0.3
+    },
+    {
+      "date": "2025-01-01",
+      "value": -0.2
+    },
+    {
+      "date": "2025-02-01",
+      "value": 0.5
+    },
+    {
+      "date": "2025-03-01",
+      "value": 0.5
+    },
+    {
+      "date": "2025-04-01",
+      "value": 0.1
+    },
+    {
+      "date": "2025-05-01",
+      "value": 0.4
+    },
+    {
+      "date": "2025-06-01",
+      "value": 0.5
+    },
+    {
+      "date": "2025-07-01",
+      "value": 0.1
+    },
+    {
+      "date": "2025-08-01",
+      "value": 0.7
+    },
+    {
+      "date": "2025-09-01",
+      "value": 0.7
+    },
+    {
+      "date": "2025-10-01",
+      "value": 0.6
+    },
+    {
+      "date": "2025-11-01",
+      "value": 0.4
+    },
+    {
+      "date": "2025-12-01",
+      "value": -0.3
+    },
+    {
+      "date": "2026-01-01",
+      "value": 0.1
+    },
+    {
+      "date": "2026-02-01",
+      "value": 0.5
+    },
+    {
+      "date": "2026-03-01",
+      "value": 0.2
+    },
+    {
+      "date": "2026-04-01",
+      "value": -0.5
+    },
+    {
+      "date": "2026-05-01",
+      "value": -0.2
+    },
+    {
+      "date": "2026-06-01",
+      "value": -0.5
+    },
+    {
+      "date": "2026-07-01",
+      "value": -0.6
+    },
+    {
+      "date": "2026-08-01",
+      "value": -0.3
+    }
+  ],
+  "geography": "Sydney GCCSA",
+  "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
+  "sourceSeriesId": "PropTrack / Sydney / All dwellings / mom (descriptive mapping; no supplier code supplied)",
+  "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
+  "latestObservationMonth": "2026-08",
+  "observationMonthKey": "YYYY-MM observation month, not release date",
+  "validationStatus": "verified",
+  "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
+  "precisionNote": "Historical published precision varies; some accepted values are rounded. Two-decimal percentage display does not imply additional source precision."
+}

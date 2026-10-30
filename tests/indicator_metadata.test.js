@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const M=require('../scripts/indicator-metadata.js'),data=require('../data/data.js');
-test('one metadata row for each of 59 active slugs, no orphan or CRB rows',()=>{
- const rows=M.rows(data);assert.equal(rows.length,59);assert.deepEqual(rows.map(r=>r.slug).sort(),Object.keys(data).sort());
+test('one metadata row for each of 65 active slugs, no orphan or CRB rows',()=>{
+ const rows=M.rows(data);assert.equal(rows.length,65);assert.deepEqual(rows.map(r=>r.slug).sort(),Object.keys(data).sort());
  for(const s of ['crb_index','airbnb_occupancy','airbnb_revpal','vehicles_evs','interested_buyers'])assert(!rows.some(r=>r.slug===s));
 });
 test('published metadata remains unchanged, quarterly frequency and all requested fields retained',()=>{
@@ -12,7 +12,7 @@ test('published metadata remains unchanged, quarterly frequency and all requeste
 test('only explicit safe HTTPS source references are linked; no credential-bearing or executable URLs',()=>{
  for(const url of ['javascript:alert(1)','data:text/html,evil','http://example.org','https://u:secret@example.org','not a url',null,undefined])assert.equal(M.sourceLink(url),null);
  assert.equal(M.sourceLink('https://www.rba.gov.au/statistics/tables/'),'https://www.rba.gov.au/statistics/tables/');
- assert.equal(M.rows(data).filter(r=>r.sourceUrl).length,24);
+ assert.equal(M.rows(data).filter(r=>r.sourceUrl).length,30);
 });
 test('missing provenance and definitions displayed honestly; no invented source or link',()=>{
  const [r]=M.rows({example:{series:[]}});assert.equal(r.source,'Source not documented');assert.equal(r.sourceUrl,null);
@@ -48,7 +48,7 @@ test('stored latest mismatch is explicitly flagged, derived month/value still co
   assert.equal(r.month,'2026-09');assert.equal(r.value,4.3);assert.equal(r.consistent,false);assert.match(r.note,/Warning:.*conflicts/);
  }
 });
-test('eight categories partition all 59 published slugs once and retain original metadata content areas',()=>{
+test('eight categories partition all 65 published slugs once and retain original metadata content areas',()=>{
  const rows=M.rows(data);assert.equal(M.categories.length,8);assert.equal(new Set(rows.map(r=>r.category)).size,8);
  for(const r of rows){assert(M.categories.includes(r.category));assert.equal(r.latestValue,M.latest(data[r.slug]).value);assert.equal(r.latestConsistent,true);assert.equal(r.latestMonth,data[r.slug].latestObservationMonth);}
  assert.equal(rows.find(r=>r.slug==='cpi_yoy').contentArea,'Macroeconomic');assert.equal(rows.find(r=>r.slug==='house_price').contentArea,'Housing');
