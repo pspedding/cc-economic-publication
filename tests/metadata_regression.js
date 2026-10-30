@@ -13,6 +13,8 @@ for(const p of [a,b]){p.nodes.get('exp-regional').value='cpi_yoy';p.nodes.get('e
 for(const code of ["chartInstances['explorer-canvas'].data",'ExplorerScatter.chart.data'])assert.equal(JSON.stringify(a.run(code)),JSON.stringify(b.run(code)));
 const files=cp.execFileSync('git',['ls-tree','-r','--name-only',BASE,'data','scripts/build_data.py','scripts/refresh_data.py','scripts/macro_data.py','scripts/macro-analysis.js','scripts/macro-view.js','scripts/macro-analysis.css','scripts/scatter-analysis.js','scripts/scatter-view.js','scripts/scatter.css'],{encoding:'utf8'}).trim().split('\n');
 for(const file of files)assert(fs.readFileSync(file).equals(show(file)),file+' must remain unchanged');
-assert.equal(b.nodes.get('info-tbody').children.length,59);
-assert.deepEqual(b.nodes.get('info-tbody').children.map(r=>r.dataset.slug).sort(),Object.keys(data).sort());
+const descendants=n=>[n,...n.children.flatMap(descendants)];
+const directoryEntries=descendants(b.nodes.get('info-tbody')).filter(n=>n.dataset?.slug);
+assert.equal(b.nodes.get('info-tbody').children.length,8);assert.equal(directoryEntries.length,59);
+assert.deepEqual(directoryEntries.map(r=>r.dataset.slug).sort(),Object.keys(data).sort());
 console.log(JSON.stringify({passed:true,baseline:BASE,initialChartConfigurationsUnchanged:initialCharts,existingDefaultCharts:32,indicatorObjects:59,generatedOutputFiles:60,pearsonPairsUnchanged:pairs,scatterOptionsAndSevenMonthLagUnchanged:true,allDataAndBuilderBytesUnchanged:true,metadataRows:59,reviewedDataChanges:0,browserRendering:'offline harness'},null,2));

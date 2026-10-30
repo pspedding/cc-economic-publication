@@ -757,21 +757,18 @@
 
 <!-- ── Info Modal ── -->
 <div class="info-overlay" id="info-overlay" onclick="if(event.target===this)toggleInfo()">
-  <div class="info-modal">
+  <div class="info-modal" role="dialog" aria-modal="true" aria-labelledby="info-title">
     <div class="info-modal-header">
-      <h2>Indicator Definitions &amp; Metadata</h2>
-      <button class="info-close" onclick="toggleInfo()">✕</button>
+      <h2 id="info-title">Indicator Definitions &amp; Metadata</h2>
+      <button class="info-close" onclick="toggleInfo()" aria-label="Close indicator directory">✕</button>
     </div>
     <div class="info-search">
-      <input type="text" id="info-search" placeholder="Search indicators…" oninput="filterInfoTable(this.value)" />
+      <input type="text" id="info-search" aria-label="Search indicator directory" placeholder="Search indicators…" oninput="filterInfoTable(this.value)" />
     </div>
-    <p class="metadata-intro">Active published indicators only. Latest means the latest observation month, not the release or download date. Source wording is reproduced from the published objects; missing references are not treated as verified provenance.</p>
-    <p id="info-count" role="status"></p>
+    <p class="metadata-intro">Expand a subject, then an indicator for full metadata. Latest Period and Latest Value refer to the same most recent finite, non-null observation, not the release date or a carried-forward value. Source wording is reproduced from published objects; missing references are not verified provenance.</p>
+    <p id="info-count" role="status" aria-live="polite"></p>
     <div class="info-table-wrap">
-      <table class="info-table" id="info-table">
-        <thead><tr><th scope="col">Indicator</th><th scope="col">Definition</th><th scope="col">Source</th><th scope="col">Geography</th><th scope="col">Frequency</th><th scope="col">Units</th><th scope="col">Latest observation month</th></tr></thead>
-        <tbody id="info-tbody"></tbody>
-      </table>
+      <div id="info-tbody"></div>
     </div>
   </div>
 </div>
@@ -1391,7 +1388,7 @@ function filterInfoTable(q) {
 }
 
 function toggleInfo() {
-  document.getElementById('info-overlay').classList.toggle('open');
+  if (globalThis.IndicatorMetadataView) globalThis.IndicatorMetadataView.toggle();
 }
 
 
