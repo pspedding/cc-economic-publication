@@ -1,6 +1,6 @@
 # Dynamic Indicator Definitions & Metadata — local review
 
-Branch `feature/dynamic-indicator-metadata`, based on deployed PR #4 main `caed091003ae1564afe6d0ccb1bcb3e3b83b1ac5`.
+Branch `feature/dynamic-indicator-metadata`, updated against PR #7 main `8466fb72d42401b6e38c60c842a4e6be28c2382d`. The reviewed commits `e38463b` and `ba707b5` are retained through a normal merge of main; the reviewed popup HTML, JavaScript, CSS and harness are unchanged. The September CPI correction from PR #6 and the two expected-value assertions from PR #7 are inherited from main, not additional data or test changes in this PR.
 
 ## UI-only scope
 
@@ -10,7 +10,7 @@ Seven columns: indicator name (with slug), definition and measurement basis, sou
 
 `scripts/indicator-metadata.js` is pure row preparation, safe-source-link normalization and latest-month checking. `scripts/indicator-metadata-view.js` uses DOM text nodes/textContent and HTTPS-only links without userinfo, opening with `noopener noreferrer`. No interpolated metadata HTML or fabricated source URL is introduced. Styling is scoped to the existing modal/table; seven columns scroll within the popup at narrow widths. No site-header changes.
 
-The UI reproduces **existing published metadata verbatim**, including currently disputed CPI/FRED descriptions. It does not silently apply the separately reviewed source-correction proposals. A source name without a published URL remains visible with a provenance-detail notice; missing fields use explicit not-documented states, not invented information. Presence of a URL is not displayed as a new validation certification.
+The UI reproduces **existing published metadata verbatim**, including separately identified CPI/FRED source-wording limitations. It does not silently apply the separately reviewed source-correction proposals. A source name without a published URL remains visible with a provenance-detail notice; missing fields use explicit not-documented states, not invented information. Presence of a URL is not displayed as a new validation certification.
 
 Latest month uses the published field when it agrees with the latest finite observation. Zero is valid; trailing null/nonfinite values do not advance it. Missing latest metadata can be computed from observations with an explicit note. Invalid dates, duplicate months or conflicts produce an unavailable/unverified state without removing the indicator's row. No download date/current date or another series' month is substituted.
 
@@ -28,9 +28,9 @@ node tests/page_regression.js
 
 57 Node tests (43 existing + 14 metadata-specific) and 26 Python tests pass. New coverage includes exact active slug correspondence, absence of surplus/orphan rows, idempotence, missing/hostile fields, HTTPS/userinfo rejection, safe DOM text insertion, latest-month/zero/null/invalid/duplicate handling, search and empty matches, quarterly frequency, popup open/close independence and responsive CSS contracts.
 
-The additive metadata regression is pinned to caed091 and compares all 37 initial chart configurations (including scatter), all 3,481 Pearson pairs, legacy function source, selected CPI/cash-rate seven-month lag and scatter option state. All data/builder/chart-script bytes remain equal. The existing scatter regression also passes.
+The additive metadata regression is pinned to 8466fb7 and compares every initial chart configuration (including scatter), all 3,481 Pearson pairs, legacy function source, selected CPI/cash-rate seven-month lag and scatter option state. All data/builder/chart-script bytes remain equal to this corrected deployed baseline. The old scatter regression remains pinned to the earlier 4.5 release and fails its frozen byte-equality assertion after the separately approved 4.3 correction; it is not weakened or disabled. A separate release-aware audit preserves the exact authorised CPI delta and unaffected behaviour.
 
-The original pre-CPI `tests/page_regression.js` remains unchanged and still fails at dataset 22 because it expects the previously approved September CPI observation to be null. This is the documented inherited failure, not a new metadata regression; it is not weakened or disabled.
+The original pre-CPI `tests/page_regression.js` remains unchanged and still fails at dataset 22 because it expects September CPI to be null. The corrected deployed observation is 4.3. This is the documented inherited failure, not a new metadata regression; it is not weakened or disabled. The historical `refresh_acceptance.js` fixture likewise targets the earlier null→4.5 release, not a new candidate from this UI-only branch.
 
 ## Preview and manual acceptance
 
@@ -47,12 +47,12 @@ Manual checks at desktop 1440 and mobile 390/360 widths:
 1. Open ℹ; confirm 59 rows, seven requested columns, readable definitions/units and a source notice where no link exists. All 13 surplus entries and CRB should be absent.
 2. Search `quarterly` (three rows), `cpi_yoy` (one row), `basis points`, source names, geography and latest months. Check no-match count and clearing search restores 59. Re-open and re-render without duplicates.
 3. Open an existing RBA/ABS source reference; confirm correct HTTPS page and separate tab, no fabricated FRED/CPI links. Links are only those already published.
-4. Confirm CPI latest month remains September and vacancy July; no October value or missing value becomes zero. The disputed CPI value remains 4.5 in charts because no data correction has been authorized.
+4. Confirm CPI latest month remains September and vacancy July; no October value or missing value becomes zero. CPI charts and tooltips show the separately approved and deployed September 4.3 correction. The popup changes no observation.
 5. On mobile, horizontally scroll inside the table to the final column; verify modal close/search remain usable. The known inherited site-header overflow is outside this feature.
 6. Close popup and exercise Data Explorer/scatter selections, options, date ranges and lag; confirm no state or chart regression.
 
 ## Separation and recovery
 
-Phase A CPI reconciliation/4.5→4.3 proposal and Phase C source-metadata field proposals are retained in a **private external review package**, not applied to this branch or its generated data. They require separate approval and candidates. No private workbook/snapshot/configuration is committed.
+Phase A September CPI 4.5→4.3 was separately approved and deployed through PR #6; this branch inherits it from main. All 58 Phase C source-metadata field proposals remain in a **private external review package**, unapplied and excluded from this PR. They require separate approval and candidates. No private workbook/snapshot/configuration is committed.
 
-This branch is local only; no push, PR, merge or deployment performed. Recovery is the deployed caed091 baseline plus the local feature commits/bundle. Review and approve UI, any metadata-only changes and any CPI data correction as separate changes; never bundle numerical corrections into this popup release.
+This branch is draft PR #5. Updating the feature branch does not merge or deploy it. Recovery preserves the original reviewed commits/bundle and updated main baseline 8466fb7. Review and approve the updated popup and browser checks before merge. Keep provenance corrections separate; never bundle numerical corrections into this popup release.

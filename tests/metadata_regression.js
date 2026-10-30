@@ -1,7 +1,7 @@
-// Additive deployed-PR4 regression, not a replacement for frozen legacy checks.
+// Additive deployed-PR7 regression, not a replacement for frozen legacy checks.
 const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict');
 const {page}=require('./page_harness.js'),data=require('../data/data.js');
-const BASE='caed091003ae1564afe6d0ccb1bcb3e3b83b1ac5';
+const BASE='8466fb72d42401b6e38c60c842a4e6be28c2382d';
 const show=file=>cp.execFileSync('git',['show',BASE+':'+file]);
 const html=fs.readFileSync('index.html','utf8'),a=page(show('index.html').toString(),data),b=page(html,data);
 const initialCharts=a.charts.length;assert.equal(initialCharts,b.charts.length);
