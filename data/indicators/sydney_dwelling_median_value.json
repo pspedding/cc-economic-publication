@@ -1,0 +1,235 @@
+{
+  "slug": "sydney_dwelling_median_value",
+  "name": "Sydney All Dwellings \u2014 Median Dwelling Value",
+  "unit": "AUD",
+  "freq": "monthly",
+  "section": "context",
+  "group": "context",
+  "source": "PropTrack Home Price Index",
+  "format": "dollar_0",
+  "description": "Publisher-reported median all-dwellings value; not an index level or Central Coast average sale price.",
+  "contextSeries": [],
+  "series": [
+    {
+      "date": "2022-04-01",
+      "value": 982000
+    },
+    {
+      "date": "2022-05-01",
+      "value": 994000
+    },
+    {
+      "date": "2022-06-01",
+      "value": 1015000
+    },
+    {
+      "date": "2022-07-01",
+      "value": 975000
+    },
+    {
+      "date": "2022-08-01",
+      "value": 991000
+    },
+    {
+      "date": "2022-09-01",
+      "value": 962000
+    },
+    {
+      "date": "2022-10-01",
+      "value": 962000
+    },
+    {
+      "date": "2022-11-01",
+      "value": 992000
+    },
+    {
+      "date": "2022-12-01",
+      "value": 989000
+    },
+    {
+      "date": "2023-01-01",
+      "value": 981000
+    },
+    {
+      "date": "2023-02-01",
+      "value": 983000
+    },
+    {
+      "date": "2023-03-01",
+      "value": 994000
+    },
+    {
+      "date": "2023-04-01",
+      "value": 1005000
+    },
+    {
+      "date": "2023-05-01",
+      "value": 1019000
+    },
+    {
+      "date": "2023-06-01",
+      "value": 1036000
+    },
+    {
+      "date": "2023-07-01",
+      "value": 1046000
+    },
+    {
+      "date": "2023-08-01",
+      "value": 1056000
+    },
+    {
+      "date": "2023-09-01",
+      "value": 1057000
+    },
+    {
+      "date": "2023-10-01",
+      "value": 1070000
+    },
+    {
+      "date": "2023-11-01",
+      "value": 1065000
+    },
+    {
+      "date": "2023-12-01",
+      "value": 1062000
+    },
+    {
+      "date": "2024-01-01",
+      "value": 1057000
+    },
+    {
+      "date": "2024-02-01",
+      "value": 1053000
+    },
+    {
+      "date": "2024-03-01",
+      "value": 1069000
+    },
+    {
+      "date": "2024-04-01",
+      "value": 1081000
+    },
+    {
+      "date": "2024-05-01",
+      "value": 1101000
+    },
+    {
+      "date": "2024-06-01",
+      "value": 1107000
+    },
+    {
+      "date": "2024-07-01",
+      "value": 1118000
+    },
+    {
+      "date": "2024-08-01",
+      "value": 1095000
+    },
+    {
+      "date": "2024-09-01",
+      "value": 1103000
+    },
+    {
+      "date": "2024-10-01",
+      "value": 1108000
+    },
+    {
+      "date": "2024-11-01",
+      "value": 1112000
+    },
+    {
+      "date": "2024-12-01",
+      "value": 1106000
+    },
+    {
+      "date": "2025-01-01",
+      "value": 1101000
+    },
+    {
+      "date": "2025-02-01",
+      "value": 1094000
+    },
+    {
+      "date": "2025-03-01",
+      "value": 1104000
+    },
+    {
+      "date": "2025-04-01",
+      "value": 1118000
+    },
+    {
+      "date": "2025-05-01",
+      "value": 1124000
+    },
+    {
+      "date": "2025-06-01",
+      "value": 1182000
+    },
+    {
+      "date": "2025-07-01",
+      "value": 1194000
+    },
+    {
+      "date": "2025-08-01",
+      "value": 1201000
+    },
+    {
+      "date": "2025-09-01",
+      "value": 1213000
+    },
+    {
+      "date": "2025-10-01",
+      "value": 1228000
+    },
+    {
+      "date": "2025-11-01",
+      "value": 1239000
+    },
+    {
+      "date": "2025-12-01",
+      "value": 1240000
+    },
+    {
+      "date": "2026-01-01",
+      "value": 1237000
+    },
+    {
+      "date": "2026-02-01",
+      "value": 1255000
+    },
+    {
+      "date": "2026-03-01",
+      "value": 1251000
+    },
+    {
+      "date": "2026-04-01",
+      "value": 1247000
+    },
+    {
+      "date": "2026-05-01",
+      "value": 1238000
+    },
+    {
+      "date": "2026-06-01",
+      "value": 1225000
+    },
+    {
+      "date": "2026-07-01",
+      "value": 1205000
+    },
+    {
+      "date": "2026-08-01",
+      "value": 1194000
+    }
+  ],
+  "geography": "Sydney GCCSA",
+  "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
+  "sourceSeriesId": "PropTrack / Sydney / All dwellings / median_value (descriptive mapping; no supplier code supplied)",
+  "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
+  "latestObservationMonth": "2026-08",
+  "observationMonthKey": "YYYY-MM observation month, not release date",
+  "validationStatus": "verified",
+  "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
+  "precisionNote": "Historical published precision varies; some accepted values are rounded. Two-decimal percentage display does not imply additional source precision."
+}
