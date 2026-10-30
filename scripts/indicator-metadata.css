@@ -1,0 +1,17 @@
+/* Scoped popup additions; no site-header or chart changes. */
+#info-overlay .info-modal {width:min(1240px,96vw); max-width:96vw;}
+#info-overlay .info-table-wrap {overflow:auto; min-width:0;}
+#info-table {min-width:1050px;}
+#info-table td {overflow-wrap:anywhere;}
+#info-table td:nth-child(1) {min-width:150px;}
+#info-table td:nth-child(2) {min-width:250px; max-width:360px;}
+#info-table td:nth-child(3) {min-width:180px; max-width:260px;}
+#info-table td:last-child {min-width:105px;}
+.metadata-detail {display:block; margin-top:.3rem; color:#596775; font-size:.72rem; line-height:1.4;}
+#info-count {font-size:.8rem; color:#596775; padding:0 20px 10px;}
+#info-overlay .metadata-intro {font-size:.8rem; line-height:1.5; padding:0 20px 10px;}
+@media(max-width:600px){
+  #info-overlay .info-modal {width:96vw; max-height:90vh;}
+  #info-overlay .info-modal-header {padding:12px;}
+  #info-overlay .info-modal-header h2 {font-size:.9rem;}
+}
