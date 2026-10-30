@@ -6221,7 +6221,7 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": 4.5
+        "value": 4.3
       },
       {
         "date": "2026-10-01",
