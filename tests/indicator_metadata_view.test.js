@@ -47,7 +47,7 @@ test('latest formatting reuses dashboard conventions for all indicators, percent
 test('zero is formatted, all-null is unavailable, mismatch warning visible in full metadata',()=>{
  const d=JSON.parse(JSON.stringify(data));d.cpi_yoy.series=[{date:'2026-09-01',value:0},{date:'2026-10-01',value:null}];
  let p=setup(d);assert.equal(fields(find(p,'cpi_yoy'))['Latest Value'].textContent,'0.00%');
- d.cpi_yoy.latestObservationMonth='2026-08';p=setup(d);assert.match(fields(find(p,'cpi_yoy'))['Latest observation check'].textContent,/Warning:/);
+ d.cpi_yoy.latestObservationMonth='2026-08';p=setup(d);assert.match(fields(find(p,'cpi_yoy'))['Latest observation check'].textContent,/Warning:/);assert(walk(find(p,'cpi_yoy').children[0]).some(n=>n.textContent===' — latest-period mismatch'));
  d.cpi_yoy.series=[{date:'2026-09-01',value:null}];p=setup(d);const f=fields(find(p,'cpi_yoy'));assert.equal(f['Latest Value'].textContent,'Not available');assert.equal(f['Latest Period'].textContent,'Not available');
 });
 test('popup focus, Escape close/return, Tab boundaries and native expander semantics',()=>{

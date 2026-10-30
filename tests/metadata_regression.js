@@ -6,7 +6,7 @@ const show=file=>cp.execFileSync('git',['show',BASE+':'+file]);
 const html=fs.readFileSync('index.html','utf8'),a=page(show('index.html').toString(),data),b=page(html,data);
 const initialCharts=a.charts.length;assert.equal(initialCharts,b.charts.length);
 for(let i=0;i<a.charts.length;i++) {assert.equal(a.charts[i].canvas.id,b.charts[i].canvas.id);assert.equal(JSON.stringify(a.charts[i].data),JSON.stringify(b.charts[i].data));assert.equal(JSON.stringify(a.charts[i].options),JSON.stringify(b.charts[i].options));}
-for(const name of ['crossCorr','pearsonR','bestLag','buildChartInstance','updateExplorer','updateExplorerLag','resetExplorer','plotInExplorer','exportReport'])assert.equal(a.run(name+'.toString()'),b.run(name+'.toString()'),name);
+for(const name of ['formatVal','crossCorr','pearsonR','bestLag','buildChartInstance','updateExplorer','updateExplorerLag','resetExplorer','plotInExplorer','exportReport'])assert.equal(a.run(name+'.toString()'),b.run(name+'.toString()'),name);
 let pairs=0;
 for(const x of Object.keys(data))for(const y of Object.keys(data)){const code=`pearsonR('${x}','${y}')`;assert.equal(a.run(code),b.run(code));pairs++;}
 for(const p of [a,b]){p.nodes.get('exp-regional').value='cpi_yoy';p.nodes.get('exp-macro').value='cash_rate';p.nodes.get('exp-lag').value='7';p.run('updateExplorer()');for(const id of ['scatter-trend','scatter-years','scatter-outliers']){p.nodes.get(id).checked=true;p.nodes.get(id).fire('change');}}
