@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const M=require('../scripts/indicator-metadata.js'),data=require('../data/data.js');
-test('one metadata row for each of 67 active slugs, no orphan or CRB rows',()=>{
- const rows=M.rows(data);assert.equal(rows.length,67);assert.deepEqual(rows.map(r=>r.slug).sort(),Object.keys(data).sort());
+test('one metadata row for each of 68 active slugs, no orphan or CRB rows',()=>{
+ const rows=M.rows(data);assert.equal(rows.length,68);assert.deepEqual(rows.map(r=>r.slug).sort(),Object.keys(data).sort());
  for(const s of ['crb_index','airbnb_occupancy','airbnb_revpal','interested_buyers'])assert(!rows.some(r=>r.slug===s));
 });
 test('published metadata remains unchanged, quarterly frequency and all requested fields retained',()=>{
@@ -48,7 +48,7 @@ test('stored latest mismatch is explicitly flagged, derived month/value still co
   assert.equal(r.month,'2026-09');assert.equal(r.value,4.3);assert.equal(r.consistent,false);assert.match(r.note,/Warning:.*conflicts/);
  }
 });
-test('eight categories partition all 67 published slugs once and retain original metadata content areas',()=>{
+test('eight categories partition all 68 published slugs once and retain original metadata content areas',()=>{
  const rows=M.rows(data);assert.equal(M.categories.length,8);assert.equal(new Set(rows.map(r=>r.category)).size,8);
  for(const r of rows){assert(M.categories.includes(r.category));assert.equal(r.latestValue,M.latest(data[r.slug]).value);assert.equal(r.latestConsistent,true);assert.equal(r.latestMonth,data[r.slug].latestObservationMonth);}
  assert.equal(rows.find(r=>r.slug==='cpi_yoy').contentArea,'Macroeconomic');assert.equal(rows.find(r=>r.slug==='house_price').contentArea,'Housing');
