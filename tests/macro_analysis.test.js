@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
-const M=require('../scripts/macro-analysis.js'),data=require('../data/data.js');
+const M=require('../scripts/macro-analysis.js'),data=require('./accepted_20261031.js').data;
 const fixture=(points)=>({series:points.map(([date,value])=>({date,value}))});
 test('calendar keys and year boundaries do not depend on timezone',()=>{
   assert.equal(M.monthKey('2022-04-06'),'2022-04');

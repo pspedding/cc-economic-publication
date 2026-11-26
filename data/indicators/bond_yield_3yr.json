@@ -226,13 +226,17 @@
     {
       "date": "2026-09-01",
       "value": 4.91
+    },
+    {
+      "date": "2026-10-01",
+      "value": 4.879
     }
   ],
   "geography": "Australia",
   "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
   "sourceSeriesId": "FCMYGBAG3",
   "basis": "average of daily end-of-day yields; RBA interpolated constant maturity",
-  "latestObservationMonth": "2026-09",
+  "latestObservationMonth": "2026-10",
   "validationStatus": "verified",
   "observationMonthKey": "YYYY-MM derived from date; never publication date"
 }

@@ -223,18 +223,22 @@
     },
     {
       "date": "2026-08-01",
-      "value": 360.787701734591
+      "value": 366.08083370839296
     },
     {
       "date": "2026-09-01",
-      "value": null
+      "value": 401.9807621572683
     },
     {
       "date": "2026-10-01",
+      "value": null
+    },
+    {
+      "date": "2026-11-01",
       "value": null
     }
   ],
   "geography": "Central Coast",
   "basis": "Existing published definition and date semantics retained",
-  "latestObservationMonth": "2026-08"
+  "latestObservationMonth": "2026-09"
 }

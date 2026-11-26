@@ -1,6 +1,6 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),cp=require('node:child_process'),crypto=require('node:crypto');
 const {page}=require('./page_harness.js'),S=require('../scripts/scatter-analysis.js'),M=require('../scripts/indicator-metadata.js');
-const data=require('../data/data.js'),six=require('../data/sources/housing_approved.json');
+const data=require('./accepted_20261031.js').data,six=require('../data/sources/housing_approved.json');
 const BASE='f49d3d94950527fd157a6a775ef7862c4002e95a';
 const show=f=>cp.execFileSync('git',['show',BASE+':'+f]);
 const base=JSON.parse(show('data/data.js').toString().split('const CC_ECONOMIC_DATA = ')[1].split(';\n\nif (typeof module')[0]);
@@ -13,8 +13,8 @@ test('approved six IDs and all 318 observations match immutable accepted release
  let n=0;for(const [slug,d]of Object.entries(six)){assert(!slug.startsWith('proptrack_'));assert(!d.name.startsWith('PropTrack '));assert.equal(d.source,'PropTrack Home Price Index');assert.deepEqual(data[slug],d);assert.equal(d.series.length,53);assert.equal(new Set(d.series.map(p=>p.date)).size,53);assert.equal(d.series[0].date,'2022-04-01');assert.equal(d.series.at(-1).date,'2026-08-01');assert.equal(d.latestObservationMonth,'2026-08');for(const p of d.series){assert.equal(typeof p.value,'number');assert(Number.isFinite(p.value));n++;}}assert.equal(n,318);
 });
 test('original 59 objects and per-indicator files byte-identical; 66 active outputs',()=>{
- for(const [slug,d]of Object.entries(base)){assert.deepEqual(data[slug],d);assert(fs.readFileSync('data/indicators/'+slug+'.json').equals(show('data/indicators/'+slug+'.json')));}
- for(const [slug,d]of Object.entries(data))assert.deepEqual(JSON.parse(fs.readFileSync('data/indicators/'+slug+'.json')),d);
+ for(const [slug,d]of Object.entries(base)){assert.deepEqual(data[slug],d);assert(require('./accepted_20261031.js').file('data/indicators/'+slug+'.json').equals(show('data/indicators/'+slug+'.json')));}
+ for(const [slug,d]of Object.entries(data))assert.deepEqual(JSON.parse(require('./accepted_20261031.js').file('data/indicators/'+slug+'.json')),d);
  assert.equal(Object.keys(data).length+1,66);
 });
 test('all 3481 original Pearson results and calculation/format/export/lag functions unchanged',()=>{

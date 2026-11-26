@@ -225,6 +225,10 @@
     },
     {
       "date": "2026-09-01",
+      "value": 3.97646
+    },
+    {
+      "date": "2026-10-01",
       "value": null
     }
   ],
@@ -232,7 +236,7 @@
   "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
   "sourceSeriesId": "calculated from A130276690K",
   "basis": "100 \u00d7 (value / value 12 months earlier \u2212 1); calendar join",
-  "latestObservationMonth": "2026-08",
+  "latestObservationMonth": "2026-09",
   "validationStatus": "verified",
   "observationMonthKey": "YYYY-MM derived from date; never publication date"
 }

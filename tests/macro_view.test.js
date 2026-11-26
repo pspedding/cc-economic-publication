@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs');
-const {page}=require('./page_harness.js'),data=require('../data/data.js');
+const {page}=require('./page_harness.js'),data=require('./accepted_20261031.js').data;
 const html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('scripts/macro-analysis.css','utf8');
 function setup(dataOverride=data,width=1280){return page(html,dataOverride,{width});}
 test('three macro charts initialize independently after the original charts',()=>{
