@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs');
-const {page}=require('./page_harness.js'),data=require('../data/data.js');
+const {page}=require('./page_harness.js'),data=require('./accepted_20261031.js').data;
 const html=fs.readFileSync('index.html','utf8');
 const setup=()=>page(html,data);
 function choose(p,y='cpi_yoy',x='cash_rate') {p.nodes.get('exp-regional').value=y;p.nodes.get('exp-macro').value=x;p.run('updateExplorer()');}

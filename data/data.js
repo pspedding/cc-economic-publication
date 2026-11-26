@@ -236,12 +236,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 4.83
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "labour_participation": {
     "slug": "labour_participation",
@@ -474,12 +478,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 60.41
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "employment_pop_ratio": {
     "slug": "employment_pop_ratio",
@@ -712,12 +720,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 57.489
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "jobseeker": {
     "slug": "jobseeker",
@@ -952,12 +964,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 12635
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "job_vacancies": {
     "slug": "job_vacancies",
@@ -1192,12 +1208,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 1632
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "business_confidence_cc": {
     "slug": "business_confidence_cc",
@@ -1420,24 +1440,28 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-07-01",
-        "value": null
+        "value": -50
       },
       {
         "date": "2026-08-01",
-        "value": null
+        "value": -50
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": -50
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-06"
+    "latestObservationMonth": "2026-09"
   },
   "business_confidence_nsw": {
     "slug": "business_confidence_nsw",
@@ -1658,24 +1682,28 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-07-01",
-        "value": null
+        "value": -65
       },
       {
         "date": "2026-08-01",
-        "value": null
+        "value": -65
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": -65
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "New South Wales",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-06"
+    "latestObservationMonth": "2026-09"
   },
   "house_price": {
     "slug": "house_price",
@@ -1911,12 +1939,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 1337681.634
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "house_price_yoy": {
     "slug": "house_price_yoy",
@@ -2151,12 +2183,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": -0.043097136090542096
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "house_rent": {
     "slug": "house_rent",
@@ -2391,12 +2427,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 747.5
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "vacancy_rate": {
     "slug": "vacancy_rate",
@@ -2621,20 +2661,24 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-08-01",
-        "value": null
+        "value": 1
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 1
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-07"
+    "latestObservationMonth": "2026-09"
   },
   "building_approvals_n": {
     "slug": "building_approvals_n",
@@ -2865,16 +2909,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 66
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "building_approvals_v": {
     "slug": "building_approvals_v",
@@ -3103,16 +3151,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 40104.077
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "avg_mortgage_rate": {
     "slug": "avg_mortgage_rate",
@@ -3343,16 +3395,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 6.2
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "owner_occupier_credit": {
     "slug": "owner_occupier_credit",
@@ -3583,16 +3639,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 1769.026
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "investor_credit": {
     "slug": "investor_credit",
@@ -3823,16 +3883,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 867.971
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "cra_recipients": {
     "slug": "cra_recipients",
@@ -4056,24 +4120,28 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-07-01",
-        "value": null
+        "value": 28065
       },
       {
         "date": "2026-08-01",
-        "value": null
+        "value": 28065
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 28065
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-06"
+    "latestObservationMonth": "2026-09"
   },
   "retail_total": {
     "slug": "retail_total",
@@ -4309,12 +4377,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 469860000
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "retail_tourism": {
     "slug": "retail_tourism",
@@ -4549,12 +4621,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 76105000
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "retail_discretionary": {
     "slug": "retail_discretionary",
@@ -4789,12 +4865,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 109012000
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "airbnb_revenue": {
     "slug": "airbnb_revenue",
@@ -5021,20 +5101,24 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-08-01",
-        "value": 4640451.41971032
+        "value": 5075710.759366868
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 4996218.892852688
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "vehicles_total": {
     "slug": "vehicles_total",
@@ -5265,16 +5349,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": 1945
+        "value": 2205
       },
       {
         "date": "2026-10-01",
+        "value": 2068
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "vehicles_private": {
     "slug": "vehicles_private",
@@ -5505,16 +5593,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": 1511
+        "value": 1634
       },
       {
         "date": "2026-10-01",
+        "value": 1586
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "vehicles_business": {
     "slug": "vehicles_business",
@@ -5743,16 +5835,20 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
-        "value": 201
+        "value": 225
       },
       {
         "date": "2026-10-01",
+        "value": 214
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "cash_rate": {
     "slug": "cash_rate",
@@ -5986,11 +6082,15 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-10-01",
         "value": 4.6
+      },
+      {
+        "date": "2026-11-01",
+        "value": 4.85
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-10"
+    "latestObservationMonth": "2026-11"
   },
   "cpi_yoy": {
     "slug": "cpi_yoy",
@@ -6225,12 +6325,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 4.9
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "us_fed_rate": {
     "slug": "us_fed_rate",
@@ -6465,12 +6569,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 3.88
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "United States",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "bond_yield_10yr": {
     "slug": "bond_yield_10yr",
@@ -6706,6 +6814,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 5.265
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
@@ -6713,7 +6825,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
     "sourceSeriesId": "FCMYGBAG10",
     "basis": "average of daily end-of-day yields; RBA interpolated constant maturity",
-    "latestObservationMonth": "2026-09",
+    "latestObservationMonth": "2026-10",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date",
     "dateSemantics": "Legacy effective dates retained for compatibility; yields are monthly observations, not cash-rate decision-day yields."
@@ -6949,12 +7061,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 65.2
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "aud_usd": {
     "slug": "aud_usd",
@@ -7190,12 +7306,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 0.704
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "oil_price": {
     "slug": "oil_price",
@@ -7431,12 +7551,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 123.92727
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Global",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "iron_ore": {
     "slug": "iron_ore",
@@ -7663,20 +7787,24 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-08-01",
-        "value": null
+        "value": 99.61905
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 100.44091
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Global",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-07"
+    "latestObservationMonth": "2026-09"
   },
   "bulk_commodities": {
     "slug": "bulk_commodities",
@@ -7909,12 +8037,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 91.22774
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "asx200": {
     "slug": "asx200",
@@ -8149,12 +8281,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 8908.1
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Australia",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "airbnb_adr": {
     "slug": "airbnb_adr",
@@ -8381,20 +8517,24 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-08-01",
-        "value": 360.787701734591
+        "value": 366.08083370839296
       },
       {
         "date": "2026-09-01",
-        "value": null
+        "value": 401.9807621572683
       },
       {
         "date": "2026-10-01",
+        "value": null
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-08"
+    "latestObservationMonth": "2026-09"
   },
   "unit_price": {
     "slug": "unit_price",
@@ -8629,12 +8769,16 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-10-01",
+        "value": 746192.878
+      },
+      {
+        "date": "2026-11-01",
         "value": null
       }
     ],
     "geography": "Central Coast",
     "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-09"
+    "latestObservationMonth": "2026-10"
   },
   "nsw_household_total": {
     "slug": "nsw_household_total",
@@ -8863,6 +9007,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 25863.5
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -8870,7 +9018,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682003.xlsx",
     "sourceSeriesId": "A130203272K",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -9101,6 +9249,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 17030.4
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -9108,7 +9260,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682003.xlsx",
     "sourceSeriesId": "A130203428V",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -9339,6 +9491,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 4508.0
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -9346,7 +9502,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682003.xlsx",
     "sourceSeriesId": "A130203374X",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -9577,6 +9733,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 3914.2
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -9584,7 +9744,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682003.xlsx",
     "sourceSeriesId": "A130203122C",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -9815,6 +9975,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 5.6
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -9822,7 +9986,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682003.xlsx",
     "sourceSeriesId": "A130203276V",
     "basis": "seasonally adjusted; through-the-year percentage change",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -10053,6 +10217,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 11923.5
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -10060,7 +10228,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276690K",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -10291,6 +10459,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": -0.08045
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -10298,7 +10470,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "calculated from A130276690K",
     "basis": "100 \u00d7 (value / value 1 months earlier \u2212 1); calendar join",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -10529,6 +10701,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 3.97646
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -10536,7 +10712,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "calculated from A130276690K",
     "basis": "100 \u00d7 (value / value 12 months earlier \u2212 1); calendar join",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -10767,6 +10943,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 4512.5
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -10774,7 +10954,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276726A",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -11005,6 +11185,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 1890.2
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -11012,7 +11196,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276723V",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -11243,6 +11427,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 1116.3
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -11250,7 +11438,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276747L",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -11481,6 +11669,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 475.2
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -11488,7 +11680,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276687W",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -11719,6 +11911,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 2116.3
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -11726,7 +11922,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276714T",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -11957,6 +12153,10 @@ const CC_ECONOMIC_DATA = {
       },
       {
         "date": "2026-09-01",
+        "value": 1813.0
+      },
+      {
+        "date": "2026-10-01",
         "value": null
       }
     ],
@@ -11964,7 +12164,7 @@ const CC_ECONOMIC_DATA = {
     "sourceUrl": "https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator/aug-2026/5682019.xlsx",
     "sourceSeriesId": "A130276702J",
     "basis": "seasonally adjusted; current prices",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-09",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -12196,6 +12396,10 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 74.6
+      },
+      {
+        "date": "2026-10-01",
+        "value": null
       }
     ],
     "geography": "Australia",
@@ -12434,6 +12638,10 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 0.2
+      },
+      {
+        "date": "2026-10-01",
+        "value": null
       }
     ],
     "geography": "Australia",
@@ -12672,6 +12880,10 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": -12.7
+      },
+      {
+        "date": "2026-10-01",
+        "value": null
       }
     ],
     "geography": "Australia",
@@ -12910,13 +13122,17 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 84.4
+      },
+      {
+        "date": "2026-10-01",
+        "value": 80.4
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/h3-data.csv",
     "sourceSeriesId": "GICWMICS",
     "basis": "seasonally adjusted; Westpac\u2013Melbourne Institute index republished by RBA H3",
-    "latestObservationMonth": "2026-09",
+    "latestObservationMonth": "2026-10",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -13148,6 +13364,10 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": -9.8
+      },
+      {
+        "date": "2026-10-01",
+        "value": null
       }
     ],
     "geography": "Australia",
@@ -13386,13 +13606,17 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 4.922
+      },
+      {
+        "date": "2026-10-01",
+        "value": 4.898
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
     "sourceSeriesId": "FCMYGBAG2",
     "basis": "average of daily end-of-day yields; RBA interpolated constant maturity",
-    "latestObservationMonth": "2026-09",
+    "latestObservationMonth": "2026-10",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -13624,13 +13848,17 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 4.91
+      },
+      {
+        "date": "2026-10-01",
+        "value": 4.879
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
     "sourceSeriesId": "FCMYGBAG3",
     "basis": "average of daily end-of-day yields; RBA interpolated constant maturity",
-    "latestObservationMonth": "2026-09",
+    "latestObservationMonth": "2026-10",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -13862,13 +14090,17 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 4.958
+      },
+      {
+        "date": "2026-10-01",
+        "value": 4.937
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
     "sourceSeriesId": "FCMYGBAG5",
     "basis": "average of daily end-of-day yields; RBA interpolated constant maturity",
-    "latestObservationMonth": "2026-09",
+    "latestObservationMonth": "2026-10",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -14100,13 +14332,17 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-09-01",
         "value": 36.1
+      },
+      {
+        "date": "2026-10-01",
+        "value": 36.7
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv",
     "sourceSeriesId": "calculated: FCMYGBAG10 - FCMYGBAG2",
     "basis": "100 \u00d7 (10Y \u2212 2Y), both same-month RBA averages; missing input => blank",
-    "latestObservationMonth": "2026-09",
+    "latestObservationMonth": "2026-10",
     "validationStatus": "verified",
     "observationMonthKey": "YYYY-MM derived from date; never publication date"
   },
@@ -14333,13 +14569,21 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-08-01",
         "value": -0.2
+      },
+      {
+        "date": "2026-09-01",
+        "value": -0.2
+      },
+      {
+        "date": "2026-10-01",
+        "value": -0.3
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
     "sourceSeriesId": "PropTrack / National / All dwellings / mom (descriptive mapping; no supplier code supplied)",
     "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-10",
     "observationMonthKey": "YYYY-MM observation month, not release date",
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
@@ -14568,13 +14812,21 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-08-01",
         "value": 1.8
+      },
+      {
+        "date": "2026-09-01",
+        "value": 0.1
+      },
+      {
+        "date": "2026-10-01",
+        "value": -1.9
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
     "sourceSeriesId": "PropTrack / National / All dwellings / yoy (descriptive mapping; no supplier code supplied)",
     "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-10",
     "observationMonthKey": "YYYY-MM observation month, not release date",
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
@@ -14803,13 +15055,21 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-08-01",
         "value": 886000
+      },
+      {
+        "date": "2026-09-01",
+        "value": null
+      },
+      {
+        "date": "2026-10-01",
+        "value": 871000
       }
     ],
     "geography": "Australia",
     "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
     "sourceSeriesId": "PropTrack / National / All dwellings / median_value (descriptive mapping; no supplier code supplied)",
     "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-10",
     "observationMonthKey": "YYYY-MM observation month, not release date",
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
@@ -15038,13 +15298,21 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-08-01",
         "value": -0.3
+      },
+      {
+        "date": "2026-09-01",
+        "value": -0.3
+      },
+      {
+        "date": "2026-10-01",
+        "value": -0.4
       }
     ],
     "geography": "Sydney GCCSA",
     "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
     "sourceSeriesId": "PropTrack / Sydney / All dwellings / mom (descriptive mapping; no supplier code supplied)",
     "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-10",
     "observationMonthKey": "YYYY-MM observation month, not release date",
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
@@ -15273,13 +15541,21 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-08-01",
         "value": -3.6
+      },
+      {
+        "date": "2026-09-01",
+        "value": -5.0
+      },
+      {
+        "date": "2026-10-01",
+        "value": -6.6
       }
     ],
     "geography": "Sydney GCCSA",
     "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
     "sourceSeriesId": "PropTrack / Sydney / All dwellings / yoy (descriptive mapping; no supplier code supplied)",
     "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-10",
     "observationMonthKey": "YYYY-MM observation month, not release date",
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
@@ -15508,13 +15784,21 @@ const CC_ECONOMIC_DATA = {
       {
         "date": "2026-08-01",
         "value": 1194000
+      },
+      {
+        "date": "2026-09-01",
+        "value": 1187000
+      },
+      {
+        "date": "2026-10-01",
+        "value": 1169000
       }
     ],
     "geography": "Sydney GCCSA",
     "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
     "sourceSeriesId": "PropTrack / Sydney / All dwellings / median_value (descriptive mapping; no supplier code supplied)",
     "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-    "latestObservationMonth": "2026-08",
+    "latestObservationMonth": "2026-10",
     "observationMonthKey": "YYYY-MM observation month, not release date",
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",

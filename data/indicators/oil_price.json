@@ -232,10 +232,14 @@
     },
     {
       "date": "2026-10-01",
+      "value": 123.92727
+    },
+    {
+      "date": "2026-11-01",
       "value": null
     }
   ],
   "geography": "Global",
   "basis": "Existing published definition and date semantics retained",
-  "latestObservationMonth": "2026-09"
+  "latestObservationMonth": "2026-10"
 }

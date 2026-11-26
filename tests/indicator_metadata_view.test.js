@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs');
-const {page}=require('./page_harness.js'),data=require('../data/data.js');
+const {page}=require('./page_harness.js'),data=require('./accepted_20261031.js').data;
 const html=fs.readFileSync('index.html','utf8'),setup=(d=data,width=1440)=>page(html,d,{width});
 const walk=n=>[n,...n.children.flatMap(walk)];
 const entries=p=>walk(p.nodes.get('info-tbody')).filter(n=>n.dataset?.slug);

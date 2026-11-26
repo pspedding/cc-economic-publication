@@ -221,13 +221,21 @@
     {
       "date": "2026-08-01",
       "value": 886000
+    },
+    {
+      "date": "2026-09-01",
+      "value": null
+    },
+    {
+      "date": "2026-10-01",
+      "value": 871000
     }
   ],
   "geography": "Australia",
   "sourceUrl": "https://www.proptrack.com.au/home-price-index/",
   "sourceSeriesId": "PropTrack / National / All dwellings / median_value (descriptive mapping; no supplier code supplied)",
   "basis": "Publisher-reported, nominal all dwellings; historical release compilation, not verified latest-revised back-series",
-  "latestObservationMonth": "2026-08",
+  "latestObservationMonth": "2026-10",
   "observationMonthKey": "YYYY-MM observation month, not release date",
   "validationStatus": "verified",
   "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
