@@ -405,27 +405,23 @@ INDICATORS = {
         "contextNarrative": "",
     },
     "vehicles_evs": {
-        "col": "EVs",
-        "name": "Electric Vehicle Registrations",
+        "col": "Electric Vehicles (Evs)",
+        "name": "Electric Vehicles (EVs)",
         "unit": "count",
         "freq": "monthly",
         "section": "transport",
         "group": "local",
-        "source": "Transport for NSW",
+        "source": "Owner-supplied core economic data model",
         "format": "integer",
-        "description": "New electric vehicle registrations in the Central Coast LGA.",
-        "contextSeries": ["oil_price"],
-        "contextNarrative": (
-            "EV registrations provide a view of household and business uptake of "
-            "lower-emissions transport. Adoption is influenced by fuel prices, model "
-            "availability, charging infrastructure, and broader cost-of-living pressures."
-        ),
-    },
+        "description": "Monthly battery-electric vehicle (BEV) counts supplied in the core economic model; PHEVs excluded, as confirmed by the owner on 26 November 2026. The owner confirmed on 26 November 2026 that all four vehicle columns measure new vehicle registrations in the month, not the total registered fleet. Upstream extraction filters have not been independently verified.",
+        "contextSeries": [],
+        "contextNarrative": "Monthly new registrations can provide a signal of household and business vehicle-purchasing activity. Compare battery-EV registrations with oil prices to explore possible associations and lags; these observational data do not establish a causal effect. Model availability, incentives, charging infrastructure, financing and delivery timing may also influence registrations. No missing-value filling is applied."
+},
 
     # ── Context: Monetary Policy ──────────────────────────────────────────────
     "cash_rate": {
         "col": "Cash rate target %",
-        "name": "RBA Cash Rate Target",
+        "name": "RBA Cash Rate",
         "unit": "%",
         "freq": "monthly",
         "section": "context",
@@ -444,7 +440,7 @@ INDICATORS = {
     },
     "cpi_yoy": {
         "col": "CPI Year over Year % Change",
-        "name": "CPI Inflation (YoY)",
+        "name": "CPI Inflation — Headline (YoY)",
         "unit": "%",
         "freq": "monthly",
         "section": "context",
@@ -459,6 +455,21 @@ INDICATORS = {
             "inflation — driven partly by housing costs — has delayed rate cuts."
         ),
     },
+    "cpi_trimmed_mean_yoy": {
+        "col": "Trimmed Mean Inflation Rate",
+        "name": "CPI Inflation — Trimmed Mean (YoY)",
+        "unit": "%",
+        "freq": "monthly",
+        "section": "context",
+        "group": "context",
+        "source": "Australian Bureau of Statistics (ABS)",
+        "format": "percent_direct",
+        "description": "ABS monthly trimmed-mean CPI annual percentage change, seasonally adjusted; national weighted average of eight capital cities.",
+        "contextSeries": [
+                "cash_rate"
+        ],
+        "contextNarrative": "Underlying annual inflation, compared on coincident observation months. Monthly observations are available from April 2025; earlier quarterly values are excluded from this monthly series."
+},
     "us_fed_rate": {
         "col": "US Fed Funds Rate (%)",
         "name": "US Federal Funds Rate",

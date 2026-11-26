@@ -9,7 +9,7 @@
         async src="//gc.zgo.at/count.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-<script src="data/data.js?v=refresh-20261126"></script>
+<script src="data/data.js?v=refinements-20261126"></script>
 <link rel="stylesheet" href="scripts/macro-analysis.css">
 <link rel="stylesheet" href="scripts/scatter.css">
 <link rel="stylesheet" href="scripts/indicator-metadata.css">
@@ -533,10 +533,11 @@
       <div class="macro-dropdown-wrap">
         <label for="macro-selector">Compare charts against:</label>
         <select id="macro-selector" class="macro-dropdown" onchange="onMacroChange()">
-          <option value="cash_rate">Cash Rate Target (%)</option>
+          <option value="cash_rate">RBA Cash Rate (%)</option>
           <option value="bond_yield_10yr">AU 10yr Bond Yield (%)</option>
           <option value="avg_mortgage_rate">Avg Mortgage Rate (%)</option>
-          <option value="cpi_yoy">CPI YoY Change (%)</option>
+          <option value="cpi_yoy">CPI Inflation — Headline (YoY)</option>
+          <option value="cpi_trimmed_mean_yoy">CPI Inflation — Trimmed Mean (YoY)</option>
           <option value="us_fed_rate">US Fed Funds Rate (%)</option>
           <option value="oil_price">Oil Price (USD/bbl)</option>
           <option value="aud_usd">AUD/USD</option>
@@ -608,7 +609,7 @@
       <span class="section-tag">Local</span>
     </div>
     <div class="context-narrative" id="narrative-transport">
-      Vehicle registration data tracks both consumer confidence and fleet renewal. Total, private, business and electric vehicle registrations are available from Transport for NSW, with EV registrations providing a useful signal of changing household and fleet preferences.
+      Vehicle registration data tracks both consumer confidence and fleet renewal. Total, private and business vehicle registrations are available from Transport for NSW. The fourth chart shows owner-supplied EV counts; battery-electric vehicles only, excluding PHEVs (owner-confirmed). All four vehicle series measure new registrations during the month, not total registered vehicles (owner-confirmed). Oil-price comparisons show associations, not proof of causation.
     </div>
     <div class="chart-grid" id="charts-transport"></div>
   </section>
@@ -694,14 +695,14 @@
       <article class="chart-card macro-panel macro-policy-panel">
         <h3>Monetary Policy and Interest Rates</h3>
         <fieldset class="macro-toggles"><legend>Show series</legend>
-          <label><input id="macro-policy-cash_rate" type="checkbox" checked>Cash rate target</label>
+          <label><input id="macro-policy-cash_rate" type="checkbox" checked>RBA Cash Rate</label>
           <label><input id="macro-policy-bond_yield_2yr" type="checkbox" checked>2Y government yield</label>
           <label><input id="macro-policy-bond_yield_10yr" type="checkbox" checked>10Y government yield</label>
-          <label><input id="macro-policy-cpi_yoy" type="checkbox" checked>Headline CPI annual change</label>
+          <label><input id="macro-policy-cpi_yoy" type="checkbox" checked>CPI Inflation — Headline (YoY)</label>
         </fieldset>
-        <div class="macro-chart"><canvas id="macro-policy-canvas" role="img" aria-label="Cash rate, government bond yields and annual inflation by calendar month" aria-describedby="macro-policy-detail">Availability is summarised below.</canvas></div>
+        <div class="macro-chart"><canvas id="macro-policy-canvas" role="img" aria-label="RBA Cash Rate, government bond yields and annual inflation by calendar month" aria-describedby="macro-policy-detail">Availability is summarised below.</canvas></div>
         <p id="macro-policy-detail" class="macro-detail" aria-live="polite"></p>
-        <p class="macro-source">All series join by observation calendar month, not publication date or row position. Cash rate: the existing master’s RBA target snapshot at its recorded effective date, not a monthly average or independently verified decision calendar. Yields: <a href="https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv" target="_blank" rel="noopener">RBA F2.1 monthly averages</a>. CPI: annual percentage change from the existing master’s ABS monthly CPI indicator, not an interest rate. Sources and measurement conventions differ; lines are visual guides, with no missing-value filling.</p>
+        <p class="macro-source">All series join by observation calendar month, not publication date or row position. RBA Cash Rate: the existing master’s RBA target snapshot at its recorded effective date, not a monthly average or independently verified decision calendar. Yields: <a href="https://www.rba.gov.au/statistics/tables/csv/f2.1-data.csv" target="_blank" rel="noopener">RBA F2.1 monthly averages</a>. CPI: annual percentage change; earlier monthly CPI Indicator history and complete monthly CPI from April 2025 are distinct vintages. Trimmed mean uses monthly observations from April 2025 only; earlier quarterly values are not spliced or filled. Sources and measurement conventions differ; lines are visual guides, with no missing-value filling.</p>
       </article>
     </div>
   </section>
@@ -805,7 +806,7 @@ const SECTION_MAP = {
               'building_approvals_n', 'cra_recipients'],
   transport: ['vehicles_total', 'vehicles_private', 'vehicles_business', 'vehicles_evs'],
   tourism:   ['airbnb_revenue', 'airbnb_revpal', 'airbnb_adr', 'airbnb_occupancy', 'retail_tourism'],
-  context:   ['cash_rate', 'cpi_yoy', 'us_fed_rate', 'avg_mortgage_rate',
+  context:   ['cash_rate', 'cpi_yoy', 'cpi_trimmed_mean_yoy', 'us_fed_rate', 'avg_mortgage_rate',
               'bond_yield_10yr', 'aud_usd', 'oil_price', 'iron_ore',
               'asx200', 'bulk_commodities'],
 };
@@ -820,10 +821,11 @@ const LOCAL_SLUGS = [
 
 // All macro (context) indicator slugs available in the global selector
 const MACRO_OPTIONS = [
-  { slug: 'cash_rate',        label: 'Cash Rate Target (%)' },
+  { slug: 'cash_rate',        label: 'RBA Cash Rate (%)' },
   { slug: 'bond_yield_10yr',  label: 'AU 10yr Bond Yield (%)' },
   { slug: 'avg_mortgage_rate',label: 'Avg Mortgage Rate (%)' },
-  { slug: 'cpi_yoy',          label: 'CPI YoY Change (%)' },
+  { slug: 'cpi_yoy',          label: 'CPI Inflation — Headline (YoY)' },
+  { slug: 'cpi_trimmed_mean_yoy', label: 'CPI Inflation — Trimmed Mean (YoY)' },
   { slug: 'us_fed_rate',      label: 'US Fed Funds Rate (%)' },
   { slug: 'oil_price',        label: 'Oil Price (USD/bbl)' },
   { slug: 'aud_usd',          label: 'AUD/USD' },
@@ -852,8 +854,8 @@ const SCORECARD_SLUGS = [
   { slug: 'house_rent',        label: 'Avg Weekly Rent' },
   { slug: 'vacancy_rate',      label: 'Vacancy Rate' },
   { slug: 'retail_total',      label: 'Total Retail Spend' },
-  { slug: 'cash_rate',         label: 'Cash Rate' },
-  { slug: 'cpi_yoy',           label: 'CPI (YoY)' },
+  { slug: 'cash_rate',         label: 'RBA Cash Rate' },
+  { slug: 'cpi_yoy',           label: 'CPI Inflation — Headline (YoY)' },
   { slug: 'vehicles_total',    label: 'New Vehicles (mo)' },
   { slug: 'airbnb_revenue',    label: 'STRA Revenue' },
 ];
@@ -1111,6 +1113,21 @@ function buildChartInstance(slug, lag, canvasId, primarySlug, macroSlug) {
     });
   }
 
+  // Quarterly history is a visual-only dataset; never feeds monthly analytics.
+  [[ind, 'y', 0], [ctxInd, 'y2', lag]].forEach(([historyInd, axis, historyLag]) => {
+    if (!historyInd || !historyInd.historicalQuarterlySeries) return;
+    const quarterByMonth = new Map(historyInd.historicalQuarterlySeries.map(p => [p.date.slice(0,7), p.value]));
+    const historical = ind.series.map(p => {
+      const target = new Date(p.date);
+      target.setMonth(target.getMonth() - historyLag);
+      return quarterByMonth.get(target.toISOString().slice(0,7)) ?? null;
+    });
+    datasets.push({label: historyInd.name + ' — historical quarterly YoY (not monthly)' + (historyLag ? ` (lagged ${historyLag}mo)` : ''),
+      data: historical, borderColor: axis === 'y' ? COLORS.primary : COLORS.secondary,
+      borderWidth: 2, borderDash: [2,4], pointRadius: 3, pointHoverRadius: 5,
+      spanGaps: true, tension: 0, fill: false, yAxisID: axis});
+  });
+
   chartInstances[instanceKey] = new Chart(canvas, {
     type: 'line',
     data: { labels, datasets },
@@ -1125,6 +1142,10 @@ function buildChartInstance(slug, lag, canvasId, primarySlug, macroSlug) {
           callbacks: {
             label: ctx => {
               const v = ctx.raw;
+              if (ctx.dataset.label && ctx.dataset.label.includes('historical quarterly')) {
+                const historyInd = ctx.dataset.yAxisID === 'y' ? ind : ctxInd;
+                return ` ${ctx.dataset.label}: ${formatVal(v, historyInd.format)}`;
+              }
               const dsInd = ctx.datasetIndex === 0 ? ind : ctxInd;
               if (!dsInd) return '';
               return ` ${dsInd.name}: ${formatVal(v, dsInd.format)}`;
@@ -1315,6 +1336,15 @@ function populateExplorerDropdowns() {
       corrSel.appendChild(primary.cloneNode(true));
     }
   });
+  // Share the macro ordering across Explorer controls without changing chart defaults.
+  const originalPrimary = [...regSel.options];
+  regSel.innerHTML = '';
+  MACRO_OPTIONS.forEach(({slug}) => {
+    const option = originalPrimary.find(o => o.value === slug);
+    if (option) regSel.appendChild(option);
+  });
+  originalPrimary.filter(o => !MACRO_OPTIONS.some(m => m.slug === o.value)).forEach(o => regSel.appendChild(o));
+  regSel.value = 'unemployment';
 }
 
 function updateExplorer() {
@@ -1339,7 +1369,7 @@ function updateExplorerLag() {
 }
 
 function resetExplorer() {
-  document.getElementById('exp-regional').selectedIndex = 0;
+  document.getElementById('exp-regional').value = 'unemployment';
   document.getElementById('exp-macro').selectedIndex    = 0;
   document.getElementById('exp-lag').value = '0';
   document.getElementById('exp-lag-val').textContent = '0 mo';
@@ -1453,11 +1483,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'Generated: ' + new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 });
 </script>
-<script src="scripts/macro-analysis.js"></script>
+<script src="scripts/macro-analysis.js?v=refinements-20261126"></script>
 <script src="scripts/macro-view.js"></script>
 <script src="scripts/scatter-analysis.js"></script>
 <script src="scripts/scatter-view.js"></script>
-<script src="scripts/indicator-metadata.js"></script>
+<script src="scripts/indicator-metadata.js?v=refinements-20261126"></script>
 <script src="scripts/indicator-metadata-view.js"></script>
 </body>
 </html>

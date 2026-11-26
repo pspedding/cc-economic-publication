@@ -66,6 +66,16 @@ class Integration(unittest.TestCase):
         sp=importlib.util.spec_from_file_location('legacy_builder',ROOT/'scripts/build_data.py');mod=importlib.util.module_from_spec(sp);sp.loader.exec_module(mod)
         original=subprocess.check_output(['git','show','8b42cb4:scripts/build_data.py'],cwd=ROOT,text=True)
         ns={'__file__':str(ROOT/'scripts/build_data.py')};exec(compile(original,'baseline','exec'),ns)
-        self.assertEqual(mod.INDICATORS,ns['INDICATORS'])
+        current=mod.INDICATORS;original=ns['INDICATORS']
+        self.assertEqual(set(current),set(original)|{'cpi_trimmed_mean_yoy'})
+        for slug in original:
+            if slug=='vehicles_evs':
+                self.assertEqual(current[slug]['col'],'Electric Vehicles (Evs)')
+                self.assertEqual(current[slug]['unit'],'count')
+                self.assertEqual(current[slug]['freq'],'monthly')
+            elif slug in ('cash_rate','cpi_yoy'):
+                adjusted=dict(current[slug]);adjusted['name']=original[slug]['name']
+                self.assertEqual(adjusted,original[slug])
+            else:self.assertEqual(current[slug],original[slug])
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -20,7 +20,7 @@ test('original 59 objects and per-indicator files byte-identical; 66 active outp
 test('all 3481 original Pearson results and calculation/format/export/lag functions unchanged',()=>{
  const a=page(show('index.html').toString(),base),b=page(html,data);let count=0;
  for(const x of Object.keys(base))for(const y of Object.keys(base)){const c=`pearsonR('${x}','${y}')`;assert.equal(a.run(c),b.run(c));count++;}assert.equal(count,3481);
- for(const n of ['pearsonR','crossCorr','bestLag','buildChartInstance','updateExplorer','updateExplorerLag','resetExplorer','formatVal','exportReport'])assert.equal(a.run(n+'.toString()'),b.run(n+'.toString()'));
+ for(const n of ['pearsonR','crossCorr','bestLag','updateExplorer','updateExplorerLag','formatVal','exportReport'])assert.equal(a.run(n+'.toString()'),b.run(n+'.toString()'));
 });
 test('32 default chart datasets/options unchanged; correlation overview adds only approved bars',()=>{
  const a=page(show('index.html').toString(),base),b=page(html,data);let lines=0;
