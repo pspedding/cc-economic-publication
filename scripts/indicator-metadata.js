@@ -10,7 +10,7 @@
   function category(slug,ind){
     if (/^(anz_|westpac_|business_confidence)/.test(slug))return categories[4];
     if (/^nsw_(household|retail)_/.test(slug))return categories[7];
-    if (['cash_rate','cpi_yoy','us_fed_rate','bond_yield_2yr','bond_yield_3yr','bond_yield_5yr','bond_yield_10yr','bond_spread_10y_2y'].includes(slug))return categories[5];
+    if (['cash_rate','cpi_yoy','cpi_trimmed_mean_yoy','us_fed_rate','bond_yield_2yr','bond_yield_3yr','bond_yield_5yr','bond_yield_10yr','bond_spread_10y_2y'].includes(slug))return categories[5];
     return ({economy:categories[0],housing:categories[1],transport:categories[2],tourism:categories[3]})[ind.section]||categories[6];
   }
   function sourceLink(value){

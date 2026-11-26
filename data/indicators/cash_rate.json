@@ -1,6 +1,6 @@
 {
   "slug": "cash_rate",
-  "name": "RBA Cash Rate Target",
+  "name": "RBA Cash Rate",
   "unit": "%",
   "freq": "monthly",
   "section": "context",

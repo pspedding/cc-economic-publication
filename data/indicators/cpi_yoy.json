@@ -1,13 +1,13 @@
 {
   "slug": "cpi_yoy",
-  "name": "CPI Inflation (YoY)",
+  "name": "CPI Inflation \u2014 Headline (YoY)",
   "unit": "%",
   "freq": "monthly",
   "section": "context",
   "group": "context",
-  "source": "ABS Monthly CPI Indicator",
+  "source": "Australian Bureau of Statistics (ABS)",
   "format": "percent_direct",
-  "description": "Australian CPI annual inflation rate (monthly indicator).",
+  "description": "Australian headline CPI annual percentage change. Monthly reference periods; earlier monthly CPI Indicator history and the complete monthly CPI have different coverage. Existing values retained.",
   "contextSeries": [
     "cash_rate"
   ],
@@ -239,6 +239,10 @@
     }
   ],
   "geography": "Australia",
-  "basis": "Existing published definition and date semantics retained",
-  "latestObservationMonth": "2026-10"
+  "basis": "Annual percentage change, national weighted average of eight capital cities. Existing pre-April-2025 monthly CPI Indicator history retained; complete monthly CPI annual series from April 2025. No quarterly substitution.",
+  "latestObservationMonth": "2026-10",
+  "sourceUrl": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/oct-2026",
+  "sourceSeriesId": "A130393721F (monthly CPI from April 2025); earlier Monthly CPI Indicator retained",
+  "sourceVintage": "2026-11-25",
+  "dateSemantics": "Join by observation calendar month, not release date or cash-rate decision date; existing stored effective dates retained for compatibility."
 }

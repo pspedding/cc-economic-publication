@@ -1,4 +1,4 @@
-import json, pathlib, sys, tempfile, unittest
+import json, pathlib, subprocess, sys, tempfile, unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -13,7 +13,7 @@ class ApprovedRefresh(unittest.TestCase):
             before = {p.relative_to(out): p.read_bytes() for p in out.rglob('*') if p.is_file()}
             self.assertEqual(len(before), 66)
             for name, content in before.items():
-                self.assertEqual(content, (ROOT / 'data' / name).read_bytes())
+                self.assertEqual(content, subprocess.check_output(['git','show','08b30ce:data/'+str(name)],cwd=ROOT))
             release.build(release.SOURCE, out)
             self.assertEqual(before, {p.relative_to(out): p.read_bytes() for p in out.rglob('*') if p.is_file()})
 

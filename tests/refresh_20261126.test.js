@@ -5,8 +5,8 @@ const html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
 const {page}=require('./page_harness.js');
 const M=require(path.join(ROOT,'scripts/indicator-metadata.js'));
 function point(slug,month){return data[slug].series.find(p=>p.date.startsWith(month))?.value;}
-test('all 65 IDs, finite/null values, unique ordered calendar months and matching latest metadata',()=>{
- assert.deepEqual(Object.keys(data).sort(),Object.keys(old).sort());assert.equal(Object.keys(data).length,65);
+test('all 67 IDs, finite/null values, unique ordered calendar months and matching latest metadata',()=>{
+ assert.deepEqual(Object.keys(data).sort(),[...Object.keys(old),'cpi_trimmed_mean_yoy','vehicles_evs'].sort());assert.equal(Object.keys(data).length,67);
  for(const [slug,ind] of Object.entries(data)){
   let prev='';for(const p of ind.series){const m=p.date.slice(0,7);assert(m>prev,slug);prev=m;assert(p.value===null||(typeof p.value==='number'&&Number.isFinite(p.value)),slug);}
   const meta=M.latest(ind);assert(meta.consistent,slug);assert.equal(meta.month,ind.latestObservationMonth,slug);
@@ -30,7 +30,7 @@ test('all existing explorer choices remain available at desktop and mobile harne
  const baseHtml=require('./accepted_20261031.js').file('index.html').toString();
  for(const width of [1440,390]){
   const before=page(baseHtml,old,{width}),p=page(html,data,{width});
-  for(const id of ['exp-regional','exp-macro'])assert.deepEqual(p.nodes.get(id).options.map(x=>x.value),before.nodes.get(id).options.map(x=>x.value));
+  for(const id of ['exp-regional','exp-macro'])assert.deepEqual(p.nodes.get(id).options.map(x=>x.value).filter(x=>x!=='cpi_trimmed_mean_yoy'&&x!=='vehicles_evs').sort(),before.nodes.get(id).options.map(x=>x.value).sort());
   const options=p.nodes.get('exp-regional').options.map(o=>o.value);
   for(const slug of options){p.nodes.get('exp-regional').value=slug;p.nodes.get('exp-macro').value='cash_rate';p.run('updateExplorer()');assert(p.run("chartInstances['explorer-canvas']"),slug);}
  }
@@ -51,15 +51,15 @@ test('growth scatter includes both new months and null remains a time-series gap
  assert.equal(p.run("chartInstances['explorer-canvas'].data.datasets[0].data.filter(x=>x===null).length"),1);
 });
 test('metadata shows current periods and held value does not become zero',()=>{
- const rows=M.rows(data);assert.equal(rows.length,65);
+ const rows=M.rows(data);assert.equal(rows.length,67);
  assert.equal(rows.find(r=>r.slug==='unemployment').latestMonth,'2026-10');
  assert.equal(rows.find(r=>r.slug==='au_dwelling_median_value').latestValue,871000);
  assert.equal(rows.find(r=>r.slug==='us_fed_rate').latestMonth,'2026-10');
  assert(!html.includes('PRIVATE LOCAL REVIEW'));assert(html.includes('September 2026 National median dwelling value is unavailable'));
 });
-test('all analytical modules are byte-identical to accepted production',()=>{
- for(const name of fs.readdirSync(path.join(ROOT,'scripts')).filter(n=>/\.(js|css)$/.test(n))){assert(fs.readFileSync(path.join(ROOT,'scripts',name)).equals(require('./accepted_20261031.js').file('scripts/'+name)),name);}
- assert(html.includes('April 2022–October 2026'));assert(html.includes('data/data.js?v=refresh-20261126'));
+test('unchanged analytical modules are byte-identical to accepted production',()=>{
+ for(const name of fs.readdirSync(path.join(ROOT,'scripts')).filter(n=>/\.(js|css)$/.test(n)&&!['macro-analysis.js','indicator-metadata.js'].includes(n))){assert(fs.readFileSync(path.join(ROOT,'scripts',name)).equals(require('./accepted_20261031.js').file('scripts/'+name)),name);}
+ assert(html.includes('April 2022–October 2026'));assert(html.includes('data/data.js?v=refinements-20261126'));
 });
 test('approved October retail amounts and earlier history are preserved',()=>{
  const expected={retail_total:469860000,retail_tourism:76105000,retail_discretionary:109012000};

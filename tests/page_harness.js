@@ -34,7 +34,7 @@ function page(html,data,{width=1280,loadModules=true}={}) {
   const scripts=[...html.matchAll(/<script(?:\s+src="([^"]+)")?[^>]*>([\s\S]*?)<\/script>/g)];
   for(const match of scripts){
     if(!match[1])vm.runInContext(match[2],context);
-    else if(loadModules&&/^scripts\/(?:(?:macro|scatter)-(analysis|view)|indicator-metadata(?:-view)?)\.js$/.test(match[1]))vm.runInContext(fs.readFileSync(path.join(ROOT,match[1]),'utf8'),context);
+    else if(loadModules&&/^scripts\/(?:(?:macro|scatter)-(analysis|view)|indicator-metadata(?:-view)?)\.js$/.test(match[1].split('?')[0]))vm.runInContext(fs.readFileSync(path.join(ROOT,match[1].split('?')[0]),'utf8'),context);
   }
   initialize.forEach(fn=>fn());
   return {ctx:context,nodes,charts,run:code=>vm.runInContext(code,context)};

@@ -5852,7 +5852,7 @@ const CC_ECONOMIC_DATA = {
   },
   "cash_rate": {
     "slug": "cash_rate",
-    "name": "RBA Cash Rate Target",
+    "name": "RBA Cash Rate",
     "unit": "%",
     "freq": "monthly",
     "section": "context",
@@ -6094,14 +6094,14 @@ const CC_ECONOMIC_DATA = {
   },
   "cpi_yoy": {
     "slug": "cpi_yoy",
-    "name": "CPI Inflation (YoY)",
+    "name": "CPI Inflation \u2014 Headline (YoY)",
     "unit": "%",
     "freq": "monthly",
     "section": "context",
     "group": "context",
-    "source": "ABS Monthly CPI Indicator",
+    "source": "Australian Bureau of Statistics (ABS)",
     "format": "percent_direct",
-    "description": "Australian CPI annual inflation rate (monthly indicator).",
+    "description": "Australian headline CPI annual percentage change. Monthly reference periods; earlier monthly CPI Indicator history and the complete monthly CPI have different coverage. Existing values retained.",
     "contextSeries": [
       "cash_rate"
     ],
@@ -6333,8 +6333,12 @@ const CC_ECONOMIC_DATA = {
       }
     ],
     "geography": "Australia",
-    "basis": "Existing published definition and date semantics retained",
-    "latestObservationMonth": "2026-10"
+    "basis": "Annual percentage change, national weighted average of eight capital cities. Existing pre-April-2025 monthly CPI Indicator history retained; complete monthly CPI annual series from April 2025. No quarterly substitution.",
+    "latestObservationMonth": "2026-10",
+    "sourceUrl": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/oct-2026",
+    "sourceSeriesId": "A130393721F (monthly CPI from April 2025); earlier Monthly CPI Indicator retained",
+    "sourceVintage": "2026-11-25",
+    "dateSemantics": "Join by observation calendar month, not release date or cash-rate decision date; existing stored effective dates retained for compatibility."
   },
   "us_fed_rate": {
     "slug": "us_fed_rate",
@@ -15803,6 +15807,542 @@ const CC_ECONOMIC_DATA = {
     "validationStatus": "verified",
     "contextNarrative": "PropTrack all-dwellings housing measure, distinct from Central Coast REA average prices. Historical report compilation with mixed published precision and revision vintages; no growth is calculated from medians. See the PropTrack source notice in National & Global Context.",
     "precisionNote": "Historical published precision varies; some accepted values are rounded. Two-decimal percentage display does not imply additional source precision."
+  },
+  "cpi_trimmed_mean_yoy": {
+    "slug": "cpi_trimmed_mean_yoy",
+    "name": "CPI Inflation \u2014 Trimmed Mean (YoY)",
+    "unit": "%",
+    "freq": "monthly",
+    "section": "context",
+    "group": "context",
+    "source": "Australian Bureau of Statistics (ABS)",
+    "format": "percent_direct",
+    "contextSeries": [
+      "cash_rate"
+    ],
+    "contextNarrative": "Underlying annual inflation, compared on coincident observation months. Monthly observations are available from April 2025; earlier quarterly values are excluded from this monthly series.",
+    "geography": "Australia",
+    "latestObservationMonth": "2026-10",
+    "sourceUrl": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/oct-2026",
+    "sourceVintage": "2026-11-25",
+    "sourceSeriesId": "A130400382R",
+    "description": "ABS monthly trimmed-mean CPI annual percentage change, seasonally adjusted; national weighted average of eight capital cities. Earlier quarterly annual history (December 2022\u2013March 2025) is shown separately; it is excluded from monthly analytical calculations.",
+    "basis": "Percentage change from corresponding month of previous year; seasonally adjusted monthly trimmed-mean CPI. Monthly distribution trims the top and bottom 15% of expenditure weight. Not month-on-month, not annualised, and not the separate quarterly trimmed-mean series.",
+    "dateSemantics": "Observation calendar month encoded as YYYY-MM-01; release date stored separately. No forward-fill, interpolation, lagging or quarterly/monthly splice.",
+    "validationStatus": "verified",
+    "series": [
+      {
+        "date": "2022-04-01",
+        "value": null
+      },
+      {
+        "date": "2022-05-01",
+        "value": null
+      },
+      {
+        "date": "2022-06-01",
+        "value": null
+      },
+      {
+        "date": "2022-07-01",
+        "value": null
+      },
+      {
+        "date": "2022-08-01",
+        "value": null
+      },
+      {
+        "date": "2022-09-01",
+        "value": null
+      },
+      {
+        "date": "2022-10-01",
+        "value": null
+      },
+      {
+        "date": "2022-11-01",
+        "value": null
+      },
+      {
+        "date": "2022-12-01",
+        "value": null
+      },
+      {
+        "date": "2023-01-01",
+        "value": null
+      },
+      {
+        "date": "2023-02-01",
+        "value": null
+      },
+      {
+        "date": "2023-03-01",
+        "value": null
+      },
+      {
+        "date": "2023-04-01",
+        "value": null
+      },
+      {
+        "date": "2023-05-01",
+        "value": null
+      },
+      {
+        "date": "2023-06-01",
+        "value": null
+      },
+      {
+        "date": "2023-07-01",
+        "value": null
+      },
+      {
+        "date": "2023-08-01",
+        "value": null
+      },
+      {
+        "date": "2023-09-01",
+        "value": null
+      },
+      {
+        "date": "2023-10-01",
+        "value": null
+      },
+      {
+        "date": "2023-11-01",
+        "value": null
+      },
+      {
+        "date": "2023-12-01",
+        "value": null
+      },
+      {
+        "date": "2024-01-01",
+        "value": null
+      },
+      {
+        "date": "2024-02-01",
+        "value": null
+      },
+      {
+        "date": "2024-03-01",
+        "value": null
+      },
+      {
+        "date": "2024-04-01",
+        "value": null
+      },
+      {
+        "date": "2024-05-01",
+        "value": null
+      },
+      {
+        "date": "2024-06-01",
+        "value": null
+      },
+      {
+        "date": "2024-07-01",
+        "value": null
+      },
+      {
+        "date": "2024-08-01",
+        "value": null
+      },
+      {
+        "date": "2024-09-01",
+        "value": null
+      },
+      {
+        "date": "2024-10-01",
+        "value": null
+      },
+      {
+        "date": "2024-11-01",
+        "value": null
+      },
+      {
+        "date": "2024-12-01",
+        "value": null
+      },
+      {
+        "date": "2025-01-01",
+        "value": null
+      },
+      {
+        "date": "2025-02-01",
+        "value": null
+      },
+      {
+        "date": "2025-03-01",
+        "value": null
+      },
+      {
+        "date": "2025-04-01",
+        "value": 3.2
+      },
+      {
+        "date": "2025-05-01",
+        "value": 3
+      },
+      {
+        "date": "2025-06-01",
+        "value": 2.8
+      },
+      {
+        "date": "2025-07-01",
+        "value": 3
+      },
+      {
+        "date": "2025-08-01",
+        "value": 3.1
+      },
+      {
+        "date": "2025-09-01",
+        "value": 3.2
+      },
+      {
+        "date": "2025-10-01",
+        "value": 3.3
+      },
+      {
+        "date": "2025-11-01",
+        "value": 3.2
+      },
+      {
+        "date": "2025-12-01",
+        "value": 3.3
+      },
+      {
+        "date": "2026-01-01",
+        "value": 3.3
+      },
+      {
+        "date": "2026-02-01",
+        "value": 3.3
+      },
+      {
+        "date": "2026-03-01",
+        "value": 3.3
+      },
+      {
+        "date": "2026-04-01",
+        "value": 3.4
+      },
+      {
+        "date": "2026-05-01",
+        "value": 3.5
+      },
+      {
+        "date": "2026-06-01",
+        "value": 3.6
+      },
+      {
+        "date": "2026-07-01",
+        "value": 3.6
+      },
+      {
+        "date": "2026-08-01",
+        "value": 3.6
+      },
+      {
+        "date": "2026-09-01",
+        "value": 3.6
+      },
+      {
+        "date": "2026-10-01",
+        "value": 3.8
+      },
+      {
+        "date": "2026-11-01",
+        "value": null
+      }
+    ],
+    "historicalQuarterlySeries": [
+      {
+        "date": "2022-12-01",
+        "value": 6.8
+      },
+      {
+        "date": "2023-03-01",
+        "value": 6.5
+      },
+      {
+        "date": "2023-06-01",
+        "value": 5.8
+      },
+      {
+        "date": "2023-09-01",
+        "value": 5.1
+      },
+      {
+        "date": "2023-12-01",
+        "value": 4.3
+      },
+      {
+        "date": "2024-03-01",
+        "value": 4.1
+      },
+      {
+        "date": "2024-06-01",
+        "value": 4.0
+      },
+      {
+        "date": "2024-09-01",
+        "value": 3.6
+      },
+      {
+        "date": "2024-12-01",
+        "value": 3.2
+      },
+      {
+        "date": "2025-03-01",
+        "value": 2.9
+      }
+    ],
+    "historicalQuarterlyBasis": "Quarterly annual percentage change before April 2025. Plotted only at quarter-end observation months as a separate labelled time-series dataset. Not monthly observations; excluded from monthly scatter/correlations/lag calculations. The workbook repeats quarter values in earlier months of each quarter; those repeats are not treated as observations."
+  },
+  "vehicles_evs": {
+    "slug": "vehicles_evs",
+    "name": "Electric Vehicles (EVs)",
+    "unit": "count",
+    "freq": "monthly",
+    "section": "transport",
+    "group": "local",
+    "source": "Owner-supplied core economic data model",
+    "format": "integer",
+    "description": "Monthly battery-electric vehicle (BEV) counts supplied in the core economic model; PHEVs excluded, as confirmed by the owner on 26 November 2026. The owner confirmed on 26 November 2026 that all four vehicle columns measure new vehicle registrations in the month, not the total registered fleet. Upstream extraction filters have not been independently verified.",
+    "contextSeries": [],
+    "contextNarrative": "Monthly new registrations can provide a signal of household and business vehicle-purchasing activity. Compare battery-EV registrations with oil prices to explore possible associations and lags; these observational data do not establish a causal effect. Model availability, incentives, charging infrastructure, financing and delivery timing may also influence registrations. No missing-value filling is applied.",
+    "geography": "Central Coast model scope; upstream geographical filter unverified",
+    "basis": "Monthly workbook observations; battery-electric vehicles only, excluding PHEVs (owner-confirmed 26 November 2026). New vehicle registrations during the observation month, not registered fleet stock (owner-confirmed 26 November 2026). Upstream extraction filters remain independently unverified.",
+    "latestObservationMonth": "2026-10",
+    "validationStatus": "owner_confirmed_definition_upstream_unverified",
+    "observationMonthKey": "YYYY-MM derived from workbook Effective Date, not publication date",
+    "series": [
+      {
+        "date": "2022-04-01",
+        "value": null
+      },
+      {
+        "date": "2022-05-01",
+        "value": null
+      },
+      {
+        "date": "2022-06-01",
+        "value": null
+      },
+      {
+        "date": "2022-07-01",
+        "value": 10
+      },
+      {
+        "date": "2022-08-01",
+        "value": 78
+      },
+      {
+        "date": "2022-09-01",
+        "value": 72
+      },
+      {
+        "date": "2022-10-01",
+        "value": 46
+      },
+      {
+        "date": "2022-11-01",
+        "value": 60
+      },
+      {
+        "date": "2022-12-01",
+        "value": 70
+      },
+      {
+        "date": "2023-01-01",
+        "value": 118
+      },
+      {
+        "date": "2023-02-01",
+        "value": 62
+      },
+      {
+        "date": "2023-03-01",
+        "value": 14
+      },
+      {
+        "date": "2023-04-01",
+        "value": 18
+      },
+      {
+        "date": "2023-05-01",
+        "value": 98
+      },
+      {
+        "date": "2023-06-01",
+        "value": 110
+      },
+      {
+        "date": "2023-07-01",
+        "value": 90
+      },
+      {
+        "date": "2023-08-01",
+        "value": 98
+      },
+      {
+        "date": "2023-09-01",
+        "value": 118
+      },
+      {
+        "date": "2023-10-01",
+        "value": 98
+      },
+      {
+        "date": "2023-11-01",
+        "value": 122
+      },
+      {
+        "date": "2023-12-01",
+        "value": 112
+      },
+      {
+        "date": "2024-01-01",
+        "value": 88
+      },
+      {
+        "date": "2024-02-01",
+        "value": 16
+      },
+      {
+        "date": "2024-03-01",
+        "value": 20
+      },
+      {
+        "date": "2024-04-01",
+        "value": 76
+      },
+      {
+        "date": "2024-05-01",
+        "value": 76
+      },
+      {
+        "date": "2024-06-01",
+        "value": 112
+      },
+      {
+        "date": "2024-07-01",
+        "value": 92
+      },
+      {
+        "date": "2024-08-01",
+        "value": 94
+      },
+      {
+        "date": "2024-09-01",
+        "value": 132
+      },
+      {
+        "date": "2024-10-01",
+        "value": 112
+      },
+      {
+        "date": "2024-11-01",
+        "value": 112
+      },
+      {
+        "date": "2024-12-01",
+        "value": 132
+      },
+      {
+        "date": "2025-01-01",
+        "value": 70
+      },
+      {
+        "date": "2025-02-01",
+        "value": 78
+      },
+      {
+        "date": "2025-03-01",
+        "value": 112
+      },
+      {
+        "date": "2025-04-01",
+        "value": 104
+      },
+      {
+        "date": "2025-05-01",
+        "value": 188
+      },
+      {
+        "date": "2025-06-01",
+        "value": 184
+      },
+      {
+        "date": "2025-07-01",
+        "value": 106
+      },
+      {
+        "date": "2025-08-01",
+        "value": 144
+      },
+      {
+        "date": "2025-09-01",
+        "value": 134
+      },
+      {
+        "date": "2025-10-01",
+        "value": 116
+      },
+      {
+        "date": "2025-11-01",
+        "value": 152
+      },
+      {
+        "date": "2025-12-01",
+        "value": 138
+      },
+      {
+        "date": "2026-01-01",
+        "value": 120
+      },
+      {
+        "date": "2026-02-01",
+        "value": 166
+      },
+      {
+        "date": "2026-03-01",
+        "value": 264
+      },
+      {
+        "date": "2026-04-01",
+        "value": 304
+      },
+      {
+        "date": "2026-05-01",
+        "value": 453
+      },
+      {
+        "date": "2026-06-01",
+        "value": 434
+      },
+      {
+        "date": "2026-07-01",
+        "value": 368
+      },
+      {
+        "date": "2026-08-01",
+        "value": 347
+      },
+      {
+        "date": "2026-09-01",
+        "value": 430
+      },
+      {
+        "date": "2026-10-01",
+        "value": 426
+      },
+      {
+        "date": "2026-11-01",
+        "value": null
+      }
+    ]
   }
 };
 

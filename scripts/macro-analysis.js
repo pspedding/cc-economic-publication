@@ -6,10 +6,10 @@
   'use strict';
   const MATURITIES = [2, 3, 5, 10];
   const POLICY = [
-    {slug:'cash_rate', label:'Cash rate target — effective-dated snapshot', basis:'Master effective-date snapshot; not a monthly average', source:'RBA / existing master'},
+    {slug:'cash_rate', label:'RBA Cash Rate — effective-dated snapshot', basis:'Master effective-date snapshot; not a monthly average', source:'RBA / existing master'},
     {slug:'bond_yield_2yr', label:'2Y government yield — monthly average', basis:'RBA F2.1 monthly average of daily end-of-day yields', source:'RBA F2.1'},
     {slug:'bond_yield_10yr', label:'10Y government yield — monthly average', basis:'RBA F2.1 monthly average of daily end-of-day yields', source:'RBA F2.1'},
-    {slug:'cpi_yoy', label:'Headline CPI — annual change', basis:'Existing ABS monthly CPI indicator; annual percentage change', source:'ABS / existing master'}
+    {slug:'cpi_yoy', label:'CPI Inflation — Headline (YoY)', basis:'Existing ABS monthly CPI indicator; annual percentage change', source:'ABS / existing master'}
   ];
   function monthKey(value) {
     if (typeof value !== 'string' || !/^\d{4}-(0[1-9]|1[0-2])(?:-(0[1-9]|[12]\d|3[01]))?$/.test(value)) throw new Error('Invalid calendar month/date');
