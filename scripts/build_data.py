@@ -192,6 +192,19 @@ INDICATORS = {
         "contextSeries": [],
         "contextNarrative": "",
     },
+    "residential_vacancies": {
+        "col": "Residential Vacancies",
+        "name": "Residential Vacancies",
+        "unit": "count",
+        "freq": "monthly",
+        "section": "housing",
+        "group": "local",
+        "source": "Owner-supplied core economic data model",
+        "format": "integer",
+        "description": "Total number of residential vacancies per month in the Central Coast model, supplied by the owner. A vacancy count, distinct from the separately published residential vacancy percentage.",
+        "contextSeries": [],
+        "contextNarrative": ""
+},
     "building_approvals_n": {
         "col": "Building Approvals - New Houses",
         "name": "Building Approvals (count)",

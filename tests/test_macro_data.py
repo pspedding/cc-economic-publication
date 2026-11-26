@@ -67,7 +67,7 @@ class Integration(unittest.TestCase):
         original=subprocess.check_output(['git','show','8b42cb4:scripts/build_data.py'],cwd=ROOT,text=True)
         ns={'__file__':str(ROOT/'scripts/build_data.py')};exec(compile(original,'baseline','exec'),ns)
         current=mod.INDICATORS;original=ns['INDICATORS']
-        self.assertEqual(set(current),set(original)|{'cpi_trimmed_mean_yoy'})
+        self.assertEqual(set(current),set(original)|{'cpi_trimmed_mean_yoy','residential_vacancies'})
         for slug in original:
             if slug=='vehicles_evs':
                 self.assertEqual(current[slug]['col'],'Electric Vehicles (Evs)')

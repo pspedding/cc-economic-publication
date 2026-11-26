@@ -9,7 +9,7 @@
         async src="//gc.zgo.at/count.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
-<script src="data/data.js?v=refinements-20261126"></script>
+<script src="data/data.js?v=vacancies-20261127"></script>
 <link rel="stylesheet" href="scripts/macro-analysis.css">
 <link rel="stylesheet" href="scripts/scatter.css">
 <link rel="stylesheet" href="scripts/indicator-metadata.css">
@@ -815,6 +815,7 @@ const SECTION_MAP = {
 const LOCAL_SLUGS = [
   ...SECTION_MAP.economy,
   ...SECTION_MAP.housing,
+  'residential_vacancies',
   ...SECTION_MAP.transport,
   ...SECTION_MAP.tourism,
 ];
@@ -848,16 +849,18 @@ const chartLags = {};      // slug → current lag (integer)
 
 // ── Scorecard config ─────────────────────────────────────────────────────────
 const SCORECARD_SLUGS = [
-  { slug: 'unemployment',      label: 'Unemployment Rate' },
-  { slug: 'job_vacancies',     label: 'Job Vacancies' },
-  { slug: 'house_price',       label: 'Avg House Price' },
-  { slug: 'house_rent',        label: 'Avg Weekly Rent' },
-  { slug: 'vacancy_rate',      label: 'Vacancy Rate' },
-  { slug: 'retail_total',      label: 'Total Retail Spend' },
-  { slug: 'cash_rate',         label: 'RBA Cash Rate' },
-  { slug: 'cpi_yoy',           label: 'CPI Inflation — Headline (YoY)' },
-  { slug: 'vehicles_total',    label: 'New Vehicles (mo)' },
-  { slug: 'airbnb_revenue',    label: 'STRA Revenue' },
+  { slug: 'unemployment', label: 'Unemployment Rate' },
+  { slug: 'job_vacancies', label: 'Job Vacancies' },
+  { slug: 'jobseeker', label: 'Jobseeker Recipients' },
+  { slug: 'house_price', label: 'Avg House Price' },
+  { slug: 'unit_price', label: 'Avg Unit Price' },
+  { slug: 'house_rent', label: 'Avg Weekly Rent' },
+  { slug: 'residential_vacancies', label: 'Residential Vacancies' },
+  { slug: 'retail_total', label: 'Total Retail Spend' },
+  { slug: 'cash_rate', label: 'RBA Cash Rate' },
+  { slug: 'cpi_yoy', label: 'CPI Inflation — Headline (YoY)' },
+  { slug: 'vehicles_total', label: 'New Vehicles (Mo)' },
+  { slug: 'airbnb_revenue', label: 'STRA Revenue' },
 ];
 
 // ── Default lag pairs (used only for initial best-lag calculation per chart) ──

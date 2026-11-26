@@ -4,9 +4,9 @@ const data=require(path.join(ROOT,'data/data.js')),base=require(path.join(ROOT,'
 const {page}=require(path.join(ROOT,'tests/page_harness.js')),M=require(path.join(ROOT,'scripts/indicator-metadata.js')),S=require(path.join(ROOT,'scripts/scatter-analysis.js'));
 const html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
 test('cash rate is exactly a name-only object change',()=>{assert.equal(data.cash_rate.name,'RBA Cash Rate');assert.deepEqual({...data.cash_rate,name:base.cash_rate.name},base.cash_rate);});
-test('all existing observations and 63 unaffected objects preserved',()=>{
- assert.deepEqual(Object.keys(data).sort(),[...Object.keys(base),'cpi_trimmed_mean_yoy','vehicles_evs'].sort());
- for(const slug of Object.keys(base)){assert.deepEqual(data[slug].series,base[slug].series);if(!['cash_rate','cpi_yoy'].includes(slug))assert.deepEqual(data[slug],base[slug]);}
+test('previous refinements retained except explicitly approved vacancy refresh',()=>{
+ assert.deepEqual(Object.keys(data).sort(),[...Object.keys(base),'cpi_trimmed_mean_yoy','vehicles_evs','residential_vacancies'].sort());
+ for(const slug of Object.keys(base)){if(slug==='vacancy_rate')continue;assert.deepEqual(data[slug].series,base[slug].series);if(!['cash_rate','cpi_yoy'].includes(slug))assert.deepEqual(data[slug],base[slug]);}
 });
 test('monthly trimmed series contains 19 annual rates and no quarterly splice or partial November',()=>{
  const d=data.cpi_trimmed_mean_yoy,p=d.series.filter(p=>p.value!==null);
@@ -23,8 +23,8 @@ test('selectors, metadata and charts expose intended labels with correct percent
  }
  assert(!html.includes('Cash Rate Target'));const rows=M.rows(data);assert.equal(rows.find(r=>r.slug==='cash_rate').name,'RBA Cash Rate');assert.equal(rows.find(r=>r.slug==='cpi_yoy').name,'CPI Inflation — Headline (YoY)');assert.equal(rows.find(r=>r.slug==='cpi_trimmed_mean_yoy').category,rows.find(r=>r.slug==='cpi_yoy').category);
 });
-test('cash-rate Pearson and lag inputs unchanged for every original indicator',()=>{
- const before=page(html,base),after=page(html,data);for(const slug of Object.keys(base)){assert.equal(before.run(`pearsonR('cash_rate','${slug}')`),after.run(`pearsonR('cash_rate','${slug}')`));assert.equal(JSON.stringify(before.run(`crossCorr(CC_ECONOMIC_DATA.cash_rate.series,CC_ECONOMIC_DATA['${slug}'].series,0)`)),JSON.stringify(after.run(`crossCorr(CC_ECONOMIC_DATA.cash_rate.series,CC_ECONOMIC_DATA['${slug}'].series,0)`)));}
+test('cash-rate Pearson and lag inputs unchanged except approved vacancy revisions',()=>{
+ const before=page(html,base),after=page(html,data);for(const slug of Object.keys(base)){if(slug==='vacancy_rate')continue;assert.equal(before.run(`pearsonR('cash_rate','${slug}')`),after.run(`pearsonR('cash_rate','${slug}')`));assert.equal(JSON.stringify(before.run(`crossCorr(CC_ECONOMIC_DATA.cash_rate.series,CC_ECONOMIC_DATA['${slug}'].series,0)`)),JSON.stringify(after.run(`crossCorr(CC_ECONOMIC_DATA.cash_rate.series,CC_ECONOMIC_DATA['${slug}'].series,0)`)));}
 });
 test('macro calculation function bodies unchanged; only display labels changed',()=>{
  const a={module:{exports:{}}};vm.runInNewContext(cp.execFileSync('git',['show','08b30ce:scripts/macro-analysis.js'],{cwd:ROOT,encoding:'utf8'}),a);

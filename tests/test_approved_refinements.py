@@ -1,4 +1,4 @@
-import json,pathlib,sys,tempfile,unittest
+import json,pathlib,subprocess,sys,tempfile,unittest
 ROOT=pathlib.Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'scripts'))
 import build_approved_refinements as release
 class RefinementsRelease(unittest.TestCase):
@@ -8,7 +8,7 @@ class RefinementsRelease(unittest.TestCase):
             self.assertEqual(len(data),67)
             before={p.relative_to(root):p.read_bytes() for p in root.rglob('*') if p.is_file()}
             self.assertEqual(len(before),68)
-            for name,raw in before.items():self.assertEqual(raw,(ROOT/'data'/name).read_bytes())
+            for name,raw in before.items():self.assertEqual(raw,subprocess.check_output(['git','show','2584145:data/'+str(name)],cwd=ROOT))
             release.build(release.SOURCE,root)
             self.assertEqual(before,{p.relative_to(root):p.read_bytes() for p in root.rglob('*') if p.is_file()})
     def test_unapproved_change_fails_before_output(self):
